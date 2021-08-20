@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watches:pug": "chokidar \"./src/pug/**/*.pug\" -i \"./src/**/_*.pug\" -i \"./src/**/*copy.pug\"  -i \"./src/pug/admin/*.*\" -c \"node ./module/makePug watch {path} {event}\""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chokidar": "^3.5.2",
+    "chokidar-cli": "^3.0.0",
+    "fs": "0.0.1-security",
     "pug": "^3.0.2"
   }
 }

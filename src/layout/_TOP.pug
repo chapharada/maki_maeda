@@ -1,1 +1,26 @@
-#
+#doctype html
+
+block vars
+
+html(lang="ja")
+  include ../include/pre/_head.pug
+
+  body
+    include ../include/pre/_tagmanager.pug
+    if meta.redirect
+      include ../include/pre/_redirect.pug
+    else
+      #app(v-cloak)
+        include ../include/global/_header.pug
+        include ../include/global/_sp_nav.pug
+        include ../include/global/_bread.pug
+        main
+          block contents
+        include ../include/global/_footer.pug
+      block js_front
+      if meta.js.length > 0
+        each item in meta.js
+          script(src=item)
+      if meta.imgObj
+        script(src="/assets/js/common/_ofi.min.js")
+        script(src="/assets/js/common/_exrofi.js")

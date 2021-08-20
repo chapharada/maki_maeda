@@ -1,27 +1,41 @@
 const fs = require("fs");
 const pug = require("pug");
 const util = require("../libs/util.js");
-
 const pug_dir = "src/pug/";
 const dist_dir = "dist/";
 const router_dir = "router/";
-const event = process.argv[4];
+const event = process.argv[4]; //chokidarが吐き出すeventデータ(errorの場合unlink)
+
+
 console.log("makePug:Start");
+
+// ------------------------------------------------
+// 引数で処理の出し分け・  init or watches
+// ------------------------------------------------
+
 switch (process.argv[2]) {
+  //initの場合
   case "init":
+    //routerフォルダのjsonをすべて読み込み
     var router_jsons = util.listFiles("router");
     for (const item of router_jsons) {
+      //パスをスラッシュで分割
       var array = item.split("/");
+      //分割した最後のデータ
       var last_name = array[array.length - 1];
+      //データの最初にアンダーバーのあるデータはスキップ
       if (last_name.substr(0, 1) == "_") {
         continue;
       }
+      //拡張子が.jsonのデータはスキップ
       if (last_name.substr(-5) != ".json") {
         continue;
       }
+      //最後の文言にcopyが入っているデータはスキップ
       if (last_name.indexOf("copy") >= 0) {
         continue;
       }
+      //文言にassets/templateが入っているデータはスキップ
       if (item.indexOf("assets/template") >= 0) {
         continue;
       }
@@ -36,7 +50,7 @@ switch (process.argv[2]) {
       makeDir(distFileName);
       var router_data = JSON.parse(fs.readFileSync(item));
       if (router_data.redirect) {
-        var redirect_text = `<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>FPナビ | ニッセンライフ</title><meta name="description" content="このページは転送されます。"><script>(function(b,m,h,a,g){b[a]=b[a]||[];b[a].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var k=m.getElementsByTagName(h)[0],e=m.createElement(h),c=a!="dataLayer"?"&l="+a:"";e.async=true;e.src="https://www.googletagmanager.com/gtm.js?id="+g+c;k.parentNode.insertBefore(e,k)})(window,document,"script","dataLayer","GTM-PKP6V5G");</script></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKP6V5G" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript><noscript><p>このページは自動で転送されます。自動で転送されない場合は、<a href="${router_data.redirect}">こちらをクリック</a>してください。</p></noscript><script>setTimeout("link()", 0); function link(){location.href='${router_data.redirect}';}</script></body></html>`
+        var redirect_text = `<!DOCTYPE html><html lang="ja"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http - equiv="X-UA-Compatible" content="ie=edge"><title>MAKI MAEDA</title><meta name="description" content="このページは転送されます。"><p>このページは自動で転送されます。自動で転送されない場合は、<a href="${router_data.redirect}">こちらをクリック</a>してください。</p><script>function link(){location.href="${router_data.redirect}"}setTimeout("link()",0)</script>`
         fs.writeFileSync(distFileName, redirect_text);
         continue;
       }

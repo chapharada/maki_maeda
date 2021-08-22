@@ -49,5 +49,11 @@
     "terser-webpack-plugin": "^5.1.4",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "IE 11",
+    "Android >= 4",
+    "iOS >= 9"
+  ]
 }

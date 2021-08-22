@@ -1,0 +1,33 @@
+head
+  meta(charset="UTF-8")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  meta(http-equiv="X-UA-Compatible" content="ie=edge")
+  if meta.title
+    title #{meta.title}
+  if meta.description
+    meta(name="description" content=meta.description)
+  if meta.keyword
+    meta(name="keywords" content=meta.keywords)
+  if meta.css.length > 0
+    each item in meta.css
+      link(rel="stylesheet" href=item)
+  if meta.bread.length > 0
+    -
+      for(var i in meta.bread){ meta.bread[i]["item"] = domain + meta.bread[i]["item"]}
+    -bread["itemListElement"] = meta.bread;
+    -const breadJson = JSON.stringify(bread);
+      script(type="application/ld+json") !{breadJson}
+  if meta.og
+    meta(property='og:site_name' content=meta.og.site_name)
+    meta(property='og:locale' content='ja_JP')
+    meta(property='og:title' content=meta.og.title)
+    meta(property='og:description' content=meta.og.description)
+    meta(property='og:image' content=meta.og.img)
+    meta(property='og:url' content=meta.og.url)
+    if meta.og.type
+      meta(property="og:type" content=meta.og.type)
+    else 
+      meta(property="og:type" content="artcle")
+    meta(property="fb:app_id" content="520323465400578")
+    meta(name="twitter:card" content="summary")
+    meta(name="twitter:site" content="@nissenlife")

@@ -1,0 +1,18 @@
+{
+  "title": "ファイナンシャル・プランナーへの保険相談・見直しなら|FPナビ",
+  "description": "信頼できるファイナンシャル・プランナーをお探しなら。セブン＆アイグループのニッセンライフで保険・保険相談・保険見直し",
+  "keyword": "保険,保険相談,保険見直し,ファイナンシャル・プランナー,ファイナンシャル・プランニング",
+  "bread": [
+      {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "トップ",
+          "item": "/"
+      }
+  ],
+  "css": ["/assets/css/top/style.css"],
+  "js": ["/assets/wpjs/top/main.js"],
+  "redirect": "",
+  "date": "2021/08/01",
+  "deleted": 0
+}

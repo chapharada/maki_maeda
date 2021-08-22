@@ -23,3 +23,12 @@ var getLists = (dir) =>
     }).flatMap(dirent =>
         dirent.isFile() ? [`${dir}/${dirent.name}`] : getLists(`${dir}/${dirent.name}`)
     );
+
+
+//ファイルのフォルダパスを取得する
+exports.getDirname = (dist) =>{
+    var array = dist.split('/');
+    array.pop();
+    file = array.join('/');
+    return file;
+};

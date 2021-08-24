@@ -9,10 +9,7 @@ const imageminSvgo     = require('imagemin-svgo'); // svg
 
 const chokidar = require("chokidar");//監視アプリ
 const sharp = require('sharp');　//webp変換に使用する
-const util = require('../lib/util.js') //ファイル操作
-
-const fs = require('fs'); //nodeでのファイル操作
-const path = require('path'); //nodeのパース読み込み
+const util = require('../libs/util.js') //ファイル操作
 
 
 //同期フォルダ
@@ -45,8 +42,8 @@ const imgWebp = function(file, dist) {
 const minProcess = (dir,message) =>
 imagemin([dir], {
     plugins: [
-        imageminMozjpeg({ quality: 80 }),
-        imageminPngquant({ quality: [.7, .85], }),
+        imageminMozjpeg({ quality: 100 }),
+        imageminPngquant({ quality: [0, 0], }),
         imageminGifsicle(),
         imageminSvgo()
     ],

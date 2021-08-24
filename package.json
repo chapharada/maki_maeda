@@ -15,10 +15,10 @@
     "watches:var": "chokidar \"./src/var/**/*.pug\"  -i \"./src/var/**/*copy.pug\" -c \"node ./module/makePug init\"",
     "watches:include": "chokidar \"./src/include/**/*.pug\"  -i \"./src/include/**/*copy.pug\" -c \"node ./module/makePug init\"",
     "watches:router": "chokidar \"./router/**/*.json\" -i \"./router/**/_*.json\" -i \"./router/**/*copy.json\" -c \"node ./module/makePug router {path} {event}\"",
-    "watches:img": "node \"./module/watcherImg.js\" watch",
+    "watches:img": "node \"./module/makeImg.js\" watch",
     "watches:sass": "chokidar \"./src/assets/sass/**/*.{scss,css}\" -i \"./src/assets/sass/**/_*.{scss,css}\" -i \"./src/assets/sass/**/*copy.{scss,css}\" -c \"node ./module/makeSass watch {path} {event}\"",
     "watches:_sass": "chokidar \"./src/assets/sass/component/_*.scss\" \"./src/assets/sass/foundation/_*.scss\" \"./src/assets/sass/global/_*.scss\" \"./src/assets/sass/layout/_*.scss\" -c \"node ./module/makeSass init\"",
-    "watches:js": "webpack -w watch",
+    "watches:js": "webpack -w --mode development --node-env production",
     "watches:server": "browser-sync start -s s3 -w s3/**/*.html s3/assets/css/**/*.css s3/assets/css/js/*.js"
   },
   "author": "",
@@ -46,6 +46,7 @@
     "pug": "^3.0.2",
     "pug-cli": "^1.0.0-alpha6",
     "sass": "^1.38.0",
+    "sharp": "^0.29.0",
     "terser-webpack-plugin": "^5.1.4",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0"

@@ -45,21 +45,30 @@ switch (process.argv[2]) {
   case "watch":
     //ファイルパス
     var sassFileName    = process.argv[3];
-    //
     const event         = process.argv[4];
+    //もし吐き出す引数がunlinkだったら
     if(event == 'unlink'){
       console.log("Deleted:" + sassFileName);
       return;
     }
-    sassFileName     = sassFileName.split("\\").join("/");
+    //パスにwindows用の処理
+    sassFileName     = sassFileName.split("\\").join("/")
+    //pagesディレクトリを削除したver
+    var sassDistFileName = sassFileName.replace("pages/","")
+    console.log(`pages削除?:${sassDistFileName}`)
+
+    //ファイルの名前
     var fileName = sassFileName.split("/");
     fileName = fileName[fileName.length - 1];
+    //fileNameの最初の文言が_だったらスルー
     if (fileName.substr(0, 1) == "_") {
       return;
     }
-    if (sassFileName.substr(-5) == ".scss") {
-      var target = sassFileName.replace(sassDir,distDir).replace(".scss",".css");
+    //.scssだったら
+    if (sassDistFileName.substr(-5) == ".scss") {
+      var target = sassDistFileName.replace(sassDir,distDir).replace(".scss",".css");
       makeDir(target);
+      //sassをレンダリング
       var output = sass.renderSync({
           file: sassFileName,
           outputStyle:"compressed"

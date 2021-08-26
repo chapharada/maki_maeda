@@ -19,7 +19,7 @@
     "watches:sass": "chokidar \"./src/assets/sass/**/*.{scss,css}\" -i \"./src/assets/sass/**/_*.{scss,css}\" -i \"./src/assets/sass/**/*copy.{scss,css}\" -c \"node ./module/makeSass watch {path} {event}\"",
     "watches:_sass": "chokidar \"./src/assets/sass/component/_*.scss\" \"./src/assets/sass/foundation/_*.scss\" \"./src/assets/sass/global/_*.scss\" \"./src/assets/sass/layout/_*.scss\" -c \"node ./module/makeSass init\"",
     "watches:js": "webpack -w --mode development --node-env production",
-    "watches:server": "browser-sync start -s s3 -w s3/**/*.html s3/assets/css/**/*.css s3/assets/css/js/*.js"
+    "watches:server": "browser-sync start -s dist -w dist/**/*.html dist/assets/css/**/*.css dist/assets/css/js/*.js"
   },
   "author": "",
   "license": "ISC",

@@ -1,5 +1,6 @@
-#doctype html
+doctype html
 
+include ../include/_config.pug
 block vars
 
 html(lang="ja")
@@ -10,10 +11,8 @@ html(lang="ja")
     if meta.redirect
       include ../include/pre/_redirect.pug
     else
-      #app(v-cloak)
+      #wrapper
         include ../include/global/_header.pug
-        include ../include/global/_sp_nav.pug
-        include ../include/global/_bread.pug
         main
           block contents
         include ../include/global/_footer.pug

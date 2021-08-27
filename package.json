@@ -8,7 +8,7 @@
     "init:img": "node ./module/makeImg init",
     "build:pug": "node ./module/makePug init",
     "write:sass": "sass \"./src/assets/sass:src/assets/css\" --no-source-map",
-    "build:js": "node ./module/makeCopy init js",
+    "build:js": "webpack --mode=production --node-env initmode",
     "watches": "run-p watches:*",
     "watches:pug": "chokidar \"./src/pug/**/*.pug\" -i \"./src/**/_*.pug\" -i \"./src/**/*copy.pug\"  -i \"./src/pug/admin/*.*\" -c \"node ./module/makePug watch {path} {event}\"",
     "watches:layout": "chokidar \"./src/layout/**/*.pug\" -i \"./src/layout/**/*copy.pug\" -c \"node ./module/makePug init\"",
@@ -18,7 +18,7 @@
     "watches:img": "node \"./module/makeImg.js\" watch",
     "watches:sass": "chokidar \"./src/assets/sass/**/*.{scss,css}\" -i \"./src/assets/sass/**/_*.{scss,css}\" -i \"./src/assets/sass/**/*copy.{scss,css}\" -c \"node ./module/makeSass watch {path} {event}\"",
     "watches:_sass": "chokidar \"./src/assets/sass/component/_*.scss\" \"./src/assets/sass/foundation/_*.scss\" \"./src/assets/sass/global/_*.scss\" \"./src/assets/sass/layout/_*.scss\" -c \"node ./module/makeSass init\"",
-    "watches:js": "webpack -w --mode development --node-env production",
+    "watches:js": "webpack -w --mode=development --node-env watchmode",
     "watches:server": "browser-sync start -s dist -w dist/**/*.html dist/assets/css/**/*.css dist/assets/css/js/*.js"
   },
   "author": "",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
+    "async": "^3.2.1",
     "autoprefixer": "^10.3.2",
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.27.5",

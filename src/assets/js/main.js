@@ -1,2 +1,13 @@
-　　　
 
+console.log('おらあああ！')
+console.log('動だ！')
+console.log('さ、作成されない！？')  
+console.log('さ、作成されない！？')  
+console.log('さ、作成されない！？')  
+console.log('さ、作成されない！？')  
+console.log('さ、作成されない！？')  
+console.log('さ、作成されない！？')  
+console.log('さ、作成されない！？')  
+console.log('さ、作成されない！？')  
+console.log('さ、作成されない！？')  
+console.log('さ、作成されない！？')  

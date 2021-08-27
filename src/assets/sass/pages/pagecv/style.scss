@@ -1,0 +1,37 @@
+@use "../../foundation";
+@use "../../layout/_index";
+@use "../../global" as g;
+
+.cv{
+  padding-top: 5rem;
+  max-width: g.$max-width;
+  margin: 0 auto;
+  &-inner{
+    display: flex;
+  }
+  .heading{
+    width: 8%;
+  }
+  .conts{
+    width: 92%;
+    font-size: 1.2rem;
+    line-height: 2.35rem;
+    margin-bottom: 2.4rem;
+  }
+  .conts{
+    .block{
+      & + .block{
+        margin-top: 2.4rem;
+      }
+    }
+    .title{
+      font-weight: bold;
+      margin-bottom:1em ;
+    }
+    .list{
+      li + li{
+        margin-top: 0.2em;
+      }
+    }
+  } 
+}

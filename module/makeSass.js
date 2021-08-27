@@ -13,14 +13,19 @@ switch (process.argv[2]) {
   case "init":
     var sassFiles = util.listFiles(sassDir);
     for (const item of sassFiles) {
+      //ファイルの名前を取得
       var fileName = item.split("\\").join("/");
+      //pages/ディレクトリを削除したデータ
+      var sassDistFileName = fileName.replace("pages/","")
+      
       fileName = fileName.split("/");
       fileName = fileName[fileName.length - 1];
       if (fileName.substr(0, 1) == "_") {
         continue;
       }
+
       if (item.substr(-5) == ".scss") {
-        var target = item.replace(sassDir, distDir).replace(".scss", ".css");
+        var target = sassDistFileName.replace(sassDir, distDir).replace(".scss", ".css");
         makeDir(target);
         var output = sass.renderSync({
           file: item,
@@ -55,7 +60,6 @@ switch (process.argv[2]) {
     sassFileName     = sassFileName.split("\\").join("/")
     //pagesディレクトリを削除したver
     var sassDistFileName = sassFileName.replace("pages/","")
-    console.log(`pages削除?:${sassDistFileName}`)
 
     //ファイルの名前
     var fileName = sassFileName.split("/");

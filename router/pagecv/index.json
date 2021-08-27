@@ -8,9 +8,15 @@
           "position": 1,
           "name": "トップ",
           "item": "/"
+      },
+      {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "cv",
+          "item": "/pagecv/"
       }
   ],
-  "css": ["/assets/css/style.css"],
+  "css": ["/assets/css/pagecv/style.css"],
   "js": ["/assets/wpjs/top/main.js"],
   "redirect": "",
   "date": "2021/99/99",

@@ -1,1 +1,35 @@
 @use "../global/index" as g;
+
+
+header{
+  .inner{
+    max-width: g.$max-width;
+    margin: 0 auto;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+    h1{
+      font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: .008em;
+    }
+    nav {
+      display: flex;
+      font-size: 1.2rem;
+      
+      a{
+        padding: 1.6rem 0;
+      }
+      ul{
+        display: flex;
+        margin-right: 3.2rem;
+        li{
+          & + li{
+            margin-left: 3.2em;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,11 @@
 @use "../global/index" as g;
+
+footer{
+  font-size: 1.1rem;
+  width: g.$pd-pc;
+  max-width: g.$max-width;
+  margin: 0 auto;
+  p{
+    text-align: left;
+  }
+}

@@ -11,6 +11,7 @@ head
   if meta.css.length > 0
     each item in meta.css
       link(rel="stylesheet" href=item)
+  link(rel="shortcut icon" type="image/x-icon" href="/assets/img/fav/favicon.ico")
   if meta.bread.length > 0
     -
       for(var i in meta.bread){ meta.bread[i]["item"] = domain + meta.bread[i]["item"]}

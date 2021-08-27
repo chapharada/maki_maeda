@@ -1,3 +1,5 @@
+@use "../global" as g;
+
 html {
   font-size: 62.5%;
   height: 100%;
@@ -13,5 +15,16 @@ body {
 }
 
 #wrapper{
-  padding: 75px;
+  padding: 24px;
+  @include g.mq(tb){
+    padding: 75px;
+  }
+  
 }
+
+.mainconts{
+  padding-top: 5rem;
+  max-width: g.$max-width;
+  margin: 0 auto;
+}
+

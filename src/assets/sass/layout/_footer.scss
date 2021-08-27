@@ -1,11 +1,29 @@
 @use "../global/index" as g;
 
 footer{
-  font-size: 1.1rem;
-  width: g.$pd-pc;
+  font-size: 1.2rem;
   max-width: g.$max-width;
   margin: 0 auto;
-  p{
+  
+  .inner{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .copyright{
     text-align: left;
+    line-height: 1;
+    margin-right: 2em;
+  }
+  .sns{
+    a{
+      display: block;
+      height: 16px;
+      width: 16px;
+      img{
+        width: 100%;
+        vertical-align: baseline;
+      }
+    }
   }
 }

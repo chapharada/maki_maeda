@@ -3,30 +3,36 @@
 @use "../../global" as g;
 
 .cv{
-  padding-top: 5rem;
-  max-width: g.$max-width;
-  margin: 0 auto;
-  &-inner{
+  .inner{
     display: flex;
   }
+  h1{
+    font-size: 1.4rem;
+    line-height: 1.5;
+    letter-spacing: .08em;
+  }
   .heading{
-    width: 8%;
+    width: 10%;
+    min-width: 100px;
   }
   .conts{
-    width: 92%;
+    width: 90%;
     font-size: 1.2rem;
-    line-height: 2.35rem;
+    line-height: 2.5rem;
     margin-bottom: 2.4rem;
   }
   .conts{
     .block{
       & + .block{
-        margin-top: 2.4rem;
+        margin-top: 4rem;
+      }
+      p + p{
+        margin-top: 1.6rem;
       }
     }
     .title{
       font-weight: bold;
-      margin-bottom:1em ;
+      margin-bottom:1em;
     }
     .list{
       li + li{

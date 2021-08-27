@@ -15,10 +15,12 @@ const entries = glob
 
 // 配列→{key:value}の連想配列へ変換
 const entryObj = Object.fromEntries(entries);
+var mode = process.env.NODE_ENV;
+console.log(`mode:${mode}`);
 
 module.exports = {
   mode: "development",
-  cache: true,
+  cache: (mode == 'initmode') ? false : true,
   // メインとなるJavaScriptファイル（エントリーポイント）
   entry: entryObj,
   // ファイルの出力設定
@@ -28,7 +30,7 @@ module.exports = {
     // 出力ファイル名
     filename: "[name]",
   },
-  devtool: 'source-map',
+  devtool: (mode == 'initmode') ? false : "eval",
   module: {
     rules: [
       {

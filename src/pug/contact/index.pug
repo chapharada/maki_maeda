@@ -1,6 +1,6 @@
 extends ../../layout/_TOP.pug
 block contents 
-  .contact.mainconts  
+  .contact.mainconts(v-cloak)
     .inner  
       .heading  
         h1 contact
@@ -10,17 +10,25 @@ block contents
           .link
             a( href="mailto:maeda.m1217@gmail.com " data-link-type="mailto" data-link-value="maeda.m1217@gmail.com ") maeda.m1217@gmail.com </a>
             p or send me a message.
+          .error  
+            p(class="error-name") {{errorName}}
+            p(class="error-email") {{errorEmail}}
+            p(class="error-message") {{errorMessage}}
         .formbox  
-          form(name="contact" method="POST" netlify) 
+          form(
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field" 
+              action="/contact/success/" 
+              type="hidden"
+            ) 
             .area 
               .name 
-                label(for="") 
-                input( id="name" type="text" name="name" placeholder="Name")
-              .name 
-                label(for="") 
-                input( id="name" type="email"   name="email" placeholder="Email")
+                input(id="name" type="text" name="name" placeholder="Name" required="required")
+              .email 
+                input(id="name" type="email" name="email" placeholder="Email" required="required")
               .message 
-                label(for="") 
-                textarea( name="message" type="text" placeholder="message" rows="8")
+                textarea( name="message" type="text" placeholder="message" rows="8" required="required")
             .confirmbtn
               input(type="submit" name="" value="送信する")

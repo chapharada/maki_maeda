@@ -312,7 +312,7 @@ eval("\n\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n\n\nnew vue__WEBPACK_IMPORTED_MODULE_1__.default({\n  el: \"#wrapper\",\n  data: {\n    errorName: \"名前を入力してください\",\n    errorEmail: \"メールアドレスの形式で入力してください\",\n    errorMessage: \"メッセージを入力してください\"\n  }\n});\n\n//# sourceURL=webpack://development/./src/assets/js/contact/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n\n\nnew vue__WEBPACK_IMPORTED_MODULE_1__.default({\n  el: \"#wrapper\",\n  data: {\n    errors: [],\n    form: {\n      name: null,\n      email: null,\n      message: null\n    }\n  }\n});\n\n//# sourceURL=webpack://development/./src/assets/js/contact/main.js?");
 
 /***/ }),
 

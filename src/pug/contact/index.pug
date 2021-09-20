@@ -11,12 +11,13 @@ block contents
             a( href="mailto:maeda.m1217@gmail.com " data-link-type="mailto" data-link-value="maeda.m1217@gmail.com ") maeda.m1217@gmail.com </a>
             p or send me a message.
           .error  
-            p(class="error-name") {{errorName}}
-            p(class="error-email") {{errorEmail}}
-            p(class="error-message") {{errorMessage}}
+            <ul v-if="errors.length">
+              <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+            </ul>
         .formbox  
           form(
-              name="contact"
+              name="contact" 
+              novalidate="novalidate"
               method="POST"
               data-netlify="true"
               netlify-honeypot="bot-field" 
@@ -25,10 +26,10 @@ block contents
             ) 
             .area 
               .name 
-                input(id="name" type="text" name="name" placeholder="Name" required="required")
+                input( type="text" v-model="form.name" name="name" placeholder="Name" required="required")
               .email 
-                input(id="name" type="email" name="email" placeholder="Email" required="required")
+                input( type="email" v-model="form.email" name="email" placeholder="Email" required="required")
               .message 
-                textarea( name="message" type="text" placeholder="message" rows="8" required="required")
+                textarea( type="text" name="message" v-model="form.message"  placeholder="message" rows="8" required="required")
             .confirmbtn
               input(type="submit" name="" value="送信する")

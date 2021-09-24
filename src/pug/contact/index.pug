@@ -18,12 +18,10 @@ block contents
           form(
               name="contact",
               method="POST",
-              action ="/",
               @submit.prevent="validateForm"
               novalidate="novalidate",
               data-netlify="true",
               netlify-honeypot="bot-field",
-              action="/contact/success/",
               type="hidden",
             ) 
             .area 

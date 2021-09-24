@@ -27,7 +27,7 @@ new Vue({
       const params = this.setParams()
       axios.post('/', params)
       .then(() => {
-        location.href = "/contact/sccess/";
+        location.href = "/contact/success/";
         sessionStorage.setItem('formcache', true);
       })
       .catch(function (error) {

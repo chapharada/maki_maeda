@@ -50,7 +50,7 @@ new Vue({
     },
     submitForm() {
       const params = this.setParams()
-      axios.post('https:maedamaki.com/', params)
+      axios.post('/', params)
       .then(() => {
         sessionStorage.setItem('formcache', true);
         location.href = "/contact/success/";

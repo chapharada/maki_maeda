@@ -7,7 +7,32 @@ new Vue({
     name: '',
     email: '',
     message: '',
-    isError: false
+    validation: {
+      name: false,
+      email: false,
+      validation: false,
+    }
+  },
+  // validation
+  filters: {
+    nameValidator: {
+      write: function (val) {
+        this.validation.title = !!val
+        return val
+      }
+    },
+    emailValidator: {
+      write: function (val) {
+        this.validation.description = !!val
+        return val
+      }
+    },
+    descriptionValidator: {
+      write: function (val) {
+        this.validation.description = !!val
+        return val
+      }
+    },
   },
   computed: {
   },
@@ -25,14 +50,14 @@ new Vue({
     },
     submitForm() {
       const params = this.setParams()
-      axios.post('/', params)
+      axios.post('https:maedamaki.com/', params)
       .then(() => {
-        location.href = "/contact/success/";
         sessionStorage.setItem('formcache', true);
+        location.href = "/contact/success/";
       })
       .catch(function (error) {
         console.log( params.toString())
-        console.log(error)
+        console.log(error.response)
         console.log('エラーです。')
       })
     }

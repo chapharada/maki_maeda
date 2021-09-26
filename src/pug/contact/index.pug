@@ -11,19 +11,18 @@ block contents
             a( href="mailto:maeda.m1217@gmail.com " data-link-type="mailto" data-link-value="maeda.m1217@gmail.com ") maeda.m1217@gmail.com </a>
             p or send me a message.
           .error  
-            <ul>
-              li 
-            </ul>
+            ul
+              li(v-show="!validation.name") 名前を入力してください。
+              li(v-show="!validation.email") メールアドレスを入力してください。
+              li(v-show="!validation.message") メッセージを入力してください。
         .formbox  
           form(
               name="contact",
               method="POST",
-              action ="/",
               @submit.prevent="validateForm"
               novalidate="novalidate",
               data-netlify="true",
               netlify-honeypot="bot-field",
-              action="/contact/success/",
               type="hidden",
             ) 
             .area 

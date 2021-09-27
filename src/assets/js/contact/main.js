@@ -4,41 +4,68 @@ import axios from 'axios';
 new Vue({
   el: "#wrapper",
   data: {
-    name: '',
-    email: '',
-    message: '',
+    form: {
+      name: '',
+      email: '',
+      message: '',
+    },
+    onError: false,
     validation: {
       name: false,
       email: false,
-      validation: false,
-    }
-  },
-  // validation
-  filters: {
-    nameValidator: {
-      write: function (val) {
-        this.validation.title = !!val
-        return val
-      }
+      message: false,
     },
-    emailValidator: {
-      write: function (val) {
-        this.validation.description = !!val
-        return val
-      }
-    },
-    descriptionValidator: {
-      write: function (val) {
-        this.validation.description = !!val
-        return val
-      }
-    },
+    isVaild:''
   },
   computed: {
+    validationName(){
+      if (!this.form.name) {
+        this.validation.name = false;
+        return '名前を入力してください';
+      }else{
+        this.validation.name = true;
+      }
+      return ''
+    },
+    validationEmail(){
+      const emailReg = new RegExp(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/);
+      if(!this.form.email ){
+        this.validation.email = false;
+        return 'メールアドレスを入力してください'
+      }else if ( !emailReg.test(this.form.email)) {
+        this.validation.email = false;
+        return 'メールアドレスの形式で入力してください';
+      }
+      this.validation.email = true;
+      return ''
+    },
+    validationMessage(){
+      if (!this.form.message) {
+        this.validation.message = false;
+        return 'メッセージを入力してください';
+      }
+      this.validation.message = true;
+      return ''
+    },
+    confirmAll () {
+      var vaild = '';
+      for (var key in this.validation) {
+        if (!this.validation[key]) {
+          vaild = '入力内容に問題があります。確認して再度お試しください。';
+        }
+      }
+      return vaild
+    }
   },
   methods:{
     validateForm() {
-      this.submitForm()
+      if( !this.isVaild){
+        console.log('まだまだあかんでえ！')
+        this.onError = true;
+      }else{
+        this.submitForm()
+        this.onError = false;
+      }
     },
     setParams() {
       const params = new URLSearchParams() 

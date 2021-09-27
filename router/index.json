@@ -11,7 +11,7 @@
       }
   ],
   "css": ["/assets/css/style.css"],
-  "js": ["/assets/main.js"],
+  "js": ["/assets/js/main.js"],
   "redirect": "",
   "date": "2021/99/99",
   "deleted": 0

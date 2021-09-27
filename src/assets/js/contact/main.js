@@ -15,7 +15,7 @@ new Vue({
       email: false,
       message: false,
     },
-    isVaild:''
+    isVaild:false
   },
   computed: {
     validationName(){
@@ -51,7 +51,7 @@ new Vue({
       var vaild = '';
       for (var key in this.validation) {
         if (!this.validation[key]) {
-          vaild = '入力内容に問題があります。確認して再度お試しください。';
+          vaild = 'どうしたぁ！お前の力はこんなものか！';
         }
       }
       return vaild
@@ -59,8 +59,16 @@ new Vue({
   },
   methods:{
     validateForm() {
-      if( !this.isVaild){
-        console.log('まだまだあかんでえ！')
+      //全体の結果からtrue,falseを算出
+      var checkData = [];
+      for(var key in this.validation){
+        checkData.push(this.validation[key]);
+      }
+      var checkResult = checkData.every(value => value == true);
+      
+      //判定の結果でエラーを表示
+      if(!checkResult){
+        console.log('どうしたぁ！お前の力はこんなものか！')
         this.onError = true;
       }else{
         this.submitForm()

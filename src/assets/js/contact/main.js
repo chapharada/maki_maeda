@@ -68,7 +68,7 @@ new Vue({
       
       //判定の結果でエラーを表示
       if(!checkResult){
-        console.log('どうしたぁ！お前の力はこんなものか！')
+        console.log('入力内容に誤りがあります。')
         this.onError = true;
       }else{
         this.submitForm()

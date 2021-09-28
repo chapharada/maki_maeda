@@ -51,7 +51,7 @@ new Vue({
       var vaild = '';
       for (var key in this.validation) {
         if (!this.validation[key]) {
-          vaild = 'どうしたぁ！お前の力はこんなものか！';
+          vaild = '入力内容に問題があります。確認して再度お試しください。';
         }
       }
       return vaild
@@ -68,19 +68,18 @@ new Vue({
       
       //判定の結果でエラーを表示
       if(!checkResult){
-        console.log('どうしたぁ！お前の力はこんなものか！')
+        console.log('入力内容に誤りがあります。')
         this.onError = true;
       }else{
         this.submitForm()
-        this.onError = false;
       }
     },
     setParams() {
       const params = new URLSearchParams() 
       params.append('form-name', 'contact')
-      params.append('name', this.name);
-      params.append('email', this.email);
-      params.append('message', this.message);
+      params.append('name', this.form.name);
+      params.append('email', this.form.email);
+      params.append('message', this.form.message);
       return params
     },
     submitForm() {

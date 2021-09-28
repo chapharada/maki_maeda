@@ -1,6 +1,8 @@
 const path = require("path");
 const glob = require("glob");
 const TerserPlugin = require("terser-webpack-plugin");
+const WriteFilePlugin = require('write-file-webpack-plugin');
+
 
 const srcDir = "./src/assets/js";
 const entries = glob
@@ -30,6 +32,10 @@ module.exports = {
     // 出力ファイル名
     filename: "[name]",
   },
+  plugins: [
+    // watch時の新規ファイルの書き出し
+    new WriteFilePlugin() 
+  ],
   devtool: (mode == 'initmode') ? false : "eval",
   module: {
     rules: [

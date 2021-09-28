@@ -29,7 +29,7 @@ new Vue({
     },
     validationEmail(){
       const emailReg = new RegExp(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/);
-      if(!this.form.email ){
+      if(!this.form.email){
         this.validation.email = false;
         return 'メールアドレスを入力してください'
       }else if ( !emailReg.test(this.form.email)) {
@@ -55,7 +55,15 @@ new Vue({
         }
       }
       return vaild
-    }
+    },
+  },
+  watch:{
+    validation: {
+      handler: function(next, prev) {
+        console.log(`${next} と ${prev}だよ。`);
+      },
+      deep: true
+    }	
   },
   methods:{
     validateForm() {
@@ -65,7 +73,7 @@ new Vue({
         checkData.push(this.validation[key]);
       }
       var checkResult = checkData.every(value => value == true);
-      
+
       //判定の結果でエラーを表示
       if(!checkResult){
         console.log('入力内容に誤りがあります。')

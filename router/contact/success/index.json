@@ -23,7 +23,7 @@
       }
   ],
   "css": ["/assets/css/contact/success/style.css"],
-  "js": ["/assets/js/contact/success/redirect.js"],
+  "js": ["/assets/js/contact/success/main.js"],
   "redirect": "",
   "date": "2021/99/99",
   "deleted": 0

@@ -57,14 +57,6 @@ new Vue({
       return vaild
     },
   },
-  watch:{
-    validation: {
-      handler: function(next, prev) {
-        console.log(`${next} と ${prev}だよ。`);
-      },
-      deep: true
-    }	
-  },
   methods:{
     validateForm() {
       //全体の結果からtrue,falseを算出
@@ -98,7 +90,6 @@ new Vue({
         location.href = "/contact/success/";
       })
       .catch(function (error) {
-        console.log( params.toString())
         console.log(error.response)
         console.log('エラーです。')
       })

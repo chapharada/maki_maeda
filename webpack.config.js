@@ -1,8 +1,7 @@
 const path = require("path");
 const glob = require("glob");
 const TerserPlugin = require("terser-webpack-plugin");
-const WriteFilePlugin = require('write-file-webpack-plugin');
-
+const { VueLoaderPlugin } = require('vue-loader')
 
 const srcDir = "./src/assets/js";
 const entries = glob
@@ -32,10 +31,6 @@ module.exports = {
     // 出力ファイル名
     filename: "[name]",
   },
-  plugins: [
-    // watch時の新規ファイルの書き出し
-    new WriteFilePlugin() 
-  ],
   devtool: (mode == 'initmode') ? false : "eval",
   module: {
     rules: [
@@ -58,8 +53,15 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
     ],
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
   resolve: {
     alias: {
       vue$: "vue/dist/vue.esm.js",
@@ -79,5 +81,8 @@ module.exports = {
   performance: {
     maxEntrypointSize: 500000,
     maxAssetSize: 500000,
+  },
+  stats: {
+    children: true,
   }
 };

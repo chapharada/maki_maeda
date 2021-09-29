@@ -16,7 +16,77 @@
   \*******************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n\nnew vue__WEBPACK_IMPORTED_MODULE_0__.default({\n  el: \"#wrapper\",\n  data: {}\n});\n\n//# sourceURL=webpack://development/./src/assets/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var vue_magic_grid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-magic-grid */ \"./node_modules/vue-magic-grid/src/index.js\");\n\n\nnew vue__WEBPACK_IMPORTED_MODULE_1__.default({\n  el: \"#wrapper\",\n  data: {}\n});\n\n//# sourceURL=webpack://development/./src/assets/js/main.js?");
+
+/***/ }),
+
+/***/ "./node_modules/vue-magic-grid/src/magic-grid.vue":
+/*!********************************************************!*\
+  !*** ./node_modules/vue-magic-grid/src/magic-grid.vue ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _magic_grid_vue_vue_type_template_id_2b80ae88___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./magic-grid.vue?vue&type=template&id=2b80ae88& */ \"./node_modules/vue-magic-grid/src/magic-grid.vue?vue&type=template&id=2b80ae88&\");\n/* harmony import */ var _magic_grid_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./magic-grid.js?vue&type=script&lang=js& */ \"./node_modules/vue-magic-grid/src/magic-grid.js?vue&type=script&lang=js&?88d3\");\n/* harmony import */ var _vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n;\nvar component = (0,_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(\n  _magic_grid_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,\n  _magic_grid_vue_vue_type_template_id_2b80ae88___WEBPACK_IMPORTED_MODULE_0__.render,\n  _magic_grid_vue_vue_type_template_id_2b80ae88___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"node_modules/vue-magic-grid/src/magic-grid.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack://development/./node_modules/vue-magic-grid/src/magic-grid.vue?");
+
+/***/ }),
+
+/***/ "./node_modules/vue-magic-grid/src/magic-grid.vue?vue&type=template&id=2b80ae88&":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/vue-magic-grid/src/magic-grid.vue?vue&type=template&id=2b80ae88& ***!
+  \***************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"render\": function() { return /* reexport safe */ _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_magic_grid_vue_vue_type_template_id_2b80ae88___WEBPACK_IMPORTED_MODULE_0__.render; },\n/* harmony export */   \"staticRenderFns\": function() { return /* reexport safe */ _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_magic_grid_vue_vue_type_template_id_2b80ae88___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns; }\n/* harmony export */ });\n/* harmony import */ var _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_magic_grid_vue_vue_type_template_id_2b80ae88___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../vue-loader/lib/index.js??vue-loader-options!./magic-grid.vue?vue&type=template&id=2b80ae88& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-magic-grid/src/magic-grid.vue?vue&type=template&id=2b80ae88&\");\n\n\n//# sourceURL=webpack://development/./node_modules/vue-magic-grid/src/magic-grid.vue?");
+
+/***/ }),
+
+/***/ "./node_modules/vue-magic-grid/src/magic-grid.js?vue&type=script&lang=js&?88d3":
+/*!********************************************************************************!*\
+  !*** ./node_modules/vue-magic-grid/src/magic-grid.js?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _magic_grid_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./magic-grid.js?vue&type=script&lang=js& */ \"./node_modules/vue-magic-grid/src/magic-grid.js?vue&type=script&lang=js&?359e\");\n /* harmony default export */ __webpack_exports__[\"default\"] = (_magic_grid_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); \n\n//# sourceURL=webpack://development/./node_modules/vue-magic-grid/src/magic-grid.js?");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-magic-grid/src/magic-grid.vue?vue&type=template&id=2b80ae88&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-magic-grid/src/magic-grid.vue?vue&type=template&id=2b80ae88& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"render\": function() { return /* binding */ render; },\n/* harmony export */   \"staticRenderFns\": function() { return /* binding */ staticRenderFns; }\n/* harmony export */ });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { class: [_vm.wrapper] }, [_vm._t(\"default\")], 2)\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack://development/./node_modules/vue-magic-grid/src/magic-grid.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ normalizeComponent; }\n/* harmony export */ });\n/* globals __VUE_SSR_CONTEXT__ */\n\n// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).\n// This module is a runtime utility for cleaner component module output and will\n// be included in the final webpack user bundle.\n\nfunction normalizeComponent (\n  scriptExports,\n  render,\n  staticRenderFns,\n  functionalTemplate,\n  injectStyles,\n  scopeId,\n  moduleIdentifier, /* server only */\n  shadowMode /* vue-cli only */\n) {\n  // Vue.extend constructor export interop\n  var options = typeof scriptExports === 'function'\n    ? scriptExports.options\n    : scriptExports\n\n  // render functions\n  if (render) {\n    options.render = render\n    options.staticRenderFns = staticRenderFns\n    options._compiled = true\n  }\n\n  // functional template\n  if (functionalTemplate) {\n    options.functional = true\n  }\n\n  // scopedId\n  if (scopeId) {\n    options._scopeId = 'data-v-' + scopeId\n  }\n\n  var hook\n  if (moduleIdentifier) { // server build\n    hook = function (context) {\n      // 2.3 injection\n      context =\n        context || // cached call\n        (this.$vnode && this.$vnode.ssrContext) || // stateful\n        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional\n      // 2.2 with runInNewContext: true\n      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {\n        context = __VUE_SSR_CONTEXT__\n      }\n      // inject component styles\n      if (injectStyles) {\n        injectStyles.call(this, context)\n      }\n      // register component module identifier for async chunk inferrence\n      if (context && context._registeredComponents) {\n        context._registeredComponents.add(moduleIdentifier)\n      }\n    }\n    // used by ssr in case component is cached and beforeCreate\n    // never gets called\n    options._ssrRegister = hook\n  } else if (injectStyles) {\n    hook = shadowMode\n      ? function () {\n        injectStyles.call(\n          this,\n          (options.functional ? this.parent : this).$root.$options.shadowRoot\n        )\n      }\n      : injectStyles\n  }\n\n  if (hook) {\n    if (options.functional) {\n      // for template-only hot-reload because in that case the render fn doesn't\n      // go through the normalizer\n      options._injectStyles = hook\n      // register for functional component in vue file\n      var originalRender = options.render\n      options.render = function renderWithStyleInjection (h, context) {\n        hook.call(context)\n        return originalRender(h, context)\n      }\n    } else {\n      // inject component registration as beforeCreate hook\n      var existing = options.beforeCreate\n      options.beforeCreate = existing\n        ? [].concat(existing, hook)\n        : [hook]\n    }\n  }\n\n  return {\n    exports: scriptExports,\n    options: options\n  }\n}\n\n\n//# sourceURL=webpack://development/./node_modules/vue-loader/lib/runtime/componentNormalizer.js?");
+
+/***/ }),
+
+/***/ "./node_modules/vue-magic-grid/src/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/vue-magic-grid/src/index.js ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _magic_grid_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./magic-grid.vue */ \"./node_modules/vue-magic-grid/src/magic-grid.vue\");\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  install (Vue) {\r\n    Vue.component('magic-grid', _magic_grid_vue__WEBPACK_IMPORTED_MODULE_0__.default)\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack://development/./node_modules/vue-magic-grid/src/index.js?");
+
+/***/ }),
+
+/***/ "./node_modules/vue-magic-grid/src/magic-grid.js?vue&type=script&lang=js&?359e":
+/*!********************************************************************************!*\
+  !*** ./node_modules/vue-magic-grid/src/magic-grid.js?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n\r\n  name: 'magic-grid',\r\n\r\n  props: {\r\n    wrapper: {\r\n      type: String, // Required. Class or id of the container.\r\n      default: 'wrapper'\r\n    },\r\n    gap: {\r\n      type: Number, // Optional. Space between items. Default: 32px\r\n      default: 32\r\n    },\r\n    maxCols: {\r\n      type: Number, // Maximum number of colums. Default: Infinite\r\n      default: 5\r\n    },\r\n    maxColWidth: {\r\n      type: Number,\r\n      default: 280\r\n    },\r\n    animate: {\r\n      type: Boolean, // Animate item positioning. Default: false.\r\n      default: true\r\n    }\r\n  },\r\n\r\n  data () {\r\n    return {\r\n      started: false,\r\n      items: []\r\n    }\r\n  },\r\n\r\n  mounted () {\r\n    this.waitUntilReady()\r\n  },\r\n\r\n  methods: {\r\n    waitUntilReady () {\r\n      if (this.isReady()) {\r\n        this.positionItems()\r\n\r\n        window.addEventListener('resize', () => {\r\n          setTimeout(this.positionItems(), 200)\r\n        })\r\n      } else this.getReady()\r\n    },\r\n\r\n    isReady () {\r\n      return this.$el && this.items.length > 0\r\n    },\r\n\r\n    getReady () {\r\n      let interval = setInterval(() => {\r\n        this.items = this.$el.children\r\n\r\n        if (this.isReady()) {\r\n          clearInterval(interval)\r\n          this.init()\r\n        }\r\n      }, 100)\r\n    },\r\n\r\n    init () {\r\n      if (!this.isReady() || this.started) return\r\n\r\n      this.$el.style.position = 'relative'\r\n\r\n      Array.prototype.forEach.call(this.items, item => {\r\n        item.style.position = 'absolute'\r\n        item.style.maxWidth = this.maxColWidth + 'px'\r\n        if (this.animate) item.style.transition = 'top, left 0.2s ease'\r\n      })\r\n\r\n      this.started = true\r\n      this.waitUntilReady()\r\n    },\r\n\r\n    colWidth () {\r\n      return this.items[0].getBoundingClientRect().width + this.gap\r\n    },\r\n\r\n    setup () {\r\n      let width = this.$el.getBoundingClientRect().width\r\n      let numCols = Math.floor(width / this.colWidth()) || 1\r\n      let cols = []\r\n\r\n      if (this.maxCols && numCols > this.maxCols) {\r\n        numCols = this.maxCols\r\n      }\r\n\r\n      for (let i = 0; i < numCols; i++) {\r\n        cols[i] = {\r\n          height: 0,\r\n          top: 0,\r\n          index: i\r\n        }\r\n      }\r\n\r\n      let wSpace = width - numCols * this.colWidth() + this.gap\r\n\r\n      return {\r\n        cols,\r\n        wSpace\r\n      }\r\n    },\r\n\r\n    nextCol (cols, i) {\r\n      if (this.useMin) return this.getMin(cols)\r\n\r\n      return cols[i % cols.length]\r\n    },\r\n\r\n    positionItems () {\r\n      let { cols, wSpace } = this.setup()\r\n\r\n      wSpace = Math.floor(wSpace / 2)\r\n\r\n      Array.prototype.forEach.call(this.items, (item, i) => {\r\n        let min = this.nextCol(cols, i)\r\n        let left = min.index * this.colWidth() + wSpace\r\n\r\n        item.style.left = left + 'px'\r\n        item.style.top = min.height + min.top + 'px'\r\n\r\n        min.height += min.top + item.getBoundingClientRect().height\r\n        min.top = this.gap\r\n      })\r\n\r\n      this.$el.style.height = this.getMax(cols).height + 'px'\r\n    },\r\n\r\n    getMax (cols) {\r\n      let max = cols[0]\r\n\r\n      for (let col of cols) {\r\n        if (col.height > max.height) max = col\r\n      }\r\n\r\n      return max\r\n    },\r\n\r\n    getMin (cols) {\r\n      let min = cols[0]\r\n\r\n      for (let col of cols) {\r\n        if (col.height < min.height) min = col\r\n      }\r\n\r\n      return min\r\n    }\r\n  }\r\n\r\n});\r\n\n\n//# sourceURL=webpack://development/./node_modules/vue-magic-grid/src/magic-grid.js?");
 
 /***/ }),
 
@@ -57,6 +127,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/*!\n * Vue.js v2.6.14\n * (c
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	!function() {
 /******/ 		__webpack_require__.g = (function() {
@@ -67,6 +149,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/*!\n * Vue.js v2.6.14\n * (c
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */

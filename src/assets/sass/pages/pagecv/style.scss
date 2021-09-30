@@ -2,6 +2,10 @@
 @use "../../layout/_index";
 @use "../../global" as g;
 
+body{
+  font-family: Noto Suns;
+}
+
 .cv{
   .inner{
     display: flex;
@@ -23,8 +27,8 @@
   }
   .conts{
     .block{
-      & + .block{
-        margin-top: 4rem;
+      &:not(:last-child){
+        margin-bottom: 3.2rem;
       }
       p + p{
         margin-top: 1.6rem;
@@ -32,11 +36,19 @@
     }
     .title{
       font-weight: bold;
-      margin-bottom:1em;
+      margin-bottom:0.4rem;
     }
     .list{
-      li + li{
-        margin-top: 0.2em;
+      dl div{
+        display: flex;
+        line-height: 2;
+        dt{
+          word-wrap: nowrap;
+          margin-right: 4rem;
+        } 
+        dd span{
+          font-size: 1rem;
+        }
       }
     }
   } 

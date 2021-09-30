@@ -1,7 +1,8 @@
 const path = require("path");
 const glob = require("glob");
 const TerserPlugin = require("terser-webpack-plugin");
-const { VueLoaderPlugin } = require('vue-loader')
+const writeFilePlugin = require('write-file-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 
 const srcDir = "./src/assets/js";
 const entries = glob
@@ -60,7 +61,8 @@ module.exports = {
     ],
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new writeFilePlugin()
   ],
   resolve: {
     alias: {

@@ -1,0 +1,28 @@
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+}
+body {
+  font-size: 1.6em;
+  line-height: 1.8;
+  font-family: sans-serif;
+  color: #000;
+  height: 100%;
+}
+
+#wrapper{
+  padding: 24px;
+  @include mq(tb){
+    padding: 75px;
+  }
+  
+}
+
+.mainconts{
+  padding-top: 5rem;
+  max-width: $max-width;
+  margin: 0 auto;
+}

@@ -1,13 +1,13 @@
 <template>
   <header>
     <div class="inner">
-      <h1><a href="/">maki maeda</a></h1>
+      <h1><NuxtLink to="/">maki maeda</NuxtLink></h1>
       <nav class="pc">
         <ul>
-          <li><a href="#">works</a></li>
-          <li><a href="/pagecv/">cv</a></li>
+          <li><NuxtLink to="/works/">works</NuxtLink></li>
+          <li><NuxtLink to="/pagecv/">cv</NuxtLink></li>
         </ul>
-        <div class="act"><a href="/contact/">contact</a></div>
+        <div class="act"><NuxtLink to="/contact/">contact</NuxtLink></div>
       </nav>
     </div>
   </header>

@@ -1,3 +1,4 @@
+//dart sassの処理
 const Sass = require('sass')
 const Fiber = require('fibers')
 
@@ -28,6 +29,7 @@ export default {
   buildModules: [
   ],
   modules: [
+    "@nuxtjs/axios",
     '@nuxtjs/style-resources',
   ],
   build: {
@@ -43,6 +45,14 @@ export default {
   styleResources: {
     scss: ['~/assets/scss/global/_var.scss'],
     scss: ['~/assets/scss/global/_mixin.scss'],
+  },
+  buildModules: ['nuxt-microcms-module'],
+  microcms: {
+    options: {
+      serviceDomain: process.env.SERVICE_DOMAIN,
+      apiKey: process.env.API_KEY,
+    },
+    mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
   }
 }
 

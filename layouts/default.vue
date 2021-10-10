@@ -19,5 +19,9 @@
 </script>
 
 <style lang="scss" scoped >
+  #wrapper{
+    max-width: $max-width;
+    margin: 0 auto;
+  }
 </style>
 

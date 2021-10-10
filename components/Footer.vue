@@ -4,7 +4,7 @@
         <div class="copyright">© maeda maki </div>
         <div class="sns">
           <ul>
-            <li><a href=""><img src="~/assets/img/instagram.svg"></a></li>
+            <li><Nuxtlink to=""><img src="~/assets/img/instagram.svg"></Nuxtlink></li>
           </ul>
         </div>
       </div>

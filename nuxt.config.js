@@ -7,12 +7,18 @@ export default {
   head: {
     title: 'makiMaeda',
     htmlAttrs: {
-      lang: 'en'
+      prefix: 'og: http://ogp.me/ns#',
+      lang: 'ja'
     },
+    titleTemplate: 'makimaeda | %s',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { 
+        hid: 'description',
+        name: 'description',
+        content: 'Portfoio By maki maeda.' 
+      },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -57,6 +63,9 @@ export default {
       apiKey: process.env.API_KEY,
     },
     mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
+  },
+  generate:{
+    interval: 100,
   }
 }
 

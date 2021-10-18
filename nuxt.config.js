@@ -23,14 +23,15 @@ export default {
     { src: '~/assets/scss/reset.scss', lang: 'scss' },
     { src: '~/assets/scss/common.scss', lang: 'scss' }
   ],
-  plugins: [
-  ],
   components: true,
   buildModules: [
   ],
   modules: [
     "@nuxtjs/axios",
     '@nuxtjs/style-resources',
+  ],
+  plugins: [
+    "~/plugins/magicgrid"
   ],
   build: {
     loaders: {
@@ -40,7 +41,10 @@ export default {
           fiber: Fiber
         }
       }
-    }
+    },
+    transpile: [
+      'vue-magic-grid',
+    ]
   },
   styleResources: {
     scss: ['~/assets/scss/global/_var.scss'],

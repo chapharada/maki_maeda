@@ -11,14 +11,17 @@ body {
   font-family: sans-serif;
   color: #000;
   height: 100%;
+  background: #fff;
 }
 
 #wrapper{
   padding: 24px;
   @include mq(tb){
-    padding: 75px;
+    padding: 75px 32px;
   }
-  
+  @include mq(no){
+    padding: 72px;
+  }
 }
 
 .mainconts{

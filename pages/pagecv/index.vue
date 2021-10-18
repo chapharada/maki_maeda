@@ -30,22 +30,31 @@
 <script>
 
 export default {
-
   async asyncData({ $microcms }) {
-    const data = await $microcms.get({
-      endpoint: 'pagecv',
-    });
-    return {
-      history : data,
+    try{
+      const data = await $microcms.get({
+        endpoint: 'pagecv',
+      })
+      return {
+        history : data,
+      }
+    } catch(err){
+      console.log('だめだ〜')
     }
   },
-  data: function(){
+  created :function(){
+    //reverse_sort
+    this.history.cv.forEach((data, index) => {
+      if( data.reverse == true){
+        this.history.cv[index].yearlist.sort(function(a, b) {
+            return (a.year > b.year) ? -1 : 1;  //オブジェクトの昇順ソート
+        }); 
+      }
+    })
   },
-  mounted() {
-    console.log(process.env.NODE_ENV);
-  }
 }
 </script>
+
 
 <style lang="scss" scoped>
 body{
@@ -94,6 +103,7 @@ body{
         } 
         dd span{
           font-size: 1rem;
+          color: #565656;
         }
       }
     }

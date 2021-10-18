@@ -4,12 +4,16 @@
         <div class="copyright">© maeda maki </div>
         <div class="sns">
           <ul>
-            <li><Nuxtlink to=""><img src="~/assets/img/instagram.svg"></Nuxtlink></li>
+            <li>
+              <NuxtLink to="/pagecv">
+                <img src="~/assets/img/instagram.svg">
+              </Nuxtlink></li>
           </ul>
         </div>
       </div>
     </footer>
 </template>
+
 <style lang="scss" scoped >
 footer{
   font-size: 1.2rem;

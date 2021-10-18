@@ -67,6 +67,15 @@ export default {
   },
   generate:{
     interval: 100,
+    async routes() {
+      const workDetail = await client
+        .get({
+          endpoint: 'work',
+        })
+        .then( async(res)=>{
+          
+        })
+    },
     dir: 'dist',
   }
 }

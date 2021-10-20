@@ -33,12 +33,18 @@ export default {
       console.log('だめだ〜')
     }
   },
-    components: {
+  name: 'index',
+  components: {
     card
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
+  .gridsystem{
+    visibility: hidden;
+    &.active{
+      visibility: visible;
+    }
+  }
 </style>

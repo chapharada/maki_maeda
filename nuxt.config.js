@@ -2,6 +2,15 @@
 const Sass = require('sass')
 const Fiber = require('fibers')
 
+// --microcms-sdk
+import { createClient } from 'microcms-js-sdk'; //ES6
+
+const client = createClient({
+  serviceDomain: process.env.SERVICE_DOMAIN,
+  apiKey: process.env.API_KEY,
+});
+
+
 export default {
   target: 'static',
   head: {
@@ -67,6 +76,19 @@ export default {
   },
   generate:{
     interval: 100,
+    async routes() {
+      const workDetail = await client
+        .get({
+          endpoint: 'works',
+        })
+        .then((res) => 
+          res.contents.map((work) => ({
+            route: `/works/${work.id}`,
+            payload: work
+          }))
+        );
+      return workDetail;
+    },
     dir: 'dist',
   }
 }

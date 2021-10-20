@@ -47,7 +47,8 @@ export default {
     '@nuxtjs/style-resources',
   ],
   plugins: [
-    "~/plugins/magicgrid"
+    "~/plugins/magicgrid",
+    "~/plugins/resize"
   ],
   build: {
     loaders: {

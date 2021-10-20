@@ -18,6 +18,8 @@
     "dotenv": "^9.0.2",
     "fibers": "^5.0.0",
     "global": "^4.4.0",
+    "imagesloaded": "^4.1.4",
+    "lodash": "^4.17.21",
     "microcms-js-sdk": "^1.2.0",
     "module": "^1.1.0",
     "nuxt": "^2.13.3",

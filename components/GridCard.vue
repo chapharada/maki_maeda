@@ -1,5 +1,5 @@
 <template>
-  <div class="card large" >
+  <div class="card large">
     <nuxt-link :to="`works/${item.id}`" >
       <div class="card-image">
         <figure class="image">
@@ -27,30 +27,37 @@ export default {
     return{
       cardGet: false,
     }
-  }
+  },
+   methods: {
+     loaded(){
+       this.cardGet = true
+     }
+   }
 };
 </script>
 
 <style lang="scss" scoped>
-  .card-image{
-    margin-bottom: 0.4rem;
-    img{
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
+  .card{
+    &-image{
+      margin-bottom: 0.4rem;
+      img{
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+      }
     }
-  }
-  .card-content{
-    h2{
-      font-weight: bold;
-      letter-spacing: .05em;
-      font-size: 1.45rem;
-    }
-    p{
-      color: #666;
-      font-size: 1.05rem;
-      line-height: 1.3;
-      letter-spacing: .08em;
+    &-content{
+      h2{
+        font-weight: bold;
+        letter-spacing: .05em;
+        font-size: 1.45rem;
+      }
+      p{
+        color: #666;
+        font-size: 1.05rem;
+        line-height: 1.3;
+        letter-spacing: .08em;
+      }
     }
   }
 </style>

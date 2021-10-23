@@ -4,6 +4,7 @@
       <h1 class="logo"><NuxtLink to="/">maki maeda</NuxtLink></h1>
       <nav class="pc">
         <ul>
+          <li><NuxtLink to="/info/">info</NuxtLink></li>
           <li><NuxtLink to="/works/">works</NuxtLink></li>
           <li><NuxtLink to="/pagecv/">cv</NuxtLink></li>
         </ul>

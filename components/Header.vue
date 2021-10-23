@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="inner">
-      <h1><NuxtLink to="/">maki maeda</NuxtLink></h1>
+      <h1 class="logo"><NuxtLink to="/">maki maeda</NuxtLink></h1>
       <nav class="pc">
         <ul>
           <li><NuxtLink to="/works/">works</NuxtLink></li>
@@ -15,6 +15,9 @@
 
 <style lang="scss" scoped>
 header {
+  h1 a{
+    font-size: 1.45rem;
+  }
   .inner {
     max-width: $max-width;
     margin: 0 auto;

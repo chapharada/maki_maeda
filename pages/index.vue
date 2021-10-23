@@ -2,21 +2,18 @@
 
 <template>
   <main>
-    <div class="gridconts" ref="grid">
-      <div class="item">
-        <div class="content blue-box tp-box">
-          <h2>works</h2>
-          <p>これまでの作品</p>
-        </div>
-      </div>
-      <div class="item" v-for="(cap, data) in ichiran" :key="data" ref="item" >
-        <div class="content art-box">
-          <nuxt-link to="`/works/${cap.id}`">
-            <img :src="cap.cover.url" :alt="cap.midashi">
-            <h3>{{cap.midashi}}</h3>
-            <p>{{cap.caption}}</p>
-          </nuxt-link>
-        </div>
+    <div class="works" ref="grid">
+      <h2>Works</h2>
+      <masonry-wall :items="ichiran" :ssr-columns="1" :column-width="240" :gap="16" :rtl="false" >
+        <template #default="{item}" >
+            <card :item="item" @loaded="handleLoaded"/> 
+        </template>
+      </masonry-wall>
+      <div class="pagelink">
+      <nuxt-link to="#">
+        <div class="text">すべて見る</div>
+        <arrow />
+      </nuxt-link>
       </div>
     </div>
   </main>
@@ -24,7 +21,10 @@
 
 <script>
 import card from "../components/GridCard.vue";
-import resize from "../plugins/resize";
+import arrow from '@/assets/svg/arrow.svg';
+
+// var allLoaded = document.getElementsByClassName('card-image').getElementsByTagName('img');
+// consoel.log(allLoaded)
 
 export default {
   async asyncData({ $microcms }) {
@@ -45,77 +45,93 @@ export default {
   name: "index",
   components: {
     card,
+    arrow
   },
   data(){
     return{
-      gridLoading:false,
-      loadCount: 0,
+      loadedCount: 0,
+      gridShow:false
     }
   },
-  mixins:[resize],
   mounted() {
-      this.resizeAllGridItems();
+     this.$nextTick(function () {
+    })
   },
   methods:{
-    resizeGridItem(item){
-      var grid = this.$refs.grid;
-      var rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-      var rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-      var rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap ) / ( rowHeight + rowGap ) );
-        item.style.gridRowEnd = "span " + rowSpan;
-    },
-    resizeAllGridItems(){
-      var allItems = this.$el.getElementsByClassName("item");
-      for( var item of allItems ){
-        console.log(item)
-        this.resizeGridItem(item);
+    handleLoaded:function(){
+      this.loadedCount++
+      if( this.ichiran.length = this.loadedCount){
+        this.gridShow = true;
       }
-    },
-  },
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-    .gridconts{
-      display: grid;
-      grid-gap: 16px;
-      grid-template-columns: repeat(auto-fill, minmax(410px,1fr));
-      grid-auto-rows: 20px;
-      @include mq(tb){
-        grid-template-columns: repeat(auto-fill, minmax(360px,1fr));
-      }
-      @include mq(no){
-        grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
-      }
-    }
-    .content.blue-box.tp-box {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 140px 0;
-        background: #afdce0;
-        color: #fff;
-    }
-    .item{
-      img{
-        border-radius: 8px;
-        width: 100%;
-      }
-    }
-    h3{
+  .works{
+    margin-bottom: 4rem;
+  }
+  .works > h2 {
       font-weight: bold;
-      color: #e04aa6;
-      letter-spacing: 0.05em;
+      letter-spacing: .08em;
+      padding-bottom: 0.2rem;
+      margin-bottom: 2.4rem;
+      border-bottom: 1px solid #d1d1d1;
+      font-size: 1.5rem;
+      color: #27c4ac;
+  }
+  .card-image{
+    margin-bottom: 0.4rem;
+    img{
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+  }
+  .card-content{
+    h2{
+      font-weight: bold;
+      letter-spacing: .05em;
+      font-size: 1.45rem;
     }
     p{
-      line-height: 1.45;
-      font-size: 1.1rem;
-      color: #047183;
+      color: #666;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      letter-spacing: .08em;
     }
-    .art-box{
+  }
+  .masonry-wall{
+    margin-bottom: 1.6rem;
+  }
+  .works .pagelink{
+    display: flex;
+    justify-content: flex-end;
+    a{
+      background: #fff;
+      border: 2px solid #fc4a2b;
+      border-radius: 32px;
+      height: 48px;
+      letter-spacing: .05em;
+      color: #fc492b;
+      display: inline-flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 4.8rem 0px 4.8rem;
+      width: auto;
+    }
+    .text{
       display: flex;
-      border: 1px solid #000;
-      border-radius: 8px;
-      padding: 20px;
+      width: auto;
+      flex-basis: auto;
+      font-size: 1.4rem;
     }
+    svg{
+      width: 15px;
+      margin: 0px 0px 0px 12px;
+      height: auto;
+    }
+  }
 </style>

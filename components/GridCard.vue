@@ -1,37 +1,31 @@
 <template>
-  <div class="card large">
-    <nuxt-link :to="`${link}`" >
+  <div class="card large" >
+    <nuxt-link :to="`works/${item.id}`" >
       <div class="card-image">
         <figure class="image">
-          <img v-bind:src="image" alt="Image" />
+          <img :src="item.cover.url" alt="item.midashi" @load="loaded"/>
         </figure>
       </div>
       <div class="card-content content">
-        <h2>{{ title }}</h2>
-        <p>{{ body }}</p>
+        <h2>{{ item.midashi }}</h2>
+        <p>{{ item.caption }}</p>
       </div>
     </nuxt-link>
   </div>
 </template>
 
 <script>
+
 export default {
   props: {
-    image: {
-      type: String,
-      default: ""
+    item:{
+      type: Object,
+      countUp:Function,
     },
-    title: {
-      type: String,
-      default: ""
-    },
-    body: {
-      type: String,
-      default: ""
-    },
-    link: {
-      type: String,
-      default: ""
+  },
+  data(){
+    return{
+      cardGet: false,
     }
   }
 };

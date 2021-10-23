@@ -45,10 +45,11 @@ export default {
   modules: [
     "@nuxtjs/axios",
     '@nuxtjs/style-resources',
+    'nuxt-svg-loader'
   ],
   plugins: [
     "~/plugins/magicgrid",
-    "~/plugins/resize"
+    "~/plugins/masornywall",
   ],
   build: {
     loaders: {

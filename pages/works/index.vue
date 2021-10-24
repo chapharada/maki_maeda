@@ -32,6 +32,22 @@ export default {
   components: {
     card
   },
+  data(){
+    return{
+      loadedCount: 0,
+      gridShow:false
+    }
+  },
+  methods:{
+    handleLoaded:function(){
+      this.loadedCount++
+    },
+    allReload:function(){
+      if( this.ichiran.length = this.loadedCount){
+        this.gridShow = true;
+      }
+    }
+  }
 }
 </script>
 

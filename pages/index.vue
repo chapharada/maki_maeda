@@ -2,9 +2,6 @@
 
 <template>
   <main>
-    <div id="mainimage">
-      <img src="" alt="">
-    </div>
     <div id="info">
       <h2 class="cap-title">Info</h2>
       <div class="data">
@@ -49,7 +46,7 @@
           </template>
         </masonry-wall>
       <div class="pagelink">
-      <nuxt-link to="#">
+      <nuxt-link to="/works/">
         <div class="text">すべて見る</div>
         <arrow />
       </nuxt-link>

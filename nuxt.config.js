@@ -47,7 +47,7 @@ export default {
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
     ['nuxt-lazy-load', {
-      defaultImage: '/assets/img/common/default.png',
+      defaultImage: '/img/default.png',
       loadingClass: 'ld',
       loadedClass: 'ld-cpt',
     }]

@@ -6,7 +6,7 @@
           <ul>
             <li>
               <NuxtLink to="/pagecv">
-                <img src="~/assets/img/instagram.svg">
+                <instagram />
               </Nuxtlink></li>
           </ul>
         </div>
@@ -14,7 +14,18 @@
     </footer>
 </template>
 
+<script>
+import instagram from '@/assets/svg/instagram.svg';
+
+export default {
+  components:{
+    instagram
+  }
+}
+</script>
+
 <style lang="scss" scoped >
+
 footer{
   font-size: 1.2rem;
   max-width: $max-width;
@@ -35,8 +46,9 @@ footer{
       display: block;
       height: 16px;
       width: 16px;
-      img{
+      svg{
         width: 100%;
+        height: auto;
         vertical-align: baseline;
       }
     }

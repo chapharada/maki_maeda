@@ -45,9 +45,15 @@ export default {
   modules: [
     "@nuxtjs/axios",
     '@nuxtjs/style-resources',
+    'nuxt-svg-loader',
+    ['nuxt-lazy-load', {
+      defaultImage: '/img/default.png',
+      loadingClass: 'ld',
+      loadedClass: 'ld-cpt',
+    }]
   ],
   plugins: [
-    "~/plugins/magicgrid"
+    "~/plugins/masornywall",
   ],
   build: {
     loaders: {

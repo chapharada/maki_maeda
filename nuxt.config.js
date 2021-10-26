@@ -82,13 +82,6 @@ export default {
   },
   generate:{
     interval: 100,
-    routeCreated({ errors }) {
-      if (errors.length > 0 && errors[0].error) {
-        // console.log(errors)
-        const error = errors[0].error
-        throw new Error(`Failed generate ${error.path} -- ${error.message}`)
-      }
-    },
     async routes() {
       const workDetail = await client
         .get({

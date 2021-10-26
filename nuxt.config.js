@@ -81,6 +81,7 @@ export default {
     mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
   },
   generate:{
+    interval: 100,
     routeCreated({ errors }) {
       if (errors.length > 0 && errors[0].error) {
         // console.log(errors)
@@ -88,7 +89,6 @@ export default {
         throw new Error(`Failed generate ${error.path} -- ${error.message}`)
       }
     },
-    interval: 100,
     async routes() {
       const workDetail = await client
         .get({

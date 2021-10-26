@@ -1,6 +1,6 @@
 //dart sassの処理
-const Sass = require('sass')
 const Fiber = require('fibers')
+const Sass = require('sass')
 
 // --microcms-sdk
 import { createClient } from 'microcms-js-sdk'; //ES6

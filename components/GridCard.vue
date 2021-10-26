@@ -1,6 +1,6 @@
 <template>
   <div class="card large">
-    <nuxt-link :to="`works/${item.id}`" >
+    <nuxt-link :to="`${folder}${item.id}`" >
       <div class="card-image">
         <figure class="image">
           <img :src="item.cover.url" alt="item.midashi" @load="loaded"/>
@@ -20,8 +20,12 @@ export default {
   props: {
     item:{
       type: Object,
-      countUp:Function,
     },
+    folder:{
+      type:String,
+      default:'',
+      require: false
+    }
   },
   data(){
     return{

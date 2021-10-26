@@ -42,7 +42,7 @@
       <h2 class="cap-title">Works</h2>
         <masonry-wall :items="ichiran" :ssr-columns="1" :column-width="240" :gap="16" :rtl="false" >
           <template #default="{item}" >
-              <card :item="item" @loaded="handleLoaded"/> 
+              <card :item="item"  :folder="'works/'" @loaded="handleLoaded"/> 
           </template>
         </masonry-wall>
       <div class="pagelink">

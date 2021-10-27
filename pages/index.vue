@@ -42,7 +42,7 @@
       <h2 class="cap-title">Works</h2>
         <masonry-wall :items="ichiran" :ssr-columns="1" :column-width="240" :gap="16" :rtl="false" >
           <template #default="{item}" >
-              <card :item="item"  :folder="'works/'" @loaded="handleLoaded"/> 
+              <card :item="item"  :folder="'/works/'" @loaded="handleLoaded"/> 
           </template>
         </masonry-wall>
       <div class="pagelink">
@@ -58,9 +58,6 @@
 <script>
 import card from "../components/GridCard.vue";
 import arrow from '@/assets/svg/arrow.svg';
-
-// var allLoaded = document.getElementsByClassName('card-image').getElementsByTagName('img');
-// consoel.log(allLoaded)
 
 export default {
   async asyncData({ $microcms }) {

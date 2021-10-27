@@ -46,12 +46,16 @@ export default {
     "@nuxtjs/axios",
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
+    '@nuxtjs/proxy',
     ['nuxt-lazy-load', {
       defaultImage: '/img/default.png',
       loadingClass: 'ld',
       loadedClass: 'ld-cpt',
     }]
   ],
+  proxy: {
+    '/.netlify': 'http://localhost:9000'
+  },
   plugins: [
     "~/plugins/masornywall",
   ],
@@ -63,10 +67,7 @@ export default {
           fiber: Fiber
         }
       }
-    },
-    transpile: [
-      'vue-magic-grid',
-    ]
+    }
   },
   styleResources: {
     scss: ['~/assets/scss/global/_var.scss'],

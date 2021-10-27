@@ -91,5 +91,3 @@ sw.*
 
 # .nuxtディレクトリを無視
 .nuxt
-
-draft.vue

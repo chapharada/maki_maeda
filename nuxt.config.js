@@ -46,16 +46,12 @@ export default {
     "@nuxtjs/axios",
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
-    '@nuxtjs/proxy',
     ['nuxt-lazy-load', {
       defaultImage: '/img/default.png',
       loadingClass: 'ld',
       loadedClass: 'ld-cpt',
     }]
   ],
-  proxy: {
-    '/.netlify': 'http://localhost:9000'
-  },
   plugins: [
     "~/plugins/masornywall",
   ],

@@ -69,7 +69,7 @@ typings/
 .nuxt
 
 # Nuxt generate
-200.html
+dist/200.html
 
 # vuepress build output
 .vuepress/dist

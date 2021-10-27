@@ -37,12 +37,16 @@ export default {
   },
   async created() {
     const query = this.$route.query;
-    if ( query.draftKey === undefined) {
+    if (query.draftKey === undefined) {
       return;
     }
     const { data } = await axios.get(
-      `/.netlify/functions/pagecv/draft?draftKey=${query.draftKey}`,
-    );
+        `https://maedamaki.microcms.io/api/v1/pagecv?draftKey=${query.draftKey}`,
+      {
+        headers: { 'X-MICROCMS-API-KEY': '979601df4f7940ffa39f9c5afc3cf197dd75' }
+      }
+    )
+    console.log(data)
     this.history = data;
 
     this.history.cv.forEach((data, index) => {

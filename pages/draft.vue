@@ -28,16 +28,17 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
   data() {
     return {
-      history: []
+      history: {}
     };
   },
   async created() {
     const query = this.$route.query;
-    if ( query.draftKey === undefined) {
+    if ( query.id === undefined || query.draftKey === undefined) {
       return;
     }
     const { data } = await axios.get(

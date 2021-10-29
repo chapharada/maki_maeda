@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "netlify-lambda serve functions/ & nuxt",
+    "generate": "netlify-lambda build functions/ && nuxt generate",
     "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "function:build": "netlify-lambda build functions/"
+    "start": "nuxt start"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

@@ -91,3 +91,5 @@ sw.*
 
 # .nuxtディレクトリを無視
 .nuxt
+
+dist/_headers

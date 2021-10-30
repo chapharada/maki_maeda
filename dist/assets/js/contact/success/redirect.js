@@ -1,1 +1,0 @@
-sessionStorage.getItem("formcache")?sessionStorage.removeItem("formcache"):window.location.href="/contact/";

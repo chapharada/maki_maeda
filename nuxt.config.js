@@ -29,6 +29,7 @@ export default {
         name: 'description',
         content: 'Portfoio By maki maeda.' 
       },
+      { hid: "robots", name: "robots", content: "noindex" },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [

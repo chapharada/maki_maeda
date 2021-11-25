@@ -42,8 +42,6 @@ export default {
     { src: '~/assets/scss/common.scss', lang: 'scss' }
   ],
   components: true,
-  buildModules: [
-  ],
   modules: [
     "@nuxtjs/axios",
     '@nuxtjs/style-resources',

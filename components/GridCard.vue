@@ -1,6 +1,6 @@
 <template>
   <div class="card large">
-    <nuxt-link :to="`${folder}${item.id}`" >
+    <a :href="`${folder}${item.id}`" >
       <div class="card-image">
         <figure class="image">
           <img :src="item.cover.url" alt="item.midashi" @load="loaded"/>
@@ -10,7 +10,7 @@
         <h2>{{ item.midashi }}</h2>
         <p>{{ item.caption }}</p>
       </div>
-    </nuxt-link>
+    </a>
   </div>
 </template>
 

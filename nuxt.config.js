@@ -12,7 +12,7 @@ const client = createClient({
 
 
 export default {
-  target: 'static',
+  target: 'server',
   ssr: 'true',
   head: {
     title: 'makiMaeda',

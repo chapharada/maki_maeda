@@ -46,12 +46,18 @@ export default {
     "@nuxtjs/axios",
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
+    'nuxt-basic-auth-module',
     ['nuxt-lazy-load', {
       defaultImage: '/img/default.png',
       loadingClass: 'ld',
       loadedClass: 'ld-cpt',
     }]
   ],
+  basic: {
+    name: 'admin',
+    pass: 'admin',
+    enabled: true
+  },
   plugins: [
     "~/plugins/masornywall",
   ],

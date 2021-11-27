@@ -5,9 +5,9 @@
         <div class="sns">
           <ul>
             <li>
-              <NuxtLink to="/pagecv">
+              <a href="/pagecv">
                 <instagram />
-              </Nuxtlink></li>
+              </a></li>
           </ul>
         </div>
       </div>

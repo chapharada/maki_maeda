@@ -1,14 +1,14 @@
 <template>
   <header>
     <div class="inner">
-      <h1 class="logo"><NuxtLink to="/">maki maeda</NuxtLink></h1>
+      <h1 class="logo"><a href="/">maki maeda</a></h1>
       <nav class="pc">
         <ul>
-          <li><NuxtLink to="/info/">info</NuxtLink></li>
-          <li><NuxtLink to="/works/">works</NuxtLink></li>
-          <li><NuxtLink to="/pagecv/">cv</NuxtLink></li>
+          <li><a href="/info/">info</a></li>
+          <li><a href="/works/">works</a></li>
+          <li><a href="/pagecv/">cv</a></li>
         </ul>
-        <div class="act"><NuxtLink to="/contact/">contact</NuxtLink></div>
+        <div class="act"><a href="/contact/">contact</a></div>
       </nav>
     </div>
   </header>

@@ -13,6 +13,7 @@ const client = createClient({
 
 export default {
   target: 'static',
+  ssr: 'true',
   head: {
     title: 'makiMaeda',
     titleTemplate: '%s - makiMaeda',
@@ -29,6 +30,7 @@ export default {
         name: 'description',
         content: 'Portfoio By maki maeda.' 
       },
+      { hid: "robots", name: "robots", content: "noindex" },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -40,18 +42,22 @@ export default {
     { src: '~/assets/scss/common.scss', lang: 'scss' }
   ],
   components: true,
-  buildModules: [
-  ],
   modules: [
     "@nuxtjs/axios",
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
+    'nuxt-basic-auth-module',
     ['nuxt-lazy-load', {
       defaultImage: '/img/default.png',
       loadingClass: 'ld',
       loadedClass: 'ld-cpt',
     }]
   ],
+  basic: {
+    name: 'admin',
+    pass: 'admin',
+    enabled: true
+  },
   plugins: [
     "~/plugins/masornywall",
   ],

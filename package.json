@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nuxt",
     "generate": "nuxt generate",
+    "build": "nuxt generate",
     "start": "nuxt start"
   },
   "dependencies": {
@@ -33,6 +34,7 @@
     "sass": "^1.42.1",
     "sass-loader": "^10.2.0",
     "set-value": "^4.1.0",
+    "vercel": "^23.1.2",
     "vue-images-loaded": "^1.1.2",
     "vue-magic-grid": "^0.0.4",
     "webpack": "^4.46.0",

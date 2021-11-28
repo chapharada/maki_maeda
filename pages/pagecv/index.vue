@@ -30,28 +30,33 @@
 <script>
 
 export default {
-  async asyncData({ $microcms }) {
-    try{
-      const data = await $microcms.get({
-        endpoint: 'pagecv',
+  data() {
+    return {
+      history: {}
+    };
+  },
+  async created() {
+      const query = this.$route.query;
+      if (query.draftKey === undefined) {
+        return;
+      }
+      const { data } = await axios.get(
+        `https://maedamaki.microcms.io/api/v1/pagecv?draftKey=${query.draftKey}`,
+        {
+          headers: { 'X-MICROCMS-API-KEY': '979601df4f7940ffa39f9c5afc3cf197dd75' }
+        }
+      )
+      this.history = data;
+      
+      //reverse_sort
+      this.history.cv.forEach((data, index) => {
+        if( data.reverse == true){
+          this.history.cv[index].yearlist.sort(function(a, b) {
+              return (a.year > b.year) ? -1 : 1;  //オブジェクトの昇順ソート
+          }); 
+        }
       })
-      return {
-        history : data,
-      }
-    } catch(err){
-      console.log('だめだ〜')
-    }
-  },
-  created :function(){
-    //reverse_sort
-    this.history.cv.forEach((data, index) => {
-      if( data.reverse == true){
-        this.history.cv[index].yearlist.sort(function(a, b) {
-            return (a.year > b.year) ? -1 : 1;  //オブジェクトの昇順ソート
-        }); 
-      }
-    })
-  },
+  }
 }
 </script>
 

@@ -54,9 +54,9 @@ export default {
     }]
   ],
   basic: {
-    name: 'admin',
-    pass: 'admin',
-    enabled: true
+    name: process.env.BASIC_NAME || 'watasiwamikata',
+    pass: process.env.BASIC_PASSWORD || '20010620',
+    enabled: process.env.DEV_LOCK_KEY === 'true'
   },
   plugins: [
     "~/plugins/masornywall",

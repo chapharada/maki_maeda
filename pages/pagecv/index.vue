@@ -48,7 +48,8 @@ export default {
         }
       )
       this.history = data;
-      
+  },
+  mounted() {
       //reverse_sort
       this.history.cv.forEach((data, index) => {
         if( data.reverse == true){
@@ -57,7 +58,7 @@ export default {
           }); 
         }
       })
-  }
+  },
 }
 </script>
 

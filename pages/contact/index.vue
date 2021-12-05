@@ -166,19 +166,22 @@ export default {
       params.append("message", this.form.message);
       return params;
     },
-    submitForm() {
-      const params = this.setParams();
-      axios
-        .post("/", params)
-        .then(() => {
-          sessionStorage.setItem("formcache", true);
-          location.href = "/contact/success/";
-        })
-        .catch(function (error) {
+    async submitForm() {
+        try {
+          await this.$axios({
+            method: 'post',
+            url: '/api/sendemail',
+            data: { ...this.form }
+          })
+          .then(() => {
+            sessionStorage.setItem("formcache", true);
+            this.$router.push('/contact/success/')
+          })
+        } catch(error) {
           console.log(error.response);
           console.log("エラーです。");
-        });
-    },
+        }
+    }, 
   },
 };
 </script>

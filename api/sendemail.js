@@ -1,17 +1,19 @@
 const express = require("express");
+const request = require('request');
 const bodyParser = require('body-parser')
-const app = express();
 const sgMail = require('@sendgrid/mail');
+const app = express();
 
-app.use(bodyParser.json())
+app.use(express.json())
+
 app.post("/", (req, res) => {
 
     if(req.method == 'POST'){
         sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-  
+        
         // POSTデータを取得
-        const data = req.body.data
-  
+        const data = req.body
+
         // テンプレートデータを作成
         var msg = {
             'personalizations': [

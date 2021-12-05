@@ -33,6 +33,7 @@
     "nuxt-lazy-load": "^1.2.7",
     "nuxt-microcms-module": "^1.0.1",
     "nuxt-svg-loader": "^1.2.0",
+    "request": "^2.88.2",
     "sass": "^1.42.1",
     "sass-loader": "^10.2.0",
     "sendgrid": "^5.2.3",

@@ -80,6 +80,6 @@ app.post("/", (req, res) => {
 });
 
 module.exports = {
-    path: "/api/send-email",
+    path: "/api/sendemail",
     handler: app
 };

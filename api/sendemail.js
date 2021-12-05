@@ -1,8 +1,9 @@
 const express = require("express");
+const bodyParser = require('body-parser')
+const app = express();
 const sgMail = require('@sendgrid/mail');
 
-const app = express();
-
+app.use(bodyParser.json())
 app.post("/", (req, res) => {
 
     if(req.method == 'POST'){
@@ -12,7 +13,7 @@ app.post("/", (req, res) => {
         const data = req.body.data
   
         // テンプレートデータを作成
-        let  msg = {
+        var msg = {
             'personalizations': [
                 {
                     'to': [
@@ -43,7 +44,7 @@ app.post("/", (req, res) => {
             'template_id': process.env.TEMPLATE_ID
         }
   
-        const cmd_data = {
+        var cmd_data = {
             'name':data['name'],
             'email':data['email'],
             'message':data['message']
@@ -72,12 +73,10 @@ app.post("/", (req, res) => {
                 res.statusCode = 500
                 res.send(error)
             })
-  
     }else{
         res.statusCode = 400
         res.send({error: new Error('invalid parameters')})
     }
-
 });
 
 module.exports = {

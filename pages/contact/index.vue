@@ -28,14 +28,11 @@
             </div>
           </div>
           <div class="formbox">
-          <client-only>
             <form
               name="contact"
               method="POST"
               @submit.prevent="validateForm"
               novalidate="novalidate"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
             >
               <div class="area">
                 <input type="hidden" name="contact" value="ask-question" />
@@ -75,7 +72,6 @@
                 <button type="submit">送信する</button>
               </div>
             </form>
-          </client-only>
           </div>
         </div>
       </div>

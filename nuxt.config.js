@@ -75,7 +75,7 @@ export default {
     scss: ['~/assets/scss/global/_var.scss'],
     scss: ['~/assets/scss/global/_mixin.scss'],
   },
-  serverMiddleware: ['~/api/send-email.js'],
+  serverMiddleware: ['~/api/sendemail.js'],
   buildModules: ['nuxt-microcms-module'],
   microcms: {
     options: {

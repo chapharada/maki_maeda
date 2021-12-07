@@ -25,18 +25,23 @@
 
 <script>
 export default {
-  async asyncData({ params, $microcms }) {
-    try {
-      const data = await $microcms.get({
-        endpoint: "works",
-        contentId: params.slug,
-      });
-      return {
-        article: data,
-      };
-    } catch (err) {
-      console.log("だめだ〜");
+  async created() {
+    const query = this.$route.query;
+    if (query.id === undefined || query.draftKey === undefined) {
+      return;
     }
+    const { data } = await axios.get(
+      `https://maedamaki.microcms.io/api/v1/works/${query.id}?draftKey=${query.draftKey}`,
+      {
+        headers: { 'X-MICROCMS-API-KEY': '979601df4f7940ffa39f9c5afc3cf197dd75' }
+      }
+    )
+    this.article = data;
+  },
+    data() {
+    return {
+      article: {}
+    };
   },
 };
 </script>

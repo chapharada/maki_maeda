@@ -17,18 +17,17 @@
 import card from "~/components/GridCard.vue";
 
 export default {
-    async created() {
-      const query = this.$route.query;
-      if (query.draftKey === undefined) {
-        return;
+    async asyncData({ $microcms }) {
+    try{
+      const data = await $microcms.get({
+        endpoint: 'works',
+      })
+      return {
+        ichiran: data.contents
       }
-      const { data } = await axios.get(
-        `https://maedamaki.microcms.io/api/v1/works?draftKey=${query.draftKey}`,
-        {
-          headers: { 'X-MICROCMS-API-KEY': '979601df4f7940ffa39f9c5afc3cf197dd75' }
-        }
-      )
-      this.ichiran = data.contents;
+    } catch(err){
+      console.log('だめだ〜')
+    }
   },
   components: {
     card
@@ -36,8 +35,7 @@ export default {
   data(){
     return{
       loadedCount: 0,
-      gridShow:false,
-      ichiran:[],
+      gridShow:false
     }
   },
   methods:{

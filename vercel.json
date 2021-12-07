@@ -7,7 +7,7 @@
             "serverFiles": [
               "package.json",
               "static/**",
-              "server-middleware/**"
+              "api/**"
             ]
         }
       }

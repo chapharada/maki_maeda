@@ -59,7 +59,7 @@ app.post("/", (req, res) => {
                 // CMSに保存
                 request.post({
                     uri: process.env.CMS_API_URL,
-                    headers: { 'Content-type': 'application/json', 'X-WRITE-API-KEY':process.env.API_KEY },
+                    headers: { 'Content-Type': 'application/json', 'X-MICROCMS-API-KEY':process.env.API_KEY },
                     json: cmd_data
                 }, (err, response) => {
                     if(err){

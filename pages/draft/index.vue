@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <div class="content">
+    <div class="content" v-if="this.preview">
       <div class="top">
         <img :src="article.cover.url" :alt="`${article.midashi}`" />
         <h2 v-if="article.midashi">{{ article.midashi }}</h2>
@@ -25,18 +25,25 @@
 
 <script>
 export default {
-  async asyncData({ params, $microcms }) {
-    try {
-      const data = await $microcms.get({
-        endpoint: "works",
-        contentId: params.slug,
-      });
-      return {
-        article: data,
-      };
-    } catch (err) {
-      console.log("だめだ〜");
+  data() {
+    return {
+      article: {},
+      preview: false
+    };
+  },
+  async created() {
+    const query = this.$route.query;
+    if (query.id === undefined || query.draftKey === undefined) {
+      return;
     }
+    const { data } = await axios.get(
+      `https://maedamaki.microcms.io/api/v1/works/${query.id}?draftKey=${query.draftKey}`,
+      {
+        headers: { 'X-MICROCMS-API-KEY': '979601df4f7940ffa39f9c5afc3cf197dd75' }
+      }
+    )
+    this.article = data;
+    this.preview = true;
   },
 };
 </script>

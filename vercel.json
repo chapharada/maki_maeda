@@ -6,7 +6,8 @@
         "config": {
             "serverFiles": [
               "package.json",
-              "static/**"
+              "static/**",
+              "server-middleware/**"
             ]
         }
       }

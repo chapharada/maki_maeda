@@ -12,7 +12,7 @@
             <h2>Email:</h2>
             <div class="link">
               <a
-                href="mailto:maeda.m1217@gmail.com "
+                to="mailto:maeda.m1217@gmail.com "
                 data-link-type="mailto"
                 data-link-value="maeda.m1217@gmail.com "
                 >maeda.m1217@gmail.com

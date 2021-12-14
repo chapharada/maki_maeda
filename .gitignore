@@ -93,3 +93,4 @@ sw.*
 .nuxt
 
 dist/_headers
+.vercel

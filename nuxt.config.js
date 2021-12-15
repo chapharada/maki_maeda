@@ -87,6 +87,15 @@ export default {
   generate:{
     interval: 100,
     async routes() {
+
+      //経歴一覧
+      const popularArticles = (
+        await client.get({
+          endpoint: 'works',
+        })
+      );
+
+      //経歴詳細ページ
       const workDetail = await client
         .get({
           endpoint: 'works',
@@ -97,7 +106,33 @@ export default {
             payload: work
           }))
         );
-      return workDetail;
+      
+      // topページ
+      const index = {
+        route: '/',
+        payload: popularArticles,
+      }
+
+      //work一覧ページ
+      const works = {
+        route: '/works',
+        payload: popularArticles,
+      }
+
+      // pagecv
+      const pagecv = {
+        route: '/pagecv',
+        payload: await client.get({
+          endpoint: 'pagecv',
+        }),
+      }
+  
+      return [
+        index,
+        works,
+        pagecv,
+        ...workDetail,
+      ];
     },
     dir: 'dist',
   }

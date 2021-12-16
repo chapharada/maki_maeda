@@ -60,17 +60,23 @@ import card from "../components/GridCard.vue";
 import arrow from '@/assets/svg/arrow.svg';
 
 export default {
-  async asyncData({ $microcms }) {
+  async asyncData({ $microcms,payload }) {
     try {
-      const data = await $microcms.get({
-        endpoint: "works",
-        queries: {
-          limit: 10,
-        },
-      });
-      return {
-        ichiran: data.contents,
-      };
+      if(payload){
+        return{
+          ichiran: payload.contents
+        };
+      }else{
+        const data = await $microcms.get({
+          endpoint: "works",
+          queries: {
+            limit: 10,
+          },
+        });
+        return {
+          ichiran: data.contents,
+        };
+      }
     } catch (err) {
       console.log("だめだ〜");
     }

@@ -61,24 +61,26 @@ import arrow from '@/assets/svg/arrow.svg';
 
 export default {
   async asyncData({ $microcms,payload }) {
-    try {
-      if(payload){
-        return{
-          ichiran: payload.contents
-        };
-      }else{
-        const data = await $microcms.get({
-          endpoint: "works",
-          queries: {
-            limit: 10,
-          },
-        });
-        return {
-          ichiran: data.contents,
-        };
+    if(process.static == true){
+      try {
+        if(payload){
+          return{
+            ichiran: payload.contents
+          };
+        }else{
+          const data = await $microcms.get({
+            endpoint: "works",
+            queries: {
+              limit: 10,
+            },
+          });
+          return {
+            ichiran: data.contents,
+          };
+        }
+      } catch (err) {
+        console.log("だめだ〜");
       }
-    } catch (err) {
-      console.log("だめだ〜");
     }
   },
   name: "index",

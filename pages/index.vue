@@ -61,7 +61,6 @@ import arrow from '@/assets/svg/arrow.svg';
 
 export default {
   async asyncData({ $microcms,payload }) {
-    if(process.server == true){
       try {
         if(payload){
           return{
@@ -81,7 +80,6 @@ export default {
       } catch (err) {
         console.log("だめだ〜");
       }
-    }
   },
   name: "index",
   components: {

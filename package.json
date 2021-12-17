@@ -6,8 +6,7 @@
     "dev": "nuxt",
     "generate": "nuxt generate",
     "build": "nuxt generate",
-    "start": "nuxt start",
-    "vercel-build":"nuxt generate"
+    "start": "nuxt start"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

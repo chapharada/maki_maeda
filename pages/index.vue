@@ -65,7 +65,7 @@ export default {
       return{
         ichiran: payload.contents
       };
-    }else{
+    }else if($microcms){
       const data = await $microcms.get({
         endpoint: "works",
         queries: {

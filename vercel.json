@@ -22,6 +22,8 @@
         "Cache-Control": "public, max-age=0, must-revalidate",
         "Service-Worker-Allowed": "/"
       }
-    }
+    },
+    { "src": "/_nuxt/.+", "headers": { "Cache-Control": "max-age=31557600" } },
+    { "src": "/(.*)", "dest": "/" }
   ]
 }

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nuxt",
     "generate": "nuxt generate",
+    "vercel-build": "nuxt generate",
     "build": "nuxt generate",
     "start": "nuxt start"
   },

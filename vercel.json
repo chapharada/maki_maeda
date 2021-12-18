@@ -23,18 +23,7 @@
         "Service-Worker-Allowed": "/"
       }
     },
-    { "src": "/_nuxt/.+", "headers": { "Cache-Control": "max-age=31557600" } },
+    { "src": "/dist/_nuxt/.+", "headers": { "Cache-Control": "public, max-age=0, must-revalidate" } },
     { "src": "/(.*)", "dest": "/" }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "s-maxage=60, stale-while-revalidate=604800"
-        }
-      ]
-    }
   ]
 }

@@ -7,7 +7,6 @@
     "generate": "nuxt generate",
     "vercel-build": "nuxt generate",
     "build": "nuxt generate",
-    "vercel-build": "nuxt generate",
     "start": "nuxt start"
   },
   "dependencies": {

@@ -7,6 +7,7 @@
     "generate": "nuxt generate",
     "vercel-build": "nuxt generate",
     "build": "nuxt generate",
+    "vercel-build": "nuxt generate",
     "start": "nuxt start"
   },
   "dependencies": {
@@ -16,6 +17,7 @@
     "@nuxtjs/style-resources": "^1.2.1",
     "@nuxtjs/vercel-builder": "^0.22.1",
     "@sendgrid/mail": "^7.6.0",
+    "@vercel/static-build": "^0.18.0",
     "@yeger/vue2-masonry-wall": "^2.0.2",
     "ansi-regex": "^2.1.1",
     "axios": "^0.21.4",
@@ -43,6 +45,5 @@
     "vue-images-loaded": "^1.1.2",
     "webpack": "^4.46.0",
     "webpack-cli": "^4.9.0"
-  },
-  "devDependencies": {}
+  }
 }

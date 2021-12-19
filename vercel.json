@@ -8,7 +8,8 @@
           "serverFiles": [
             "package.json",
             "static/**",
-            "api/**"
+            "api/**",
+            "_nuxt/static/**/*"
           ],
           "generateStaticRoutes": true
       }

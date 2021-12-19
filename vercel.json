@@ -26,7 +26,11 @@
         "Service-Worker-Allowed": "/"
       }
     },
-    { "src": "/_nuxt/.+", "headers": { "Cache-Control": "public, max-age=0, must-revalidate" } },
+    { 
+      "src": "/_nuxt/.+", 
+      "headers": { "Cache-Control": "public, max-age=0, must-revalidate" } ,
+      "continue": true
+    },
     { "src": "/(.*)", "dest": "/" }
   ]
 }

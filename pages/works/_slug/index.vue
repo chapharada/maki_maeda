@@ -3,22 +3,22 @@
     <div class="content">
       <div class="top">
         <img :src="article.cover.url" :alt="`${article.midashi}`" />
-        <h2 v-if="article.midashi">{{ article.midashi }}</h2>
-        <p v-if="article.caption">{{ article.caption }}</p>
+        <h2 v-show="article.midashi">{{ article.midashi }}</h2>
+        <p v-show="article.caption">{{ article.caption }}</p>
       </div>
       <div class="middle">
         <div class="list" v-for="data of article.detail" :key="data.id">
           <img :src="data.detail_img.url" />
-          <div class="title" v-if="data.detail_title">
+          <div class="title" v-show="data.detail_title">
             {{ data.detail_title }}
           </div>
-          <div class="caption" v-if="data.detail_caption">
+          <div class="caption" v-show="data.detail_caption">
             {{ data.detail_caption }}
           </div>
         </div>
       </div>
-        <div class="explain" v-if="article.detail_explain">{{ article.detail_explain }}</div>
-        <div class="locate" v-if="article.venue">{{article.venue}}</div>
+        <div class="explain" v-show="article.detail_explain">{{ article.detail_explain }}</div>
+        <div class="locate" v-show="article.venue">{{article.venue}}</div>
     </div>
   </main>
 </template>

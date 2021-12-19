@@ -17,7 +17,7 @@
               <dl>
                 <div v-for="(act) in data.yearlist" :key="act.index">
                   <dt>{{act.year}}</dt>
-                  <dd>{{act.detail}}<template v-if="act.locate"><span>（{{act.locate}}）</span></template></dd>
+                  <dd>{{act.detail}}<template v-show="act.locate"><span>（{{act.locate}}）</span></template></dd>
                 </div>
               </dl>
             </div>

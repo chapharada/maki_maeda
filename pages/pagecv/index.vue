@@ -17,7 +17,7 @@
               <dl>
                 <div v-for="(act) in data.yearlist" :key="act.index">
                   <dt>{{act.year}}</dt>
-                  <dd>{{act.detail}}<template v-show="act.locate"><span>（{{act.locate}}）</span></template></dd>
+                  <dd>{{act.detail}}<span v-show="act.locate">（{{act.locate}}）</span></dd>
                 </div>
               </dl>
             </div>
@@ -30,16 +30,18 @@
 <script>
 
 export default {
-  async asyncData({ $microcms }) {
-    try{
+  async asyncData({ $microcms ,payload}) {
+    if(payload){
+      return{
+        history : payload,
+      };
+    }else if($microcms){
       const data = await $microcms.get({
         endpoint: 'pagecv',
       })
       return {
         history : data,
       }
-    } catch(err){
-      console.log('だめだ〜')
     }
   },
   created :function(){

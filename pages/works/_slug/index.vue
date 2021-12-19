@@ -25,8 +25,12 @@
 
 <script>
 export default {
-  async asyncData({ params, $microcms }) {
-    try {
+  async asyncData({ params, $microcms , payload }) {
+    if(payload){
+      return{
+        article: payload
+      };
+    }else if($microcms){
       const data = await $microcms.get({
         endpoint: "works",
         contentId: params.slug,
@@ -34,8 +38,6 @@ export default {
       return {
         article: data,
       };
-    } catch (err) {
-      console.log("だめだ〜");
     }
   },
 };

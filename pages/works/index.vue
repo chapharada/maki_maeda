@@ -17,17 +17,19 @@
 import card from "~/components/GridCard.vue";
 
 export default {
-    async asyncData({ $microcms }) {
-    try{
-      const data = await $microcms.get({
-        endpoint: 'works',
-      })
-      return {
-        ichiran: data.contents
+    async asyncData({ $microcms,payload}) {
+      if(payload){
+        return{
+          ichiran: payload.contents
+        };
+      }else if($microcms){      
+        const data = await $microcms.get({
+          endpoint: 'works',
+        })
+        return {
+          ichiran: data.contents
+        }
       }
-    } catch(err){
-      console.log('だめだ〜')
-    }
   },
   components: {
     card

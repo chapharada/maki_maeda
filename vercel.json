@@ -8,8 +8,7 @@
           "serverFiles": [
             "package.json",
             "static/**",
-            "api/**",
-            "_nuxt/static/**/*"
+            "api/**"
           ],
           "generateStaticRoutes": true
       }
@@ -24,7 +23,6 @@
         "Service-Worker-Allowed": "/"
       }
     },
-    { "src": "/_nuxt/.+", "headers": { "Cache-Control": "public, max-age=0, must-revalidate" } },
     { "src": "/(.*)", "dest": "/" }
   ]
 }

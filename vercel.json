@@ -16,12 +16,6 @@
   ],
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/_nuxt/.+", "headers": { "Cache-Control": "public, max-age=0, must-revalidate" } },
-    {
-      "src": "/(.*)",
-      "headers": { "cache-control": "s-maxage=1, stale-while-revalidate " },
-      "dest": "/"
-    },
     {
       "src": "/sw.js",
       "continue": true,

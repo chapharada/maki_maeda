@@ -14,8 +14,10 @@
       } 
     }
   ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
   "routes": [
-    { "handle": "filesystem" },
     {
       "src": "/sw.js",
       "continue": true,

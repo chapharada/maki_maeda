@@ -9,8 +9,7 @@
             "package.json",
             "static/**",
             "api/**"
-          ],
-          "generateStaticRoutes": true
+          ]
       } 
     }
   ],

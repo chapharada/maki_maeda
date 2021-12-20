@@ -17,12 +17,8 @@
   "routes": [
     { "handle": "filesystem"},
     {
-      "src": "/(.*)",
-      "continue": true,
-      "headers" :{
-        "key" : "Cache-Control",
-        "value" : "s-maxage=43200, stale-while-revalidate"
-      }
+      "src": "/(.+)",
+      "dest": "index.html"
     },
     {
       "src": "/sw.js",

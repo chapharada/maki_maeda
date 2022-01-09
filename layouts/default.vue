@@ -1,12 +1,17 @@
 
 <template>
-  <div id="wrapper">
+  <div id="wrapper" class="flex">
     <Header />
-    <nuxt />
-    <Footer />
+    <main>
+      <div id="conts">
+        <nuxt />
+      </div>
+      <Footer />
+    </main>
   </div>
 </template>
 <script>
+  import svgLoader from "~/components/svgLoader.vue"
   import Header from "~/components/Header.vue";
   import Footer from "~/components/Footer.vue";
 
@@ -14,14 +19,12 @@
     components: {
       Header,
       Footer,
+      svgLoader,
     },
   };
 </script>
 
 <style lang="scss" scoped >
-  #wrapper{
-    max-width: $max-width;
-    margin: 0 auto;
-  }
+
 </style>
 

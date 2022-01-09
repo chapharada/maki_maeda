@@ -1,7 +1,7 @@
 
 
 <template>
-  <main>
+  <section>
     <div class="works" ref="grid">
       <h2 class="cap-title">Works</h2>
         <masonry-wall :items="ichiran" :ssr-columns="1" :column-width="240" :gap="16" :rtl="false" >
@@ -10,7 +10,7 @@
           </template>
         </masonry-wall>
     </div>
-  </main>
+  </section>
 </template>
 
 <script>

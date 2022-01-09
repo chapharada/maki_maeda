@@ -46,6 +46,7 @@ export default {
     "@nuxtjs/axios",
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
+    'nuxt-webfontloader',
     'nuxt-basic-auth-module',
     ['nuxt-lazy-load', {
       defaultImage: '/img/default.png',
@@ -53,6 +54,11 @@ export default {
       loadedClass: 'ld-cpt',
     }]
   ],
+  webfontloader: {
+    google: {
+      families: ['Zen+Maru+Gothic:400,500,700','Nunito:500,700'] 
+    }
+  },
   basic: {
     name: process.env.BASIC_NAME || 'watasiwamikata',
     pass: process.env.BASIC_PASSWORD || '20010620',

@@ -2,14 +2,6 @@
     <footer>
       <div class="inner">
         <div class="copyright">© maeda maki </div>
-        <div class="sns">
-          <ul>
-            <li>
-              <nuxt-link to="/pagecv">
-                <instagram />
-              </nuxt-link></li>
-          </ul>
-        </div>
       </div>
     </footer>
 </template>

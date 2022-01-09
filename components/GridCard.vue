@@ -42,6 +42,10 @@ export default {
 
 <style lang="scss" scoped>
   .card{
+    margin-bottom: 4.8rem;
+    @include mq(no){
+      margin-bottom: 0;
+    }
     &-image{
       margin-bottom: 0.4rem;
       img{
@@ -53,14 +57,16 @@ export default {
     &-content{
       h2{
         font-weight: bold;
-        letter-spacing: .05em;
         font-size: 1.45rem;
       }
       p{
         color: #666;
-        font-size: 1.05rem;
+        font-size: 1rem;
+        @include mq(no){
+          font-size: 1.05rem;
+        }
         line-height: 1.3;
-        letter-spacing: .08em;
+        font-weight: 400;
       }
     }
   }

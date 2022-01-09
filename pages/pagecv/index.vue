@@ -1,7 +1,7 @@
 
 
 <template>
-    <main>
+    <section>
       <div class="cv mainconts">
         <div class="inner">
           <div class="heading">
@@ -12,6 +12,9 @@
               <h2 class="title">maeda maki | 前田 真喜</h2>
               <p class="explain">{{history.profile}}</p>
             </div>
+            <div class="block visual">
+              <img src="~/assets/img/pagecv/profile.png" alt="">
+            </div>            
             <div class="block list" v-for="(data) in history.cv" :key="data.index">
               <h2 class="title">{{data.title}}</h2>
               <dl>
@@ -24,7 +27,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </section>
 </template>
 
 <script>
@@ -85,7 +88,7 @@ body{
   .conts{
     .block{
       &:not(:last-child){
-        margin-bottom: 3.2rem;
+        margin-bottom: 7.2rem;
       }
       p + p{
         margin-top: 1.6rem;

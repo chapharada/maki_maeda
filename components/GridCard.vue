@@ -6,10 +6,10 @@
           <img :src="item.cover.url" alt="item.midashi" @load="loaded"/>
         </figure>
       </div>
-      <div class="card-content content">
+      <!-- <div class="card-content content">
         <h2>{{ item.midashi }}</h2>
         <p>{{ item.caption }}</p>
-      </div>
+      </div> -->
     </nuxt-link>
   </div>
 </template>

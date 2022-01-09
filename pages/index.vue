@@ -46,7 +46,7 @@
       </div>
       <div class="works" ref="grid">
         <h2 class="cap-title">これまでの作品</h2>
-          <masonry-wall :items="ichiran" :ssr-columns="1" :column-width="240" :gap="16" :rtl="false" transition-duration="0.3s">
+          <masonry-wall :items="ichiran" :ssr-columns="1" :column-width="320" :gap="16" :rtl="false" transition-duration="0.3s">
             <template #default="{item}" >
                 <card :item="item"  :folder="'/works/'" @loaded="handleLoaded"/> 
             </template>

@@ -10,7 +10,6 @@
           </nuxt-link>
       </div>
       <nav class="pc mainmenu">
-         <nuxt-link to="/info/">お知らせ</nuxt-link>
          <nuxt-link to="/works/">これまでの作品</nuxt-link>
          <nuxt-link to="/pagecv/">まえだ？</nuxt-link>
         <div class="act"><nuxt-link to="/contact/">お問い合わせ</nuxt-link></div>

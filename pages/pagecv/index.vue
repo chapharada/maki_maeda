@@ -8,7 +8,8 @@
             <h1>cv </h1>
           </div>
           <div class="conts">
-            <div class="block autor">
+            <div class="inner" v-html="history.edit"></div>
+            <!-- <div class="block autor">
               <h2 class="title">maeda maki | 前田 真喜</h2>
               <p class="explain">{{history.profile}}</p>
             </div>
@@ -20,7 +21,7 @@
                   <dd>{{act.detail}}<template v-if="act.locate"><span>（{{act.locate}}）</span></template></dd>
                 </div>
               </dl>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

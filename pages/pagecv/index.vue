@@ -10,9 +10,12 @@
           <div class="conts">
             <div class="block autor">
               <h2 class="title">maeda maki | 前田 真喜</h2>
-              <p class="explain">{{history.profile}}</p>
+              <div id="edit">
+              <div class="inner" v-html="history.edit"></div>
+              </div>
+              <!-- <p class="explain">{{history.profile}}</p> -->
             </div>
-            <div class="block list" v-for="(data) in history.cv" :key="data.index">
+            <!-- <div class="block list" v-for="(data) in history.cv" :key="data.index">
               <h2 class="title">{{data.title}}</h2>
               <dl>
                 <div v-for="(act) in data.yearlist" :key="act.index">
@@ -20,7 +23,7 @@
                   <dd>{{act.detail}}<span v-show="act.locate">（{{act.locate}}）</span></dd>
                 </div>
               </dl>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -62,6 +65,11 @@ export default {
 body{
   font-family: Noto Suns;
 }
+.block{
+  .title{
+    margin-bottom: 1.6rem;
+  }
+}
 
 .cv{
   .inner{
@@ -71,6 +79,9 @@ body{
     font-size: 1.4rem;
     line-height: 1.5;
     letter-spacing: .08em;
+  }
+  h2{
+    margin-bottom: 2.4rem;
   }
   .heading{
     width: 10%;
@@ -93,7 +104,7 @@ body{
     }
     .title{
       font-weight: bold;
-      margin-bottom:0.4rem;
+      margin-bottom:1.6rem;
     }
     .list{
       dl div{

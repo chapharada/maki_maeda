@@ -48,7 +48,7 @@ export default {
   margin-bottom: 1.6rem;
   @include mq(no) {
     max-width: 640px;
-    margin-bottom: 3.2rem;
+    margin-bottom: 15rem;
   }
   h2 {
     font-weight: bold;
@@ -71,9 +71,10 @@ export default {
     margin-bottom: 8.4rem;
   }
 }
+
 .list {
   &:not(:last-child) {
-    margin-bottom: 2.4rem;
+    margin-bottom: 8rem;
   }
   @include mq(no) {
     max-width: 640px;

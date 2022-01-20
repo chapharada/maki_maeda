@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss" scoped>
   .card{
-    margin-bottom: 4.8rem;
+    margin-bottom: 0rem;
     @include mq(no){
       margin-bottom: 0;
     }
@@ -51,7 +51,7 @@ export default {
       img{
         width: 100%;
         height: auto;
-        border-radius: 12px;
+        // border-radius: 12px;
       }
     }
     &-content{

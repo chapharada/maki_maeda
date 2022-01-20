@@ -21,6 +21,11 @@
       Footer,
       svgLoader,
     },
+    data() {
+      return {
+        displaySidenav: false,
+      }
+    }
   };
 </script>
 

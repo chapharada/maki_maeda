@@ -3,50 +3,20 @@
 <template>
     <section>
       <div id="info">
-        <h2 class="cap-title">お知らせ</h2>
+        <!-- <h2 class="cap-title">お知らせ</h2> -->
         <div class="data">
-          <nuxt-link to="#">
+            <h2>展覧会のお知らせ</h2>
             <div class="caption">
-              <img src="~/assets/img/info/flyer_sample.jpg" alt="">
+              <img src="~/assets/img/info/flyer_2018.jpg" alt="">
             </div>
             <div class="detail">
-              <h3 class="title">
-                <div class="midashi">なんぼのもんじゃい展</div>
-                <div class="cap">〜テキストテキストテキストテキストテキスト〜</div>
-              </h3>
-              <div class="tb">
-                <dl>
-                  <dt>会期</dt>
-                  <dd>2021.08.29(土) ~ 2021.09.31(土)</dd>
-                </dl>
-                <dl>
-                  <dt>会館時間</dt>
-                  <dd>9:30-17:00（入館は16:30まで）</dd>
-                </dl>
-                <dl>
-                  <dt>会場</dt>
-                  <dd>苔むしたさざれ石</dd>
-                </dl>
-                <dl class="price">
-                  <dt>観覧料</dt>
-                  <dd>一般　1,200円（1,000円）、高・大生　800円（600円）、小・中学生　600円（450円）
-                    <span class="atn">※身体障害者手帳等をお持ちの方は無料</span>
-                  </dd>
-                </dl>
-              </div>
+              <a style="text-align:right; display:block; text-decoration:underline" href="http://www.kunstarzt.com/Artist/MAEDA/Maki.htm" target="_blank">詳しくはこちら</a>
             </div>
-            <div class="type">exibition</div>
-            <div class="arrow">
-              <span>
-                <svgLoader name="arrow"/>
-              </span>
-            </div>
-          </nuxt-link>
         </div>
       </div>
       <div class="works" ref="grid">
-        <h2 class="cap-title">これまでの作品</h2>
-          <masonry-wall :items="ichiran" :ssr-columns="1" :column-width="320" :gap="16" :rtl="false" transition-duration="0.3s">
+        <!-- <h2 class="cap-title">これまでの作品</h2> -->
+          <masonry-wall :items="ichiran" :ssr-columns="1" :column-width="400" :gap="4" :rtl="false" transition-duration="0.3s">
             <template #default="{item}" >
                 <card :item="item"  :folder="'/works/'" @loaded="handleLoaded"/> 
             </template>
@@ -75,7 +45,7 @@ export default {
       const data = await $microcms.get({
         endpoint: "works",
         queries: {
-          limit: 10,
+          limit: 6,
         },
       });
       return {
@@ -126,71 +96,24 @@ export default {
     @include mq(pc){
       margin-bottom: 11.4rem;
     }
-    .data a {
-      position: relative;
-      display: flex;
-      border-width: 1px;
-      border-color: #d1d1d1;
-      border-radius: 12px;
-      padding: 3.6rem 6.4rem 3.6rem 4.8rem;
-      .caption{
-        width: 180px;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        @include mq(pc){
-          width: 300px;
-        }
-        img{
-          width: 100%;
-          max-width: 180px;
-          margin-bottom: auto;
+    .data{
+      max-width: 720px;
+      margin: 0 auto;
+      h2{
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 0.4rem;
+        font-size:1.4rem ;
+        @include mq(no){
+          font-size:1.8rem ;
         }
       }
-      .detail{
-        width: calc(100% - 180px);
-        padding: 0 2.4rem 0 4rem;
-        word-wrap: break-word;
-        display: flex;
-        flex-direction: column;
-        justify-content: top;
-        .title{
-          margin-bottom: 1.6rem;
-          .midashi{
-            font-size: 2.2rem;
-            font-weight: bold;
-            letter-spacing: .05rem;
-            line-height: 1;
-            margin-bottom: 0.8rem;
-          }
-          .cap{
-            letter-spacing: .05rem;
-            font-size: 1.2rem;
-            color: #666;
-          }
-        }
-        .tb{
-            dl{
-              display: flex;
-              letter-spacing: .08em;
-              font-size: 1.4rem;
-              align-items: center;
-              &+ dl{
-                margin-top: 0.6rem;
-              }
-              dt{
-                color: #888;
-                width: 120px;
-              }
-              dd{
-                width: calc(100% - 120px)
-              }
-            }
-          }
-        .price{
-          dd{
-            max-width: 400px;
-          }
+      .caption{
+        margin: 0 auto 0.8rem;
+        img{
+          display: block;
+          width: 100%;
+          margin: 0 auto;
         }
       }
       .type {
@@ -226,6 +149,9 @@ export default {
           }   
         }
       }    
+    }
+    .detail{
+      font-size: 1.4rem;
     }
   }
   .works{

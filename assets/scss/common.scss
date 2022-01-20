@@ -5,10 +5,16 @@ html {
   -webkit-backface-visibility:hidden;
   backface-visibility:hidden;
 }
+
+@font-face {
+  font-family: 'mb31'; // <-好きな名前をつけれます。
+  src: url('../font/mb31.woff') format("woff");
+}
+
 body {
   font-size: 1.6em;
   line-height: 1.8;
-  font-family: '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic ProN', 'Osaka', 'ＭＳ Ｐゴシック', sans-serif;
+  font-family: 'mb31','游ゴシック体', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic ProN', 'Osaka', 'ＭＳ Ｐゴシック', sans-serif;
   font-weight: 500;
   color: #222;
   height: 100%;
@@ -29,23 +35,20 @@ body {
     }
   }
 }
-header{
-  @include mq(no){
-    width: 270px;
-    align-self: center;
-    height: 100%;
-  }
-}
+
 main{
   @include mq(no){
     flex: 1;
     position: relative;
     height: 100%;
     width: calc(100% - 270px);
-    margin-bottom: 20px;
+    margin-bottom: 32px;
   }
   #conts{
-    padding: 4.0rem 3.2rem;
+    padding: 6.4rem 4.5vw;
+    @include mq(tb){
+      padding: 6.4rem 3.2rem;
+    }
     @include mq(no){
       padding: 0 0 4.8rem;
       width: calc(100% - 10vw);

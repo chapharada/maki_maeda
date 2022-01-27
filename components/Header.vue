@@ -11,9 +11,11 @@
       <div class="logo">
         <nuxt-link to="/">
           <div class="symbol">
-            <img src="~/static/img/logo.png" alt="" />
+            <img src="~/static/img/top_logo.png" alt="" />
           </div>
-          <h1>前田真喜</h1>
+          <h1>
+            <svgLoader name="name" />
+          </h1>
         </nuxt-link>
       </div>
       <nav class="pc mainmenu">
@@ -123,6 +125,8 @@ header {
       align-items: center;
     }
     .symbol {
+      background: #ffd67b;
+      border-radius: 50%;
       width: 120px;
       img {
         width: 100%;
@@ -135,6 +139,8 @@ header {
       margin-top: 1.2rem;
       letter-spacing: 0.5em;
       font-size: 1.8rem;
+      width: 88px;
+      height: auto;
     }
   }
   .mainmenu {

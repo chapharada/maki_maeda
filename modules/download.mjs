@@ -112,7 +112,7 @@ urlList()
     //04_もし重複していない(書き出されていない)ファイルがあれば画像のダウンロードを実行する
     for(var writeFileUrl of presenseDataUrl ){
       var writeFileName = makePassToImg(writeFileUrl)
-      if( NeedWritingData.length && writeFileName.includes(NeedWritingData)){
+      if( NeedWritingData.length && NeedWritingData.includes(writeFileName)){
         downloadImage(
           writeFileUrl,
           './assets/img/works',

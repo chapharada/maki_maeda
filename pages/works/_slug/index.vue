@@ -2,13 +2,13 @@
   <main class="main">
     <div class="content">
       <div class="top">
-        <img :src="article.cover.url" :alt="`${article.midashi}`" />
+        <img :src="require(`@/assets/img/works/${article.cover.url}`)" :alt="`${article.midashi}`" />
         <h2 v-show="article.midashi">{{ article.midashi }}</h2>
         <p v-show="article.caption">{{ article.caption }}</p>
       </div>
       <div class="middle">
         <div class="list" v-for="data of article.detail" :key="data.id">
-          <img :src="data.detail_img.url" />
+          <img :src="require(`@/assets/img/works/${data.detail_img.url}`)" />
           <div class="title" v-show="data.detail_title">
             {{ data.detail_title }}
           </div>
@@ -38,6 +38,18 @@ export default {
       return {
         article: data,
       };
+    }
+  },
+  created() {
+
+    var urlArray = this.article.cover.url.split('/'); 
+    var captionData = urlArray.pop()
+    this.article.cover.url = captionData;
+
+    for( var el of this.article.detail){
+      var detailUrlArray = el.detail_img.url.split('/'); 
+      var detailCaptionData = detailUrlArray.pop()
+      el.detail_img.url = detailCaptionData;
     }
   },
 };

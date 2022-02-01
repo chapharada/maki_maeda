@@ -46,6 +46,7 @@ export default {
         endpoint: "works",
         queries: {
           limit: 6,
+          depth:1,
         },
       });
       return {
@@ -62,6 +63,13 @@ export default {
     return{
       loadedCount: 0,
       gridShow:false
+    }
+  },
+  created() {
+    for( var el of this.ichiran){
+      var urlArray = el.cover.url.split('/'); 
+      var captionData = urlArray.pop()
+      el.cover.url = captionData;
     }
   },
   mounted() {

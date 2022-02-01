@@ -9,27 +9,9 @@
           </div>
           <div class="conts">
             <div class="block autor">
-<<<<<<< HEAD
-              <h2 class="title">maeda maki | 前田 真喜</h2>
-              <div id="edit">
-              <div class="inner" v-html="history.edit"></div>
-              </div>
-              <!-- <p class="explain">{{history.profile}}</p> -->
-            </div>
-            <!-- <div class="block list" v-for="(data) in history.cv" :key="data.index">
-              <h2 class="title">{{data.title}}</h2>
-              <dl>
-                <div v-for="(act) in data.yearlist" :key="act.index">
-                  <dt>{{act.year}}</dt>
-                  <dd>{{act.detail}}<span v-show="act.locate">（{{act.locate}}）</span></dd>
-                </div>
-              </dl>
-            </div> -->
-=======
               <h2 class="title">maeda maki / 前田 真喜</h2>
               <div class="explain" v-html="history.edit"></div>
-            </div>        
->>>>>>> main_dev
+            </div>
           </div>
         </div>
       </div>
@@ -101,11 +83,7 @@ body{
     }
     .title{
       font-weight: bold;
-<<<<<<< HEAD
-      margin-bottom:1.6rem;
-=======
       margin-bottom:2.4rem;
->>>>>>> main_dev
     }
     .list{
       dl div{

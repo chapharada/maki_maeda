@@ -3,13 +3,13 @@
     <nuxt-link :to="`${folder}${item.id}`" >
       <div class="card-image">
         <figure class="image">
-          <img :src="item.cover.url" alt="item.midashi" @load="loaded"/>
+          <img :src="require(`@/assets/img/works/${item.cover.url}`)" alt="item.midashi" @load="loaded"/>
         </figure>
       </div>
-      <div class="card-content content">
+      <!-- <div class="card-content content">
         <h2>{{ item.midashi }}</h2>
         <p>{{ item.caption }}</p>
-      </div>
+      </div> -->
     </nuxt-link>
   </div>
 </template>
@@ -42,25 +42,31 @@ export default {
 
 <style lang="scss" scoped>
   .card{
+    margin-bottom: 0rem;
+    @include mq(no){
+      margin-bottom: 0;
+    }
     &-image{
       margin-bottom: 0.4rem;
       img{
         width: 100%;
         height: auto;
-        border-radius: 12px;
+        // border-radius: 12px;
       }
     }
     &-content{
       h2{
         font-weight: bold;
-        letter-spacing: .05em;
         font-size: 1.45rem;
       }
       p{
         color: #666;
-        font-size: 1.05rem;
+        font-size: 1rem;
+        @include mq(no){
+          font-size: 1.05rem;
+        }
         line-height: 1.3;
-        letter-spacing: .08em;
+        font-weight: 400;
       }
     }
   }

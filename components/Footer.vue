@@ -2,14 +2,6 @@
     <footer>
       <div class="inner">
         <div class="copyright">© maeda maki </div>
-        <div class="sns">
-          <ul>
-            <li>
-              <nuxt-link to="/pagecv">
-                <instagram />
-              </nuxt-link></li>
-          </ul>
-        </div>
       </div>
     </footer>
 </template>
@@ -35,11 +27,13 @@ footer{
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    max-width: 1380px;
+    width: calc(100% - 10vw);
+    margin: 0 auto;
   }
   .copyright{
     text-align: left;
     line-height: 1;
-    margin-right: 2em;
   }
   .sns{
     a{

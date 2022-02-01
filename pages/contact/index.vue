@@ -5,28 +5,15 @@
     <div class="contact mainconts" v-cloak>
       <div class="inner">
         <div class="heading">
-          <h1>contact</h1>
+          <h1>お問い合わせ</h1>
+          <p class="caption">
+            各プロジェクトについてのお問い合わせ、<br>その他ご相談などお気軽にお問い合わせください。
+          </p>
+        </div>
+        <div v-show="onError" :class="['wholeerror', {active: this.validation.confirm == true}]">
+          <span>{{ confirmAll }}</span>
         </div>
         <div class="explain">
-          <div class="email">
-            <h2>Email:</h2>
-            <div class="link">
-              <a
-                to="mailto:maeda.m1217@gmail.com "
-                data-link-type="mailto"
-                data-link-value="maeda.m1217@gmail.com "
-                >maeda.m1217@gmail.com
-              </a>
-              <p>or send me a message.</p>
-            </div>
-            <div class="error" v-show="onError">
-              <ul>
-                <li>{{ validationName }}</li>
-                <li>{{ validationEmail }}</li>
-                <li>{{ validationMessage }}</li>
-              </ul>
-            </div>
-          </div>
           <div class="formbox">
             <form
               name="contact"
@@ -37,37 +24,38 @@
               <div class="area">
                 <input type="hidden" name="contact" value="ask-question" />
                 <div class="name">
+                  <label>お名前</label>
                   <input
                     type="text"
                     v-model="form.name"
                     name="name"
-                    placeholder="Name"
                     required="required"
                   />
+                  <div class="error" v-show="onError">{{ validationName }}</div>
                 </div>
                 <div class="email">
+                  <label>メールアドレス</label>
                   <input
                     type="email"
                     v-model="form.email"
                     name="email"
-                    placeholder="Email"
                     required="required"
                   />
+                <div class="error" v-show="onError">{{ validationEmail }}</div>
                 </div>
                 <div class="message">
+                  <label>お問い合わせ内容</label>
                   <textarea
                     type="text"
                     name="message"
                     v-model="form.message"
-                    placeholder="message"
                     rows="8"
                     required="required"
                   ></textarea>
+                <div class="error" v-show="onError">{{ validationMessage }}</div>
                 </div>
               </div>
-              <div class="wholeerror" v-show="onError">
-                <span>{{ confirmAll }}</span>
-              </div>
+
               <div class="confirmbtn">
                 <button type="submit">送信する</button>
               </div>
@@ -80,7 +68,6 @@
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
   data: function () {
@@ -95,6 +82,7 @@ export default {
         name: false,
         email: false,
         message: false,
+        confirm:false
       },
       isVaild: false,
     };
@@ -136,6 +124,9 @@ export default {
       for (var key in this.validation) {
         if (!this.validation[key]) {
           vaild = "入力内容に問題があります。確認して再度お試しください。";
+          this.validation.confirm = false;
+        }else{
+          this.validation.confirm = true;
         }
       }
       return vaild;
@@ -187,92 +178,101 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.inner {
-  display: flex;
-}
 
 .contact {
   margin-bottom: 60px;
 }
 
-.heading {
-  width: 12%;
-  min-width: 100px;
+.heading{
+  margin-bottom: 5.4rem;
+  h1 {
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    padding-bottom: 0.2rem;
+    margin-bottom: 3.2rem;
+    border-bottom: 1px solid #d1d1d1;
+    font-size: 1.5rem;
+    color: #27c4ac;
+  }
+  .caption{
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 1.6rem;
+  }
 }
 
-h1 {
-  font-size: 1.4rem;
-  line-height: 1.5;
-  letter-spacing: 0.08em;
-}
 
 .explain {
-  width: 88%;
-  font-size: 1.2rem;
-  display: flex;
-  & > .email {
-    width: 40%;
-    margin-bottom: 4rem;
-    h2 {
-      margin-bottom: 1.6rem;
-    }
-    .link {
-      a {
-        display: inline-block;
-        margin-bottom: 2.4rem;
-        text-decoration: underline;
-      }
-    }
-  }
   .formbox {
-    width: 60%;
     .area {
-      & > *:not(:last-of-type) input {
-        border-bottom: none;
+      font-size: 1.4rem;
+      & > * {
+        margin-bottom: 3.2rem;
+      }
+      label{
+        margin-bottom: 0.4rem;
+        display: flex;
+        align-items: center;
+        &::before{
+          content: "必須";
+          color: rgb(255, 255, 255);
+          font-weight: 500;
+          font-size: 0.95rem;
+          background: rgb(238, 82, 83);
+          margin: 0px 0.8rem 0px 0px;
+          padding: 0.25rem 0.5rem;
+          border-radius: 4px;          
+        }
       }
       input,
       textarea {
         width: 100%;
         padding: 12px 14px;
         border: 1px solid #d1d1d1;
+        border-radius: 8px;
         resize: none;
         padding-right: 40px;
+        margin-top: 0.4rem;
       }
     }
     .confirmbtn {
-      margin: 12px 0 0 0;
-      width: 160px;
+      margin: 2.4rem 0 0 0;
       text-align: center;
-      input {
-        width: 100%;
-        padding: 8px;
+      button {
+        width: 80%;
+        max-width: 320px;
         border-radius: 2px;
         color: #454545;
         letter-spacing: 0.08em;
-        font-size: 1.2rem;
+        font-size: 1.35rem;
+        letter-spacing: .1em;
         font-weight: bold;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
         cursor: pointer;
-        border: 1px solid #d1d1d1;
+        border-radius: 50px;
+        height: 60px;
+        background: #ee5253;
+        color: #fff;
       }
     }
   }
 }
 
 .error {
-  margin-top: 2.4rem;
+  margin-top: 0.8rem;
   font-size: 1.1rem;
   color: #ff0000;
   font-weight: bold;
-  & > * + * {
-    margin-top: 0.8rem;
-  }
 }
 .wholeerror {
-  margin-top: 2.4rem;
-  font-size: 1.1rem;
+  &.active{
+    display: none;
+  }
+  font-size: 1.2rem;
+  background: #fbe2e2;
   color: #ff0000;
+  font-weight: 600;
+  margin-bottom: 4rem;
+  padding: 2.4rem 1.6rem;
+  border-radius: 8px;
 }
 </style>

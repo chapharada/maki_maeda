@@ -1,7 +1,7 @@
 
 
 <template>
-    <main>
+    <section>
       <div class="cv mainconts">
         <div class="inner">
           <div class="heading">
@@ -9,6 +9,7 @@
           </div>
           <div class="conts">
             <div class="block autor">
+<<<<<<< HEAD
               <h2 class="title">maeda maki | 前田 真喜</h2>
               <div id="edit">
               <div class="inner" v-html="history.edit"></div>
@@ -24,10 +25,15 @@
                 </div>
               </dl>
             </div> -->
+=======
+              <h2 class="title">maeda maki / 前田 真喜</h2>
+              <div class="explain" v-html="history.edit"></div>
+            </div>        
+>>>>>>> main_dev
           </div>
         </div>
       </div>
-    </main>
+    </section>
 </template>
 
 <script>
@@ -46,17 +52,7 @@ export default {
         history : data,
       }
     }
-  },
-  created :function(){
-    //reverse_sort
-    this.history.cv.forEach((data, index) => {
-      if( data.reverse == true){
-        this.history.cv[index].yearlist.sort(function(a, b) {
-            return (a.year > b.year) ? -1 : 1;  //オブジェクトの昇順ソート
-        }); 
-      }
-    })
-  },
+  }
 }
 </script>
 
@@ -72,6 +68,7 @@ body{
 }
 
 .cv{
+  padding-top: 0.8rem;
   .inner{
     display: flex;
   }
@@ -89,14 +86,14 @@ body{
   }
   .conts{
     width: 90%;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     line-height: 2.5rem;
     margin-bottom: 2.4rem;
   }
   .conts{
     .block{
       &:not(:last-child){
-        margin-bottom: 3.2rem;
+        margin-bottom: 7.2rem;
       }
       p + p{
         margin-top: 1.6rem;
@@ -104,7 +101,11 @@ body{
     }
     .title{
       font-weight: bold;
+<<<<<<< HEAD
       margin-bottom:1.6rem;
+=======
+      margin-bottom:2.4rem;
+>>>>>>> main_dev
     }
     .list{
       dl div{

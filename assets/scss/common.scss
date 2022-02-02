@@ -6,6 +6,11 @@ html {
   backface-visibility:hidden;
 }
 
+svg {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
 @font-face {
   font-family: 'mb31'; // <-好きな名前をつけれます。
   src: url('../font/mb31.woff') format("woff");

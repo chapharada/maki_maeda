@@ -88,6 +88,7 @@ header {
       z-index: 40;
       transition: 0.6s ease-in-out;
       border-radius: 0 0 4px 0;
+      cursor: pointer;
       span{
         width: 25px;
         height: 3px;
@@ -95,7 +96,7 @@ header {
         left: 35px;
         background: #222;
         display: block;
-        transition: 0.2s ease-in-out;
+        transition: opacity 0.35s ease-in-out ,transform 0.35s ease-in-out ;
         border-radius: 8px;
         &:first-child{
           top: 30px;
@@ -105,6 +106,17 @@ header {
         }
         &:nth-child(3){
           top: 48px;
+        }
+      }
+      &.on span{
+        &:first-child{
+          transform: rotate(45deg) translateY(7px) translateX(8px);
+        }
+        &:nth-child(2){
+          opacity: 0;
+        }
+        &:nth-child(3){
+          transform: rotate(-45deg) translateY(-5px) translateX(5px);
         }
       }
   }

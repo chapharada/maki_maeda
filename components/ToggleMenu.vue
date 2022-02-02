@@ -4,9 +4,9 @@
       <div class="toggle-menu--inner">
           <nav>
             <nuxt-link to="/">home</nuxt-link>
-            <nuxt-link to="/">cv</nuxt-link>
-            <nuxt-link to="/">works</nuxt-link>
-            <nuxt-link to="/">contact</nuxt-link>
+            <nuxt-link to="/pagecv/">cv</nuxt-link>
+            <nuxt-link to="/works/">works</nuxt-link>
+            <nuxt-link to="/contact/">contact</nuxt-link>
           </nav>
       </div>
     </div>

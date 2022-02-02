@@ -34,6 +34,7 @@ export default {
   components: {
     card
   },
+  transition: "expandFade",
   data(){
     return{
       loadedCount: 0,

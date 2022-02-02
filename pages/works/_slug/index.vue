@@ -41,7 +41,6 @@ export default {
     }
   },
   created() {
-
     var urlArray = this.article.cover.url.split('/'); 
     var captionData = urlArray.pop()
     this.article.cover.url = captionData;
@@ -52,6 +51,7 @@ export default {
       el.detail_img.url = detailCaptionData;
     }
   },
+  transition: "expandFade",
 };
 </script>
 

@@ -34,7 +34,8 @@ export default {
         history : data,
       }
     }
-  }
+  },
+  transition: "expandFade",
 }
 </script>
 
@@ -52,12 +53,18 @@ body{
 .cv{
   padding-top: 0.8rem;
   .inner{
-    display: flex;
+    @include mq(no){
+      display: flex;
+    }
   }
   h1{
     font-size: 1.4rem;
     line-height: 1.5;
     letter-spacing: .08em;
+    margin-bottom: 5.4rem;
+    @include mq(no){
+      margin-bottom: 0;
+    }
   }
   h2{
     margin-bottom: 2.4rem;

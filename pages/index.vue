@@ -55,6 +55,7 @@ export default {
     }
   },
   name: "index",
+  transition: "expandFade",
   components: {
     card,
     arrow
@@ -88,6 +89,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
   .cap-title{
     font-weight: bold;
     letter-spacing: 0.08em;

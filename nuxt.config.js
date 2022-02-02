@@ -46,6 +46,10 @@ export default {
     "@nuxtjs/axios",
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
+<<<<<<< HEAD
+=======
+    'nuxt-webfontloader',
+>>>>>>> main_dev
     'nuxt-basic-auth-module',
     ['nuxt-lazy-load', {
       defaultImage: '/img/default.png',
@@ -53,6 +57,14 @@ export default {
       loadedClass: 'ld-cpt',
     }]
   ],
+<<<<<<< HEAD
+=======
+  webfontloader: {
+    google: {
+      families: ['Zen+Maru+Gothic:400,500,700','Nunito:500,700'] 
+    }
+  },
+>>>>>>> main_dev
   basic: {
     name: process.env.BASIC_NAME || 'watasiwamikata',
     pass: process.env.BASIC_PASSWORD || '20010620',
@@ -75,6 +87,7 @@ export default {
     scss: ['~/assets/scss/global/_var.scss'],
     scss: ['~/assets/scss/global/_mixin.scss'],
   },
+  serverMiddleware: ['~/api/sendemail.js'],
   buildModules: ['nuxt-microcms-module'],
   microcms: {
     options: {
@@ -86,6 +99,15 @@ export default {
   generate:{
     interval: 100,
     async routes() {
+
+      //経歴一覧
+      const popularArticles = (
+        await client.get({
+          endpoint: 'works',
+        })
+      );
+
+      //経歴詳細ページ
       const workDetail = await client
         .get({
           endpoint: 'works',
@@ -96,7 +118,33 @@ export default {
             payload: work
           }))
         );
-      return workDetail;
+      
+      // topページ
+      const index = {
+        route: '/',
+        payload: popularArticles,
+      }
+
+      //work一覧ページ
+      const works = {
+        route: '/works',
+        payload: popularArticles,
+      }
+
+      // pagecv
+      const pagecv = {
+        route: '/pagecv',
+        payload: await client.get({
+          endpoint: 'pagecv',
+        }),
+      }
+  
+      return [
+        index,
+        works,
+        pagecv,
+        ...workDetail,
+      ];
     },
     dir: 'dist',
   }

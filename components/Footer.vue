@@ -2,6 +2,7 @@
     <footer>
       <div class="inner">
         <div class="copyright">© maeda maki </div>
+<<<<<<< HEAD
         <div class="sns">
           <ul>
             <li>
@@ -10,6 +11,8 @@
               </a></li>
           </ul>
         </div>
+=======
+>>>>>>> main_dev
       </div>
     </footer>
 </template>
@@ -35,11 +38,13 @@ footer{
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    max-width: 1380px;
+    width: calc(100% - 10vw);
+    margin: 0 auto;
   }
   .copyright{
     text-align: left;
     line-height: 1;
-    margin-right: 2em;
   }
   .sns{
     a{

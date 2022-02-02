@@ -68,8 +68,6 @@ typings/
 # nuxt.js build output
 .nuxt
 
-# Nuxt generate
-dist/200.html
 
 # vuepress build output
 .vuepress/dist
@@ -80,9 +78,6 @@ dist/200.html
 # IDE / Editor
 .idea
 
-# Service worker
-sw.*
-
 # macOS
 .DS_Store
 
@@ -91,5 +86,3 @@ sw.*
 
 # .nuxtディレクトリを無視
 .nuxt
-
-dist/_headers

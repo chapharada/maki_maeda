@@ -2,31 +2,35 @@
   <main class="main">
     <div class="content">
       <div class="top">
-        <img :src="article.cover.url" :alt="`${article.midashi}`" />
-        <h2 v-if="article.midashi">{{ article.midashi }}</h2>
-        <p v-if="article.caption">{{ article.caption }}</p>
+        <img :src="require(`@/assets/img/works/${article.cover.url}`)" :alt="`${article.midashi}`" />
+        <h2 v-show="article.midashi">{{ article.midashi }}</h2>
+        <p v-show="article.caption">{{ article.caption }}</p>
       </div>
       <div class="middle">
         <div class="list" v-for="data of article.detail" :key="data.id">
-          <img :src="data.detail_img.url" />
-          <div class="title" v-if="data.detail_title">
+          <img :src="require(`@/assets/img/works/${data.detail_img.url}`)" />
+          <div class="title" v-show="data.detail_title">
             {{ data.detail_title }}
           </div>
-          <div class="caption" v-if="data.detail_caption">
+          <div class="caption" v-show="data.detail_caption">
             {{ data.detail_caption }}
           </div>
         </div>
       </div>
-        <div class="explain" v-if="article.detail_explain">{{ article.detail_explain }}</div>
-        <div class="locate" v-if="article.venue">{{article.venue}}</div>
+        <div class="explain" v-show="article.detail_explain">{{ article.detail_explain }}</div>
+        <div class="locate" v-show="article.venue">{{article.venue}}</div>
     </div>
   </main>
 </template>
 
 <script>
 export default {
-  async asyncData({ params, $microcms }) {
-    try {
+  async asyncData({ params, $microcms , payload }) {
+    if(payload){
+      return{
+        article: payload
+      };
+    }else if($microcms){
       const data = await $microcms.get({
         endpoint: "works",
         contentId: params.slug,
@@ -34,8 +38,18 @@ export default {
       return {
         article: data,
       };
-    } catch (err) {
-      console.log("だめだ〜");
+    }
+  },
+  created() {
+
+    var urlArray = this.article.cover.url.split('/'); 
+    var captionData = urlArray.pop()
+    this.article.cover.url = captionData;
+
+    for( var el of this.article.detail){
+      var detailUrlArray = el.detail_img.url.split('/'); 
+      var detailCaptionData = detailUrlArray.pop()
+      el.detail_img.url = detailCaptionData;
     }
   },
 };
@@ -46,7 +60,7 @@ export default {
   margin-bottom: 1.6rem;
   @include mq(no) {
     max-width: 640px;
-    margin-bottom: 3.2rem;
+    margin-bottom: 15rem;
   }
   h2 {
     font-weight: bold;
@@ -69,9 +83,10 @@ export default {
     margin-bottom: 8.4rem;
   }
 }
+
 .list {
   &:not(:last-child) {
-    margin-bottom: 2.4rem;
+    margin-bottom: 8rem;
   }
   @include mq(no) {
     max-width: 640px;

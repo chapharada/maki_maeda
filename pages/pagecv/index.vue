@@ -1,13 +1,14 @@
 
 
 <template>
-    <main>
+    <section>
       <div class="cv mainconts">
         <div class="inner">
           <div class="heading">
             <h1>cv </h1>
           </div>
           <div class="conts">
+<<<<<<< HEAD
             <div class="inner" v-html="history.edit"></div>
             <!-- <div class="block autor">
               <h2 class="title">maeda maki | 前田 真喜</h2>
@@ -22,16 +23,23 @@
                 </div>
               </dl>
             </div> -->
+=======
+            <div class="block autor">
+              <h2 class="title">maeda maki / 前田 真喜</h2>
+              <div class="explain" v-html="history.edit"></div>
+            </div>        
+>>>>>>> main_dev
           </div>
         </div>
       </div>
-    </main>
+    </section>
 </template>
 
 <script>
 import axios from 'axios'
 
 export default {
+<<<<<<< HEAD
   data() {
     return {
       history: {}
@@ -60,6 +68,22 @@ export default {
         }
       })
   },
+=======
+  async asyncData({ $microcms ,payload}) {
+    if(payload){
+      return{
+        history : payload,
+      };
+    }else if($microcms){
+      const data = await $microcms.get({
+        endpoint: 'pagecv',
+      })
+      return {
+        history : data,
+      }
+    }
+  }
+>>>>>>> main_dev
 }
 </script>
 
@@ -70,6 +94,7 @@ body{
 }
 
 .cv{
+  padding-top: 0.8rem;
   .inner{
     display: flex;
   }
@@ -84,14 +109,14 @@ body{
   }
   .conts{
     width: 90%;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     line-height: 2.5rem;
     margin-bottom: 2.4rem;
   }
   .conts{
     .block{
       &:not(:last-child){
-        margin-bottom: 3.2rem;
+        margin-bottom: 7.2rem;
       }
       p + p{
         margin-top: 1.6rem;
@@ -99,7 +124,7 @@ body{
     }
     .title{
       font-weight: bold;
-      margin-bottom:0.4rem;
+      margin-bottom:2.4rem;
     }
     .list{
       dl div{

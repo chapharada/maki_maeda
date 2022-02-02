@@ -1,6 +1,6 @@
 <template>
   <div class="card large">
-    <a :href="`${folder}${item.id}`" >
+    <nuxt-link :to="`${folder}${item.id}`" >
       <div class="card-image">
         <figure class="image">
           <img :src="require(`@/assets/img/works/${item.cover.url}`)" alt="item.midashi" @load="loaded"/>

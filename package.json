@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "nuxt",
-    "download": "node modules/download.mjs",
+    "download": "node modules/download.js",
     "build": "nuxt generate",
     "generate": "run-s download build",
     "start": "nuxt start"

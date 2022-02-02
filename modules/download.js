@@ -1,9 +1,10 @@
 //url通信用
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
+
 //node file操作
-import fs from 'fs';
+const fs = require('fs');
 //envファイルからデータを取得
-import 'dotenv/config'
+require('dotenv').config();
 
 // FUNCTION_METHODS  ///////////////////////////////////////
 
@@ -63,7 +64,7 @@ async function urlList() {
   );
 
   for( var el of data_A.contents){
-    
+
     // 02_トップ部分の画像名を取得
     var fileRequestUrl = el.cover.url
     urlList.push(fileRequestUrl);
@@ -73,7 +74,6 @@ async function urlList() {
       urlList.push(inner.detail_img.url);
     }
   }
-
   //04 お知らせあれば取得
   if(data_B.infoimage.url !== undefined){
     urlList.push(data_B.infoimage.url);
@@ -111,7 +111,7 @@ urlList()
 
     //04_もし重複していない(書き出されていない)ファイルがあれば画像のダウンロードを実行する
     for(var writeFileUrl of presenseDataUrl ){
-      var writeFileName = makePassToImg(writeFileUrl)
+      var writeFileName = makePassToImg(writeFileUrl);
       if( NeedWritingData.length && NeedWritingData.includes(writeFileName)){
         downloadImage(
           writeFileUrl,

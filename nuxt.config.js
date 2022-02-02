@@ -60,9 +60,9 @@ export default {
     }
   },
   basic: {
-    name: process.env.BASIC_NAME || 'watasiwamikata',
-    pass: process.env.BASIC_PASSWORD || '20010620',
-    enabled: process.env.DEV_LOCK_KEY === 'true'
+    name: process.env.BASIC_NAME ,
+    pass: process.env.BASIC_PASSWORD ,
+    enabled: process.env.DEV_LOCK_KEY == 'true'
   },
   plugins: [
     "~/plugins/masornywall",

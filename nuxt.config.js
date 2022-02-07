@@ -51,6 +51,7 @@ export default {
       defaultImage: '/img/default.png',
       loadingClass: 'ld',
       loadedClass: 'ld-cpt',
+      directiveOnly: true,
     }]
   ],
   basic: {
@@ -62,6 +63,9 @@ export default {
     "~/plugins/masornywall",
   ],
   build: {
+    extend (config, ctx) {
+      config.performance.maxAssetSize = 700 * 1024
+    },
     loaders: {
       scss: {
         implementation: Sass,
@@ -94,6 +98,16 @@ export default {
           endpoint: 'works',
         })
       );
+      
+      const prevNext = (
+        await client.get({
+          endpoint: 'works',
+          queries: { 
+            limit: 100,
+            fields: 'id',
+          },
+        })
+      );
 
       //経歴詳細ページ
       const workDetail = await client
@@ -103,10 +117,11 @@ export default {
         .then((res) => 
           res.contents.map((work) => ({
             route: `/works/${work.id}`,
-            payload: work
+            payload: {work , prevNext}
           }))
         );
       
+
       // topページ
       const index = {
         route: '/',
@@ -126,7 +141,7 @@ export default {
           endpoint: 'pagecv',
         }),
       }
-  
+      
       return [
         index,
         works,

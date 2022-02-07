@@ -234,6 +234,7 @@ export default {
         resize: none;
         padding-right: 40px;
         margin-top: 0.4rem;
+        font-size: 1.6rem;
       }
     }
     .confirmbtn {

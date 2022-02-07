@@ -3,7 +3,7 @@
     <nuxt-link :to="`${folder}${item.id}`" >
       <div class="card-image">
         <figure class="image">
-          <img :src="require(`@/assets/img/works/${item.cover.url}`)" alt="item.midashi" @load="loaded"/>
+          <img :src="require(`@/assets/img/works/${item.cover.url}`)" alt="item.midashi" @load="loaded" v-lazy-load />
         </figure>
       </div>
       <!-- <div class="card-content content">

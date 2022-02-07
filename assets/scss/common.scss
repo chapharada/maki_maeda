@@ -47,7 +47,6 @@ main{
     position: relative;
     height: 100%;
     width: calc(100% - 270px);
-    margin-bottom: 32px;
   }
   #conts{
     padding: 6.4rem 5.5vw;
@@ -83,4 +82,18 @@ main{
 
 [v-cloak] {
   display: none;
+}
+
+
+// ---------------------
+// lazyload_animtion
+// ---------------------
+
+
+.lazyLoad{
+    opacity: 0;
+  &.ld,&.ld-cpt{
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
 }

@@ -35,7 +35,7 @@
         </div>
       </nav>
       <nav class="instagram">
-        <a href="https://www.instagram.com/omaedao/">
+        <a href="https://www.instagram.com/omaedao/" target="_blank">
           <svgLoader name="instagram" />
           <span>instagram</span>
         </a>

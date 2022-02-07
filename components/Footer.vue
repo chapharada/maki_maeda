@@ -22,6 +22,7 @@ footer{
   font-size: 1.2rem;
   max-width: $max-width;
   margin: 0 auto;
+  padding: 1.6rem 0;
   
   .inner{
     display: flex;

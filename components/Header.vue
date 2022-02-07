@@ -41,7 +41,9 @@
         </a>
       </nav>
     </div>
-    <ToggleMenu v-if="isMenuActive" /> 
+    <transition name="hamAnim">
+      <ToggleMenu v-if="isMenuActive" @close="hamClose"/> 
+    </transition>
   </header>
 </template>
 <script>
@@ -54,6 +56,10 @@ export default {
   methods: {
     hambargarToggle(){
       this.isMenuActive = !this.isMenuActive;
+    },
+    hamClose(){
+      this.isMenuActive = false
+      this.$router.push({ path: event.target.pathname })
     }
   },
 }
@@ -164,8 +170,6 @@ header {
       }
       background: url('~/static/img/border_b.png') 100% 0 / contain no-repeat,
                   url('~/static/img/border_b.png') 0 100% / contain no-repeat;
-      // border-width: 1px 0 1px 0;
-      // border-color: #d1d1d1;
       flex-direction: column;
       padding: 20px 0;
       a {
@@ -178,7 +182,7 @@ header {
       }
       svg {
         width: 18px;
-        height: auto;
+        height: 18px;
         margin-right: 1rem;
       }
     }
@@ -203,6 +207,16 @@ header {
       }
     }
   }
-
 }
+
+.hamAnim-enter-active,
+.hamAnim-leave-active{
+  transition: opacity 0.3s;
+}
+
+.hamAnim-enter,
+.hamAnim-leave-to {
+  opacity: 0;
+}
+
 </style>

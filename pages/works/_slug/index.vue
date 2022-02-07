@@ -1,5 +1,5 @@
 <template>
-  <main class="main">
+  <div class="conts-inner">
     <div class="content">
       <div class="top">
         <img :src="require(`@/assets/img/works/${article.cover.url}`)" :alt="`${article.midashi}`" v-lazy-load/>
@@ -30,7 +30,7 @@
         </li>
       </ul>
     </div>    
-  </main>
+  </div>
 </template>
 
 <script>
@@ -81,7 +81,6 @@ export default {
      if(nextLink == undefined){
        nextLink = null;
      }
-     console.log(nextLink)
 
       return {
         article: data,
@@ -144,7 +143,7 @@ export default {
     margin-bottom: 8rem;
   }
   @include mq(no) {
-    max-width: 640px;
+    max-width: 800px;
   }
   .title {
     font-weight: bold;
@@ -163,11 +162,12 @@ export default {
 }
 
 .explain {
-  max-width: 760px;
+  max-width: 800px;
   margin-bottom: 1.2rem;
   font-size: 1.15rem;
-  color: #444;
+  color: #222;
   letter-spacing: 0.06em;
+  text-align: justify;
 }
 .locate{
   font-size: 1.15rem;
@@ -180,7 +180,7 @@ export default {
       display: flex;
       justify-content: space-between;
       @include mq(no){
-        max-width: 640px;
+        max-width: 800px;
       }
       li a{
         letter-spacing:0px;

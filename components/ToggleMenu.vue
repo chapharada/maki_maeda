@@ -3,21 +3,21 @@
     <div class="toggle-menu--content">
       <div class="toggle-menu--inner">
         <nav>
-        <template v-for="(menuItem, index) in hamMenu">
-            <nuxt-link 
-              :key="index"
-              :class="menuItem.className"
-              v-text="menuItem.name" 
-              :to="`/${menuItem.path}`"
-              @click.native.prevent="hamTrigger"
-              event="" 
-            />
-        </template>          
-          <!-- <nuxt-link to="/">home</nuxt-link>
-          <nuxt-link to="/pagecv/">cv</nuxt-link>
-          <nuxt-link to="/works/">works</nuxt-link>
-          <nuxt-link to="/contact/">contact</nuxt-link> -->
+          <template v-for="(menuItem, index) in hamMenu">
+              <nuxt-link 
+                :key="index"
+                :class="menuItem.className"
+                v-text="menuItem.name" 
+                :to="`/${menuItem.path}`"
+                @click.native.prevent="hamTrigger"
+                event="" 
+              />
+          </template>          
+          <nuxt-link to="">
+            <svgLoader name="instagram" />
+          </nuxt-link>
         </nav>
+        <div class="copyright">© maeda maki </div>
       </div>
     </div>
   </div>
@@ -77,14 +77,29 @@ export default {
     position: relative;
   }
   nav {
+    width: calc(100% - 64px);
+    margin: 0 auto;
     a {
       display: flex;
       justify-content: center;
-      margin-top: 15px;
+      margin-top: 2vh;
+      padding-bottom: 4vh;
+      font-size: 1.8rem;
+      letter-spacing: .15em;
+      color: #385658;
       &:nth-child(2) {
         margin-top: 50px;
       }
+      svg path{
+        fill: #375658;
+      }
     }
+  }
+  .copyright{
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+    font-size: 1.1rem;
   }
 }
 </style>

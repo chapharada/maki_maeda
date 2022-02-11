@@ -1,10 +1,11 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "config": {
-          "serverFiles": ["api/**"]
-        }
+  "version": 2,
+  "builds": [
+    {
+      "use": "@nuxtjs/vercel-builder",
+      "config": {
+        "serverFiles": ["api/**"]
       }
-    ]
-  }
+    }
+  ]
+}

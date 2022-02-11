@@ -28,7 +28,7 @@ app.post("/", (req, res) => {
                         'message':data['message']
                     }
                 },
-                {
+                { 
                     'to': [
                         {'email': 'haradaemiiko@yahoo.co.jp'}
                     ],

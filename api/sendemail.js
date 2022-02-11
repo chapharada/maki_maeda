@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json())
 
 app.post("/", (req, res) => {
-
+    console.log('ここは動いてる？')
     if(req.method == 'POST'){
         sgMail.setApiKey(process.env.SENDGRID_API_KEY)
         
@@ -28,7 +28,7 @@ app.post("/", (req, res) => {
                         'message':data['message']
                     }
                 },
-                { 
+                {
                     'to': [
                         {'email': 'haradaemiiko@yahoo.co.jp'}
                     ],

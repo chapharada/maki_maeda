@@ -80,8 +80,7 @@ export default {
     scss: ['~/assets/scss/global/_mixin.scss'],
   },
   serverMiddleware: [
-    '~/api/sendemail.js',
-    '~/api/response-header.js'
+    '~/api/sendemail.js'
   ],
   buildModules: ['nuxt-microcms-module'],
   microcms: {

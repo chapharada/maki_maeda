@@ -1,0 +1,30 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "nuxt.config.js",
+        "use": "@nuxtjs/vercel-builder",
+        "config": {
+          "generateStaticRoutes": true,
+          "serverFiles": ["api/**"]
+        }
+      }
+    ],
+    "headers": [
+      {
+        "src": "/_nuxt/.+",
+        "headers": {
+           "Cache-Control": "max-age=31557600"
+        }
+      },
+      {
+        "source": "/(.*)",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "s-maxage=43200, stale-while-revalidate"
+          }
+        ]
+      }
+    ]
+  }

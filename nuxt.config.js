@@ -90,6 +90,9 @@ export default {
   },
   generate:{
     interval: 100,
+    staticAssets: {
+      version: 'payloads'
+    },
     async routes() {
 
       //経歴一覧

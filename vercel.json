@@ -9,7 +9,7 @@
           "serverFiles": ["api/**"]
         }
       }
-    ],
+    ], 
     "headers": [
       {
         "src": "/_nuxt/.+",

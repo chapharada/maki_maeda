@@ -6,6 +6,7 @@
     "dev": "nuxt",
     "download": "node modules/download.js",
     "build": "nuxt generate",
+    "vercel-build": "run-s download build",
     "generate": "run-s download build",
     "start": "nuxt start"
   },

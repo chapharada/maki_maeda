@@ -143,7 +143,6 @@ header {
       align-items: center;
     }
     .symbol {
-      background: #ffd67b;
       border-radius: 50%;
       width: 120px;
       img {
@@ -154,7 +153,6 @@ header {
       }
     }
     h1 {
-      margin-top: 1.2rem;
       letter-spacing: 0.5em;
       font-size: 1.8rem;
       width: 88px;

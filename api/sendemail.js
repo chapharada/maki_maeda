@@ -7,7 +7,6 @@ const app = express();
 app.use(express.json())
 
 app.post("/", (req, res) => {
-    console.log('ここは動いてる？')
     if(req.method == 'POST'){
         sgMail.setApiKey(process.env.SENDGRID_API_KEY)
         

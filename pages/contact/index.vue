@@ -163,9 +163,10 @@ export default {
           await this.$axios({
             method: 'post',
             url: '/api/sendemail',
-            data: { ...this.form }
+            data: { ...this.form },
           })
           .then(() => {
+            console.log('？')
             sessionStorage.setItem("formcache", true);
             this.$router.push('/contact/success/')
           })

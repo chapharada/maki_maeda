@@ -75,7 +75,7 @@ async function urlList() {
     }
   }
   //04 お知らせあれば取得
-  if(data_B.infoimage.url !== undefined){
+  if(data_B.infoimage !== undefined){
     urlList.push(data_B.infoimage.url);
   }
   

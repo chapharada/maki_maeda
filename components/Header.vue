@@ -13,9 +13,6 @@
           <div class="symbol">
             <img src="~/static/img/top_logo.png" alt="" />
           </div>
-          <h1>
-            <svgLoader name="name" />
-          </h1>
         </nuxt-link>
       </div>
       <nav class="pc mainmenu">
@@ -151,12 +148,6 @@ header {
       @include mq(no) {
         width: 160px;
       }
-    }
-    h1 {
-      letter-spacing: 0.5em;
-      font-size: 1.8rem;
-      width: 88px;
-      height: auto;
     }
   }
   .mainmenu {

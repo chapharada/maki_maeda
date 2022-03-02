@@ -5,6 +5,7 @@ const sgMail = require('@sendgrid/mail');
 const app = express();
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 app.post("/", (req, res) => {
     if(req.method == 'POST'){

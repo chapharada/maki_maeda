@@ -161,12 +161,14 @@ export default {
     async submitForm() {
         try {
           await this.$axios({
+            headers: {
+              'Content-type': 'application/json'
+            },
             method: 'post',
             url: '/api/sendemail',
             data: { ...this.form },
           })
           .then(() => {
-            console.log('？')
             sessionStorage.setItem("formcache", true);
             this.$router.push('/contact/success/')
           })

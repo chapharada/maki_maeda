@@ -36,32 +36,19 @@
 <script>
 export default {
 
-
-  async asyncData({ params, $microcms , payload }) {
-    if(payload){
-
-      const index = payload.prevNext.contents.findIndex((content) => content.id === params.slug)
-
-      let prevLink = payload.prevNext.contents[index - 1];
-      if(prevLink == undefined){
-        prevLink = null;
-      }
-      let nextLink = payload.prevNext.contents[index + 1];
-      if(nextLink == undefined){
-        nextLink = null;
-      }
-      
-      return{
-        article: payload.work,
-        prev:prevLink,
-        next:nextLink
-      };
-    }else if($microcms){
+  async asyncData({ app, params, $microcms }) {
+    console.log(app)
     //記事詳細
-    const data = await $microcms.get({
-      endpoint: "works",
-      contentId: params.slug,
-    });
+
+    const url = process.env.NODE_ENV === 'development' ? '' : 'https://maedamaki.com'
+    const { data } = await app.$axios.get(
+      `${url}/_nuxt/articles/${params.id}.json`
+    )
+
+    // const data = await $microcms.get({
+    //   endpoint: "works",
+    //   contentId: params.slug,
+    // });
 
     const links = await $microcms.get({
       endpoint: "works",
@@ -87,7 +74,6 @@ export default {
         prev:prevLink,
         next:nextLink
       };
-    }
   },
   created() {
     //画像のurlだけを取得

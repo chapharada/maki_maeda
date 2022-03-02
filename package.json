@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "nuxt": "nuxt",
     "download": "node modules/download.js",
-    "build": "nuxt generate",
+    "dev":"run-s download nuxt",
+    "build": "nuxt build",
     "generate": "run-s download build",
     "start": "nuxt start"
   },

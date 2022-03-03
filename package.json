@@ -6,7 +6,7 @@
     "nuxt": "nuxt",
     "download": "node modules/download.js",
     "dev":"run-s download nuxt",
-    "build": "nuxt build",
+    "build": "nuxt generate",
     "generate": "run-s download build",
     "start": "nuxt start"
   },

@@ -12,7 +12,7 @@ const client = createClient({
 
 
 export default {
-  target: 'server',
+  target: 'static',
   ssr: 'true',
   // ジェネレータ内での開発orプロダクションの書き分けに使用しています
   dev: process.env.NODE_ENV !== 'production',

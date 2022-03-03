@@ -113,12 +113,13 @@ export default function generateModule (option) {
         {
         rel: 'prefetch',
         href: `${url}/_nuxt/data/articles/${post.id}.json`
-      }))
+      })),
+      
     ]
     console.log(this.options.head.link)
     if (this.options.dev) return
 
     // ルート生成（おそらく使わない？）
-    this.options.generate.routes = posts.contents.map(post => `/${post.id}`)
+    // this.options.generate.routes = posts.contents.map(post => `/${post.id}`)
   })
 }

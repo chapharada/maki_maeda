@@ -104,22 +104,32 @@ export default function generateModule (option) {
     // ----------------------------------------
     // prefetchにjsonを追加
     // ----------------------------------------
+    process.env.GENERATOR_MODE === 'dev' ? 'server' : 'all';
 
-
-    const url = this.options.dev ? '' : 'https://maedamaki.com'
+    const url = process.env.GENERATOR_MODE === 'dev' ? '' : 'https://maedamaki.com';
     this.options.head.link = [
       ...this.options.head.link,
       ...posts.contents.map(post => (
         {
-        rel: 'prefetch',
-        href: `${url}/_nuxt/data/articles/${post.id}.json`
-      })),
-      
+          rel: 'prefetch',
+          href: `${url}/_nuxt/data/articles/${post.id}.json`
+        })),
+        {
+          rel: 'prefetch',
+          href: `${url}/_nuxt/data/ichiran/index.json`
+        },
+        {
+          rel: 'prefetch',
+          href: `${url}/_nuxt/data/pagecv/index.json`
+        },
+        {
+          rel: 'prefetch',
+          href: `${url}/_nuxt/data/pagecv/infomation.json`
+        },
     ]
     console.log(this.options.head.link)
     if (this.options.dev) return
-
     // ルート生成（おそらく使わない？）
-    // this.options.generate.routes = posts.contents.map(post => `/${post.id}`)
+    this.options.generate.routes = posts.contents.map(post => `/${post.id}`)
   })
 }

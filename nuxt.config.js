@@ -12,10 +12,8 @@ const client = createClient({
 
 
 export default {
-  target: 'static',
+  target: 'server',
   ssr: 'true',
-  // ジェネレータ内での開発orプロダクションの書き分けに使用しています
-  dev: process.env.NODE_ENV !== 'production',
   head: {
     title: 'makiMaeda',
     titleTemplate: '%s - makiMaeda',

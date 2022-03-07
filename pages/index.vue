@@ -36,22 +36,13 @@ import card from "../components/GridCard.vue";
 import arrow from '@/assets/svg/arrow.svg';
 
 export default {
-  async asyncData({ $microcms,payload }) {
-    if(payload){
-      return{
-        ichiran: payload.contents
-      };
-    }else if($microcms){
-      const data = await $microcms.get({
-        endpoint: "works",
-        queries: {
-          limit: 6,
-          depth:1,
-        },
-      });
-      return {
-        ichiran: data.contents,
-      };
+  async asyncData({ app, params }) {
+    const url = process.env.GENERATOR_MODE === 'dev' ? '' : 'https://maedamaki.com'
+    const {data} = await app.$axios.get(
+      `${url}/_nuxt/data/ichiran/index.json`
+    )
+    return { 
+      ichiran: data 
     }
   },
   name: "index",

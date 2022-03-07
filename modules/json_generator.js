@@ -104,7 +104,6 @@ export default function generateModule (option) {
     // ----------------------------------------
     // prefetchにjsonを追加
     // ----------------------------------------
-    process.env.GENERATOR_MODE === 'dev' ? 'server' : 'all';
 
     const url = process.env.GENERATOR_MODE === 'dev' ? '' : 'https://maedamaki.com';
     this.options.head.link = [
@@ -114,6 +113,10 @@ export default function generateModule (option) {
           rel: 'prefetch',
           href: `${url}/_nuxt/data/articles/${post.id}.json`
         })),
+        {
+          rel: 'prefetch',
+          href: `${url}/_nuxt/data/articles/prev_next.json`
+        },
         {
           rel: 'prefetch',
           href: `${url}/_nuxt/data/ichiran/index.json`

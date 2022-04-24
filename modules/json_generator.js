@@ -44,14 +44,11 @@ export default function generateModule (option) {
     
 
     let pagecvInfo = [];  
-    // お知らせ_下部
-    if(pagecv.infoimage !== null && pagecv.infocaption !== null){
-        //お知らせのみのjsonを取得しておく
-        pagecvInfo.push({
-          infoimage:pagecv.infoimage,
-          infocaption:pagecv.infocaption,
-        })
-    }
+    // お知らせ
+    pagecvInfo.push({
+      infoBtn:pagecv.infoBtn,
+      infoCaption:pagecv.infoCaption,
+    })
 
     // ----------------------------------------
     // jsonを生成

@@ -1,12 +1,6 @@
 <template>
   <header id="#topmenu">
-    <div class="toggle" @click="hambargarToggle" :class="{ on: isMenuActive }">
-      <div>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
+
     <div class="inner">
       <div class="logo">
         <nuxt-link to="/">
@@ -15,28 +9,19 @@
           </div>
         </nuxt-link>
       </div>
-      <nav class="pc mainmenu">
-        <nuxt-link to="/pagecv/">
-          <svgLoader name="document" />
-          <span>cv</span>
-        </nuxt-link>
-        <nuxt-link to="/works/">
-          <svgLoader name="corn" />
-          <span>works</span>
-        </nuxt-link>
-        <div class="act">
-          <nuxt-link to="/contact/">
-            <svgLoader name="email" />
-            <span>contact</span>
+      <div class="icon">
+        <div class="mail">
+          <nuxt-link to="/contact">
           </nuxt-link>
         </div>
-      </nav>
-      <nav class="instagram">
-        <a href="https://www.instagram.com/omaedao/" target="_blank">
-          <svgLoader name="instagram" />
-          <span>instagram</span>
-        </a>
-      </nav>
+        <div class="toggle" @click="hambargarToggle" :class="{ on: isMenuActive }">
+          <div>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
     </div>
     <transition name="hamAnim">
       <ToggleMenu v-if="isMenuActive" @close="hamClose"/> 
@@ -63,34 +48,28 @@ export default {
 </script>
 <style lang="scss" scoped>
 header {
-  @include mq(no){
-    width: 270px;
-    align-self: center;
-    height: 100%;
-  }
-  .inner {
-    @include mq(no) {
-      position: fixed;
-      left: 0;
-      top: 0;
-      display: flex;
-      height: 100%;
-      flex-direction: column;
-      justify-content: center;
-      width: 270px;
-      background: url('~/static/img/border_a.png') 100% center/contain no-repeat
-    }
+
+  .inner{
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .toggle {
+      position: relative;
       width: 90px;
       height: 90px;
-      position: fixed;
       top: 0;
       right: 0;
       z-index: 40;
       transition: 0.6s ease-in-out;
       border-radius: 0 0 4px 0;
+      @include mq(no){
+        width: 60px;
+        height: 60px;
+      }
       cursor: pointer;
       span{
         width: 25px;
@@ -101,19 +80,31 @@ header {
         display: block;
         transition: opacity 0.35s ease-in-out ,transform 0.35s ease-in-out ;
         border-radius: 8px;
+        @include mq(no){
+          left: 18px;
+        }
         &:first-child{
           top: 30px;
+          @include mq(no){
+            top: 18px;
+          }
         }
         &:nth-child(2){
           top: 39px;
+          @include mq(no){
+            top: 27px;
+          }
         }
         &:nth-child(3){
           top: 48px;
+          @include mq(no){
+            top: 36px;
+          }
         }
       }
       &.on span{
         &:first-child{
-          transform: rotate(45deg) translateY(7px) translateX(8px);
+          transform: rotate(45deg) translateY(7px) translateX(7.5px);
         }
         &:nth-child(2){
           opacity: 0;
@@ -122,31 +113,15 @@ header {
           transform: rotate(-45deg) translateY(-5px) translateX(5px);
         }
       }
+      
   }
 
   .logo {
-    padding-top: 2.4rem;
-    @include mq(no) {
-      height: auto;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex: 2;
-      padding: 50px 40px 32px 40px;
-    }
-    a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
     .symbol {
       border-radius: 50%;
-      width: 120px;
+      width: 100px;
       img {
         width: 100%;
-      }
-      @include mq(no) {
-        width: 160px;
       }
     }
   }
@@ -157,12 +132,9 @@ header {
         display: flex;
         font-size: 1.45rem;
       }
-      background: url('~/static/img/border_b.png') 100% 0 / contain no-repeat,
-                  url('~/static/img/border_b.png') 0 100% / contain no-repeat;
       flex-direction: column;
       padding: 20px 0;
       a {
-        height: 60px;
         line-height: 1;
         padding-left: 3rem;
         display: flex;

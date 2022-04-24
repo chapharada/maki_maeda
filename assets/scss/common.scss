@@ -1,3 +1,9 @@
+// -------------------------
+//   var
+// -------------------------
+
+
+
 
 html {
   font-size: 62.5%;
@@ -25,41 +31,14 @@ body {
   height: 100%;
   background: #fff;
   letter-spacing: .1em;
+  @include mq(no){
+    padding-top: 2.4rem;
+  }
 }
 
 #wrapper{
   position: relative;
   height: 100%;
-  &.flex{
-    @include mq(no){
-      display: flex;
-      justify-content: space-between;
-      align-content: flex-start;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-  }
-}
-
-main{
-  @include mq(no){
-    flex: 1;
-    position: relative;
-    height: 100%;
-    width: calc(100% - 270px);
-  }
-  #conts{
-    padding: 6.4rem 5.5vw;
-    @include mq(tb){
-      padding: 6.4rem 3.2rem;
-    }
-    @include mq(no){
-      padding: 0 0 4.8rem;
-      width: calc(100% - 10vw);
-      margin: 50px auto 50px;
-      max-width: 1380px;
-    }
-  }
 }
 
 //ロード時

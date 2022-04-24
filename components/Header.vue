@@ -12,6 +12,7 @@
       <div class="icon">
         <div class="mail">
           <nuxt-link to="/contact">
+            <svgLoader name="email">
           </nuxt-link>
         </div>
         <div class="toggle" @click="hambargarToggle" :class="{ on: isMenuActive }">

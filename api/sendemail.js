@@ -30,7 +30,7 @@ app.post("/", (req, res) => {
                 },
                 {
                     'to': [
-                        {'email': 'haradaemiiko@yahoo.co.jp'}
+                        {'email': 'maeda.m1217@gmail.com'}
                     ],
                     'dynamic_template_data': {
                         'name':data['name'],
@@ -40,7 +40,7 @@ app.post("/", (req, res) => {
                 }
             ],
             'from': {
-                'email': 'haradaemiiko@yahoo.co.jp',
+                'email': 'maeda.m1217@gmail.com',
                 'name': '前田真喜'
             },
             'template_id': process.env.TEMPLATE_ID

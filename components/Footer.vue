@@ -1,7 +1,7 @@
 <template>
     <footer>
       <div class="inner">
-        <div class="copyright">© maeda maki </div>
+        <div class="copyright">©2022 maedamaki.All rights reserved.</div>
       </div>
     </footer>
 </template>
@@ -20,21 +20,20 @@ export default {
 
 footer{
   font-size: 1.2rem;
-  max-width: $max-width;
   margin: 0 auto;
-  padding: 1.6rem 0;
+  padding: 3.2rem 0 4.8rem;
+  background: #F7D80A;
   
   .inner{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    max-width: 1380px;
-    width: calc(100% - 10vw);
+    max-width: 960px;
     margin: 0 auto;
+    text-align: center;
   }
   .copyright{
-    text-align: left;
+    text-align: center;
     line-height: 1;
+    font-size: 1rem;
+    letter-spacing: .02em;
   }
   .sns{
     a{

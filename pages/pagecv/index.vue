@@ -4,9 +4,6 @@
     <section>
       <div class="cv mainconts">
         <div class="inner">
-          <div class="heading">
-            <h1>cv </h1>
-          </div>
           <div class="conts">
             <div class="block autor">
               <h2 class="title">maeda maki / 前田 真喜</h2>
@@ -47,11 +44,8 @@ body{
 
 .cv{
   padding-top: 0.8rem;
-  .inner{
-    @include mq(no){
-      display: flex;
-    }
-  }
+  max-width: 580px;
+  margin: 0 auto;
   h1{
     font-size: 1.4rem;
     line-height: 1.5;

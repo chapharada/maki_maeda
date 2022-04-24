@@ -1,6 +1,5 @@
 <template>
   <header id="#topmenu">
-
     <div class="inner">
       <div class="logo">
         <nuxt-link to="/">
@@ -10,9 +9,14 @@
         </nuxt-link>
       </div>
       <div class="icon">
+        <div class="instagram">
+          <a href="https://www.instagram.com/omaedao/">
+            <svgLoader name="instagram" />
+          </a>
+        </div>
         <div class="mail">
           <nuxt-link to="/contact">
-            <svgLoader name="email">
+            <svgLoader name="email" />
           </nuxt-link>
         </div>
         <div class="toggle" @click="hambargarToggle" :class="{ on: isMenuActive }">
@@ -52,60 +56,91 @@ header {
 
   .inner{
     max-width: 960px;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 2.4rem 0rem;
+    @include mq(no){
+      margin: 0 auto 0.8rem;
+    }
   }
-
-  .toggle {
+  .logo {
+    .symbol {
+      border-radius: 50%;
+      width: 80px;
+      @include mq(no){
+        width: 90px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+  
+  .inner .icon{
+    display: flex;
+    align-items: center;
+    & > *:not(:last-child){
+      margin-right: 0.6rem;
+      @include mq(no){
+        margin-right: 1.2rem;
+      }
+    }
+    .instagram{
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a{
+        width: 22px;
+        height: 26px;
+      }
+    }
+    .mail{
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a{
+        display: block;
+        width: 24px;
+        height: 25px;
+      }
+    }
+    .toggle {
       position: relative;
-      width: 90px;
-      height: 90px;
       top: 0;
       right: 0;
       z-index: 40;
       transition: 0.6s ease-in-out;
       border-radius: 0 0 4px 0;
-      @include mq(no){
-        width: 60px;
-        height: 60px;
-      }
+      width: 36px;
+      height: 36px;
       cursor: pointer;
       span{
-        width: 25px;
+        width: 22px;
         height: 3px;
         position: absolute;
-        left: 35px;
+        left: 8px;
         background: #222;
         display: block;
         transition: opacity 0.35s ease-in-out ,transform 0.35s ease-in-out ;
         border-radius: 8px;
-        @include mq(no){
-          left: 18px;
-        }
         &:first-child{
-          top: 30px;
-          @include mq(no){
-            top: 18px;
-          }
+          top: 7px;
         }
         &:nth-child(2){
-          top: 39px;
-          @include mq(no){
-            top: 27px;
-          }
+          top: 15px;
         }
         &:nth-child(3){
-          top: 48px;
-          @include mq(no){
-            top: 36px;
-          }
+          top: 23px;
         }
       }
       &.on span{
         &:first-child{
-          transform: rotate(45deg) translateY(7px) translateX(7.5px);
+          transform: rotate(45deg) translateY(6.5px) translateX(7px);
         }
         &:nth-child(2){
           opacity: 0;
@@ -114,61 +149,11 @@ header {
           transform: rotate(-45deg) translateY(-5px) translateX(5px);
         }
       }
-      
+    }
   }
 
-  .logo {
-    .symbol {
-      border-radius: 50%;
-      width: 100px;
-      img {
-        width: 100%;
-      }
-    }
-  }
-  .mainmenu {
-    &.pc {
-      display: none;
-      @include mq(no) {
-        display: flex;
-        font-size: 1.45rem;
-      }
-      flex-direction: column;
-      padding: 20px 0;
-      a {
-        line-height: 1;
-        padding-left: 3rem;
-        display: flex;
-        align-items: center;
-        transform-origin: center;
-      }
-      svg {
-        width: 18px;
-        height: 18px;
-        margin-right: 1rem;
-      }
-    }
-  }
-  .instagram {
-    display: none;
-    @include mq(no) {
-      display: block;
-    }
-    padding: 1.2rem 0;
-    a {
-      display: flex;
-      align-items: center;
-      height: 46px;
-      padding-left: 3rem;
-      span {
-        font-size: 1.6rem;
-      }
-      svg {
-        width: 18px;
-        margin-right: 1rem;
-      }
-    }
-  }
+
+
 }
 
 .hamAnim-enter-active,

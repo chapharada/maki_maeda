@@ -12,10 +12,7 @@
                 @click.native.prevent="hamTrigger"
                 event="" 
               />
-          </template>          
-          <nuxt-link to="">
-            <svgLoader name="instagram" />
-          </nuxt-link>
+          </template>
         </nav>
         <div class="copyright">© maeda maki </div>
       </div>
@@ -35,11 +32,6 @@ export default {
           {
             name: 'cv',
             path: 'pagecv',
-            className: '',
-          },
-          {
-            name: 'works',
-            path: 'works',
             className: '',
           },
           {

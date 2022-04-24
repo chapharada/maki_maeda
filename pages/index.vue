@@ -2,19 +2,55 @@
 
 <template>
     <section>
+      <div class="info">
+        <div class="info-inner">
+          <h2>Infomation</h2>
+          <div class="info-conts">
+            <div class="inner">
+              <div class="lft">
+                <div class="midashi">
+                  <h2>おまえがまえだ！なんぼのもんじゃい展</h2>
+                  <span>ーナブーの戦いの際にクワイ＝ガン・ジンらを仲介として接触に成功ー</span>
+                </div>
+                <div class="detail">
+                  <dl>
+                    <dt>会期</dt>
+                    <dd>2021.08.29(土) ~ 2021.09.31(土)</dd>
+                  </dl>
+                  <dl>
+                    <dt>会館時間</dt>
+                    <dd>9:30-17:00（入館は16:30まで）</dd>
+                  </dl>
+                  <dl>
+                    <dt>会場</dt>
+                    <dd>法人会社がらんどう</dd>
+                  </dl>
+                  <dl>
+                    <dt>観覧料</dt>
+                    <dd>一般　1,200円（1,000円）、高・大生 800円（600円）、小・中学生 600円（450円）
+                      <span>※身体障害者手帳等をお持ちの方は無料</span>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="comment">
+                  <a href="http://kunstarzt.com/Artist/MAEDA/Maki.htm">詳しくはこちら</a>
+                </div>
+              </div>
+              <div class="rgt">
+                <img src="@/assets/img/info/flyer_2018.jpg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="works" ref="grid">
         <div class="works-inner">
-          <masonry-wall :items="ichiran" :ssr-columns="1" :column-width="300" :gap="12" :rtl="false" transition-duration="0.3s">
+          <h2>Works</h2>
+          <masonry-wall :items="ichiran" :ssr-columns="3" :column-width="300" :gap="12" :rtl="false" transition-duration="0.3s">
             <template #default="{item}" >
                 <card :item="item"  :folder="'/works/'" @loaded="handleLoaded"/> 
             </template>
           </masonry-wall>
-          <div class="pagelink">
-          <nuxt-link to="/works/">
-            <div class="text">すべて見る</div>
-            <arrow />
-          </nuxt-link>
-          </div>
         </div>
       </div>
     </section>
@@ -71,6 +107,11 @@ export default {
 <style lang="scss" scoped>
 
 
+
+  section{
+    padding: 0 2.5rem;
+  }
+
   .cap-title{
     font-weight: bold;
     letter-spacing: 0.08em;
@@ -81,70 +122,81 @@ export default {
     }
     font-size: 1.8rem;
     color: #27c4ac;
-  }
-  #info{
+  }  
+
+  .info h2,.works h2{
+    font-size: 2.2rem;
+    letter-spacing: .02em;
+  } 
+
+  .info{
+    max-width: 960px;
+    margin: 0 auto;
     margin-bottom: 4.8rem;
-    @include mq(pc){
-      margin-bottom: 11.4rem;
-    }
-    .data{
-      max-width: 720px;
-      margin: 0 auto;
-      h2{
-        text-align: left;
-        font-weight: bold;
-        margin-bottom: 0.4rem;
-        font-size:1.4rem ;
-        @include mq(no){
-          font-size:1.8rem ;
+    &-conts{
+      background: #fff;
+      padding: 4.8rem 4rem;
+      .inner{
+        display: flex;
+        align-items: top;
+        justify-content: space-between;
+      }
+      .lft{
+        width: calc(62% - 48px);
+        .midashi{
+          margin-bottom: 2.4rem;
+          line-height: 1.3;
+          h2{
+            font-size: 2.4rem;
+          }
+          span{
+            font-size: 1.1rem;
+          }
+        }
+        .detail{
+          
+          &:not(:last-child){
+            margin-bottom: 2.4rem;
+          }
+          
+          dl{
+            display: flex;
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+            line-height: 1.6;
+            span{
+              display: block;
+              color: #777;
+              font-size: 0.9em;
+            }          
+            dt{
+              width: 90px;
+              flex: 0 0 auto;
+            }
+            dd{
+              flex: 1 1 auto;
+              word-break: break-all;
+            }
+          }
+        }
+        .comment{
+          font-size: 1.3rem;
+          a{
+            color: #2b5ad4;
+            text-decoration: underline;
+            letter-spacing: .01em;
+          }  
         }
       }
-      .caption{
-        margin: 0 auto 0.8rem;
+      .rgt{
+        width: 38%;
         img{
-          display: block;
           width: 100%;
-          margin: 0 auto;
         }
       }
-      .type {
-        position: absolute;
-        -ms-writing-mode: tb-rl;
-        writing-mode: vertical-rl;
-        top: 40px;
-        right: 26px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #fc492b;
-        letter-spacing: 0.15em;
-      }      
-      .arrow{
-        position: absolute;
-        bottom: 36px;
-        right: 20px;
-        width: 30px;
-        height: 30px;
-        span{
-          width: 30px;
-          height: 30px;
-          position: relative;
-          display: flex;
-          background: #fc492b;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          svg{
-            width: 11px;
-            height: auto;
-            fill: #fff;
-          }   
-        }
-      }    
-    }
-    .detail{
-      font-size: 1.4rem;
     }
   }
+
   .works{
     margin-bottom: 4rem;
     &-inner{

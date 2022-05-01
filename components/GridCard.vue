@@ -6,10 +6,9 @@
           <img :src="require(`@/assets/img/works/${item.cover.url}`)" alt="item.midashi" @load="loaded" v-lazy-load />
         </figure>
       </div>
-      <!-- <div class="card-content content">
-        <h2>{{ item.midashi }}</h2>
-        <p>{{ item.caption }}</p>
-      </div> -->
+      <div class="card-content content">
+        <span class="text">{{ item.midashi }}</span>
+      </div>
     </nuxt-link>
   </div>
 </template>
@@ -43,9 +42,20 @@ export default {
 <style lang="scss" scoped>
   .card{
     margin-bottom: 0rem;
+    position: relative;
     @include mq(no){
       margin-bottom: 0;
     }
+    &:hover{
+      img{
+        opacity: 0.1;
+      }
+      .card-content{
+        opacity: 1;
+      }
+
+    }
+
     &-image{
       margin-bottom: 0.4rem;
       img{
@@ -55,18 +65,21 @@ export default {
       }
     }
     &-content{
-      h2{
-        font-weight: bold;
-        font-size: 1.45rem;
-      }
-      p{
-        color: #666;
-        font-size: 1rem;
-        @include mq(no){
-          font-size: 1.05rem;
-        }
-        line-height: 1.3;
-        font-weight: 400;
+      opacity: 0;
+      text-align: center;
+      margin: auto;
+      position: absolute;
+      white-space: nowrap;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 20px;
+      height: 24px;
+      filter: alpha(opacity=00);
+      transition: opacity .3s ease-in-out;
+      span{
+        font-size: 1.2rem;
+        letter-spacing: .02em;
       }
     }
   }

@@ -185,6 +185,8 @@ export default {
 
 .contact {
   margin-bottom: 60px;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 .heading{
@@ -238,6 +240,7 @@ export default {
         padding-right: 40px;
         margin-top: 0.4rem;
         font-size: 1.6rem;
+        background: #f9f9f9;
       }
     }
     .confirmbtn {

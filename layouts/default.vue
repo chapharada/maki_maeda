@@ -3,11 +3,9 @@
   <div id="wrapper" class="flex">
     <Header />
     <main>
-      <div id="conts">
-        <nuxt />
-      </div>
-      <Footer />
+      <nuxt />
     </main>
+    <Footer />
   </div>
 </template>
 <script>

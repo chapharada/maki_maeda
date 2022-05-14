@@ -17,20 +17,6 @@
 import card from "~/components/GridCard.vue";
 
 export default {
-  //   async asyncData({ $microcms,payload}) {
-  //     if(payload){
-  //       return{
-  //         ichiran: payload.contents
-  //       };
-  //     }else if($microcms){      
-  //       const data = await $microcms.get({
-  //         endpoint: 'works',
-  //       })
-  //       return {
-  //         ichiran: data.contents
-  //       }
-  //     }
-  // },
   async asyncData({ app, params }) {
     const url = process.env.GENERATOR_MODE === 'dev' ? '' : 'https://maedamaki.com'
     const {data} = await app.$axios.get(

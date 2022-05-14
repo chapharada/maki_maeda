@@ -38,11 +38,6 @@
                   </dd>
                 </dl>
               </div>
-              <div class="comment">
-                <a href="http://kunstarzt.com/Artist/MAEDA/Maki.htm"
-                  >詳しくはこちら</a
-                >
-              </div>
             </div>
           </div>
         </div>

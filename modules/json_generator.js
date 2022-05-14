@@ -48,6 +48,7 @@ export default function generateModule (option) {
     pagecvInfo.push({
       infoBtn:pagecv.infoBtn,
       infoCaption:pagecv.infoCaption,
+      infoExplain:pagecv.infoExplain
     })
 
     // ----------------------------------------

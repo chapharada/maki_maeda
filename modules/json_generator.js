@@ -41,8 +41,8 @@ export default function generateModule (option) {
       }
     )
     const pagecv = pagecvUrl.data
-    
 
+    
     let pagecvInfo = [];  
     // お知らせ
     pagecvInfo.push({
@@ -99,40 +99,41 @@ export default function generateModule (option) {
       }
     })
 
+
     // ----------------------------------------
     // prefetchにjsonを追加
     // ----------------------------------------
-
-    const url = process.env.GENERATOR_MODE === 'dev' ? '' : 'https://maedamaki.com';
-    this.options.head.link = [
-      ...this.options.head.link,
-      ...posts.contents.map(post => (
-        {
-          rel: 'prefetch',
-          href: `${url}/_nuxt/data/articles/${post.id}.json`
-        })),
-        {
-          rel: 'prefetch',
-          href: `${url}/_nuxt/data/articles/prev_next.json`
-        },
-        {
-          rel: 'prefetch',
-          href: `${url}/_nuxt/data/ichiran/index.json`
-        },
-        {
-          rel: 'prefetch',
-          href: `${url}/_nuxt/data/pagecv/index.json`
-        },
-        {
-          rel: 'prefetch',
-          href: `${url}/_nuxt/data/pagecv/infomation.json`
-        },
-    ]
-    console.log(this.options.head.link)
+    // console.log(this.options)
+    // const url = process.env.GENERATOR_MODE === 'dev' ? '' : 'https://maedamaki.com';
+    // this.options.head.link = [
+    //   ...this.options.head.link,
+    //   ...posts.contents.map(post => (
+    //     {
+    //       rel: 'prefetch',
+    //       href: `${url}/_nuxt/data/articles/${post.id}.json`
+    //     })),
+    //     {
+    //       rel: 'prefetch',
+    //       href: `${url}/_nuxt/data/articles/prev_next.json`
+    //     },
+    //     {
+    //       rel: 'prefetch',
+    //       href: `${url}/_nuxt/data/ichiran/index.json`
+    //     },
+    //     {
+    //       rel: 'prefetch',
+    //       href: `${url}/_nuxt/data/pagecv/index.json`
+    //     },
+    //     {
+    //       rel: 'prefetch',
+    //       href: `${url}/_nuxt/data/pagecv/infomation.json`
+    //     },
+    // ]
+    // console.log(this.options.head.link)
     
-    if (process.env.GENERATOR_MODE === 'dev') return
+    // if (process.env.GENERATOR_MODE === 'dev') return
 
-    // ルート生成（おそらく使わない？）
-    this.options.generate.routes = posts.contents.map(post => `/${post.id}`)
+    // // ルート生成（おそらく使わない？）
+    // this.options.generate.routes = posts.contents.map(post => `/${post.id}`)
   })
 }

@@ -58,7 +58,7 @@ async function urlList() {
     process.env.API_KEY
   );
   const data_B = await getApi(
-    "maedamaki",
+    process.env.SERVICE_DOMAIN,
     "pagecv",
     process.env.API_KEY
   );
@@ -74,6 +74,8 @@ async function urlList() {
       urlList.push(inner.detail_img.url);
     }
   }
+  console.log(data_B)
+
   //04 お知らせあれば取得
   if(data_B.infoimage !== undefined){
     urlList.push(data_B.infoimage.url);
@@ -81,7 +83,6 @@ async function urlList() {
   
   return urlList;
 }
-
 
 urlList()
   .then(function(data) {    

@@ -1,5 +1,8 @@
 
 import axios from 'axios'
+import * as utils from './utils';
+
+utils.sample();
 
 export default function generateModule (option) {
   this.nuxt.hook('build:before', async ({ app }) => {
@@ -45,6 +48,12 @@ export default function generateModule (option) {
     
     let pagecvInfo = [];  
     // お知らせ
+
+    var explain =  await utils.makeHtmlForRichEditor(pagecv.infoExplain,'./assets/img/works/')
+
+    console.log("変換:",explain)
+    console.log("なんもなし",pagecv.infoExplain)
+
     pagecvInfo.push({
       infoBtn:pagecv.infoBtn,
       infoCaption:pagecv.infoCaption,

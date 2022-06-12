@@ -43,9 +43,16 @@ body{
 }
 
 .cv{
-  padding-top: 0.8rem;
   max-width: 580px;
   margin: 0 auto;
+  max-width: 960px;
+  width: calc(100% - 5rem);
+  @include mq(tb){
+    width: calc(100% - 7.2rrem);
+  }
+  @include mq(no){
+    width: calc(100% - 3.2rem);
+  }
   h1{
     font-size: 1.4rem;
     line-height: 1.5;

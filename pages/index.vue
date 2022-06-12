@@ -2,47 +2,25 @@
 
 <template>
   <section>
-    <div class="info" v-if="info.infoBtn">
-      <div class="info-inner">
-        <h2>Infomation</h2>
-        <div class="info-conts">
-          <div class="inner">
-            <div class="rgt">
-              <img src="@/assets/img/info/flyer_2018.jpg" alt="" />
-            </div>            
-            <div class="lft">
-              <div class="midashi">
-                <h2>おまえがまえだ！なんぼのもんじゃい展</h2>
-                <span>ーナブーの戦いの際にクワイ＝ガン・ジンらを仲介として接触に成功ー</span>
+      <div class="info" v-if="info.infoBtn">
+        <div class="info-inner">
+          <h2>Infomation</h2>
+          <div class="info-conts">
+            <div class="inner">
+              <div class="rgt">
+                <img :src="require(`@/assets/img/info/${info.infoImage}`)" />
               </div>
-              <div class="detail">
-                <dl>
-                  <dt>会期</dt>
-                  <dd>2021.08.29(土) ~ 2021.09.31(土)</dd>
-                </dl>
-                <dl>
-                  <dt>会館時間</dt>
-                  <dd>9:30-17:00（入館は16:30まで）</dd>
-                </dl>
-                <dl>
-                  <dt>会場</dt>
-                  <dd>法人会社がらんどう</dd>
-                </dl>
-                <dl>
-                  <dt>観覧料</dt>
-                  <dd>
-                    一般　1,200円（1,000円）、高・大生
-                    800円（600円）、小・中学生 600円（450円）<span
-                      >※身体障害者手帳等をお持ちの方は無料</span
-                    >
-                  </dd>
-                </dl>
+              <div class="lft">
+                <div class="midashi">
+                  <h2>{{ info.infoMidashi }}</h2>
+                    <span v-if="info.infoCaption">{{ info.infoCaption }}</span>
+                </div>
+                <div class="detail" v-html="info.infoExplain"></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div>        
     <div class="works" ref="grid">
       <div class="works-inner">
         <h2>Works</h2>
@@ -85,7 +63,6 @@ export default {
     };
   },
   name: "index",
-  transition: "expandFade",
   components: {
     card,
     arrow,
@@ -103,8 +80,9 @@ export default {
       el.cover.url = captionData;
     }
   },
-  mounted() {
-    this.$nextTick(function () {});
+  computed: {
+    reversedMessage () {
+    },
   },
   methods: {
     handleLoaded: function () {
@@ -148,11 +126,11 @@ section {
   &-conts {
     background: #fff;
     padding: 4.8rem 3.2rem;
-    @include mq(no){
+    @include mq(no) {
       padding: 4.8rem 4rem;
     }
     .inner {
-      @include mq(no){
+      @include mq(no) {
         display: flex;
         align-items: top;
         justify-content: space-between;
@@ -161,20 +139,20 @@ section {
     }
     .lft {
       width: 100%;
-      @include mq(no){
+      @include mq(no) {
         width: calc(62% - 48px);
       }
       .midashi {
         margin-bottom: 2.4rem;
         line-height: 1.2;
-        @include mq(no){
+        @include mq(no) {
           line-height: 1.3;
         }
 
         h2 {
           font-size: 2.2rem;
           margin-bottom: 0;
-          @include mq(no){
+          @include mq(no) {
             font-size: 2.4rem;
           }
         }
@@ -182,38 +160,8 @@ section {
         span {
           font-size: 1rem;
           line-height: 1;
-          @include mq(no){
+          @include mq(no) {
             font-size: 1.1rem;
-          }
-        }
-      }
-      .detail {
-        &:not(:last-child) {
-          margin-bottom: 2.4rem;
-        }
-
-        dl {
-          display: flex;
-          font-size: 1.2rem;
-          line-height: 1.6;
-          &:not(:last-child){
-            margin-bottom: 0.6rem;
-            @include mq(no){
-              margin-bottom: 0.4rem;
-            }
-          }
-          span {
-            display: block;
-            color: #777;
-            font-size: 0.9em;
-          }
-          dt {
-            width: 90px;
-            flex: 0 0 auto;
-          }
-          dd {
-            flex: 1 1 auto;
-            word-break: break-all;
           }
         }
       }
@@ -228,10 +176,10 @@ section {
     }
     .rgt {
       margin-bottom: 4.8rem;
-      @include mq(tb){
+      @include mq(tb) {
         margin-bottom: 4.8rem;
       }
-      @include mq(no){
+      @include mq(no) {
         width: 38%;
         margin-bottom: 0rem;
       }
@@ -280,6 +228,48 @@ section {
     width: 15px;
     margin: 0px 0px 0px 12px;
     height: auto;
+  }
+}
+
+
+::v-deep .detail {
+  &:not(:last-child) {
+    margin-bottom: 2.4rem;
+  }
+  
+  p{
+    font-size: 1.2rem;
+    &:not(:last-child){
+      margin-bottom: 0.4rem;
+    }
+  }
+  img {
+    width: 80%;
+  }
+
+  dl {
+    display: flex;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    &:not(:last-child) {
+      margin-bottom: 0.6rem;
+      @include mq(no) {
+        margin-bottom: 0.4rem;
+      }
+    }
+    span {
+      display: block;
+      color: #777;
+      font-size: 0.9em;
+    }
+    dt {
+      width: 90px;
+      flex: 0 0 auto;
+    }
+    dd {
+      flex: 1 1 auto;
+      word-break: break-all;
+    }
   }
 }
 </style>

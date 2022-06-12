@@ -2,9 +2,6 @@
 //   var
 // -------------------------
 
-
-
-
 html {
   font-size: 62.5%;
   height: 100%;
@@ -52,22 +49,22 @@ main{
 // -----------------------------
 
 //ロード時
-.expandFade-enter{
-  opacity: 0;
-  transform: translateY(20px);
-}
-.expandFade-enter-active{
-  transition: opacity .5s,transform .5s;
-} 
+// .expandFade-enter{
+//   opacity: 0;
+//   transform: translateY(20px);
+// }
+// .expandFade-enter-active{
+//   transition: opacity .5s,transform .5s;
+// } 
 
-//遷移時
-.expandFade-leave-active { 
-  transition: opacity .5s,transform .5s;
-}
-.expandFade-leave-active {
-  transform: translateY(-20px);
-  opacity: 0; 
-}
+// //遷移時
+// .expandFade-leave-active { 
+//   transition: opacity .5s,transform .5s;
+// }
+// .expandFade-leave-active {
+//   transform: translateY(-20px);
+//   opacity: 0; 
+// }
 
 [v-cloak] {
   display: none;

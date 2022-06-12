@@ -6,6 +6,7 @@ const fs = require('fs');
 //envファイルからデータを取得
 require('dotenv').config();
 
+
 // FUNCTION_METHODS  ///////////////////////////////////////
 
 //_1_パスファイルをurlと画像に分割する
@@ -57,11 +58,6 @@ async function urlList() {
     "works",
     process.env.API_KEY
   );
-  const data_B = await getApi(
-    process.env.SERVICE_DOMAIN,
-    "pagecv",
-    process.env.API_KEY
-  );
 
   for( var el of data_A.contents){
 
@@ -73,12 +69,6 @@ async function urlList() {
     for(var inner of el.detail){
       urlList.push(inner.detail_img.url);
     }
-  }
-  console.log(data_B)
-
-  //04 お知らせあれば取得
-  if(data_B.infoimage !== undefined){
-    urlList.push(data_B.infoimage.url);
   }
   
   return urlList;
@@ -125,3 +115,30 @@ urlList()
   .catch(err => {
     console.log(err);
 })
+
+async function urlListB() {
+  const data_B = await getApi(
+    process.env.SERVICE_DOMAIN,
+    "pagecv",
+    process.env.API_KEY
+  );
+
+  var data = data_B.infoImage.url
+  return data;
+}
+
+urlListB().then(function(data) {   
+
+    const fileDir = './assets/img/info'
+    //画像がフォルダになければダウンロードする。
+    const fileList = fs.readdirSync(fileDir)  
+    
+    var fileName = makePassToImg(data)
+    let indexOfFirst = fileList.indexOf(fileName);
+
+    if(indexOfFirst == -1){
+      downloadImage(data,fileDir,fileName)
+    }
+    
+});
+

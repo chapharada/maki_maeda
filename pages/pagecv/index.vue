@@ -27,7 +27,6 @@ export default {
       history: data 
     }
   },
-  transition: "expandFade",
 }
 </script>
 
@@ -48,7 +47,7 @@ body{
   max-width: 960px;
   width: calc(100% - 5rem);
   @include mq(tb){
-    width: calc(100% - 7.2rrem);
+    width: calc(100% - 7.2rem);
   }
   @include mq(no){
     width: calc(100% - 3.2rem);

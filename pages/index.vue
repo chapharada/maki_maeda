@@ -2,25 +2,25 @@
 
 <template>
   <section>
-      <div class="info" v-if="info.infoBtn">
-        <div class="info-inner">
-          <h2>Infomation</h2>
-          <div class="info-conts">
-            <div class="inner">
-              <div class="rgt">
-                <img :src="require(`@/assets/img/info/${info.infoImage}`)" />
+    <div class="info">
+      <div class="info-inner">
+        <h2>Infomation</h2>
+        <div class="info-conts">
+          <div class="inner">
+            <div class="rgt">
+              <img :src="getImgBindPass('info',info.infoImage)" />
+            </div>
+            <div class="lft">
+              <div class="midashi">
+                <h2>{{ info.infoMidashi }}</h2>
+                  <span>{{ info.infoCaption }}</span>
               </div>
-              <div class="lft">
-                <div class="midashi">
-                  <h2>{{ info.infoMidashi }}</h2>
-                    <span v-if="info.infoCaption">{{ info.infoCaption }}</span>
-                </div>
-                <div class="detail" v-html="info.infoExplain"></div>
-              </div>
+              <div class="detail" v-html="info.infoExplain"></div>
             </div>
           </div>
         </div>
-      </div>        
+      </div>
+    </div>        
     <div class="works" ref="grid">
       <div class="works-inner">
         <h2>Works</h2>
@@ -47,14 +47,14 @@ import arrow from "@/assets/svg/arrow.svg";
 
 export default {
   async asyncData({ app, params }) {
-    const url =
-      process.env.GENERATOR_MODE === "dev" ? "" : "https://maedamaki.com";
-    const { data } = await app.$axios.get(
-      `${url}/_nuxt/data/ichiran/index.json`
-    );
+    const url = await process.env.GENERATOR_MODE === "dev" ? "" : "https://maedamaki.com";
 
     const info = await app.$axios.get(
       `${url}/_nuxt/data/pagecv/infomation.json`
+    );
+
+    const { data } = await app.$axios.get(
+      `${url}/_nuxt/data/ichiran/index.json`
     );
 
     return {
@@ -71,6 +71,7 @@ export default {
     return {
       loadedCount: 0,
       gridShow: false,
+      dataInfoLoaded: false,
     };
   },
   created() {
@@ -80,10 +81,6 @@ export default {
       el.cover.url = captionData;
     }
   },
-  computed: {
-    reversedMessage () {
-    },
-  },
   methods: {
     handleLoaded: function () {
       this.loadedCount++;
@@ -91,7 +88,20 @@ export default {
         this.gridShow = true;
       }
     },
+    getImgBindPass: function(locate,name){
+      return name ? require(`@/assets/img/${locate}/${name}`) : ''
+    }
   },
+  computed:{
+    passInfoLoaded(){
+      if(!this.info){
+        return 
+      }else{
+        var data = this.info
+        return data
+      }
+    }
+  }
 };
 </script>
 

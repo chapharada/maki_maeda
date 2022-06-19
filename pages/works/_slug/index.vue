@@ -92,7 +92,6 @@ export default {
       el.detail_img.url = detailCaptionData;
     }
   },
-  transition: "expandFade",
 };
 </script>
 

@@ -87,7 +87,6 @@ export default {
       isVaild: false,
     };
   },
-  transition: "expandFade",
   computed: {
     validationName() {
       if (!this.form.name) {

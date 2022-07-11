@@ -11,7 +11,11 @@ export default function generateModule (option) {
     const articleUrl = await axios.get(
       `https://${process.env.SERVICE_DOMAIN}.microcms.io/api/v1/works`,
       {
-        headers: { 'X-MICROCMS-API-KEY': process.env.API_KEY }
+        headers: { 'X-MICROCMS-API-KEY': process.env.API_KEY },
+        proxy: {
+          host: 'wgproxy',
+          port: 8080,
+        }
       }
     )
     const posts = articleUrl.data;
@@ -40,6 +44,10 @@ export default function generateModule (option) {
       `https://${process.env.SERVICE_DOMAIN}.microcms.io/api/v1/pagecv`,
       {
         headers: { 'X-MICROCMS-API-KEY': process.env.API_KEY },
+        proxy: {
+          host: 'wgproxy',
+          port: 8080,
+        }
       }
     )
     const pagecv = pagecvUrl.data

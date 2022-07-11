@@ -19,7 +19,9 @@
             <svgLoader name="email" />
           </nuxt-link>
         </div>
-        <div class="toggle" @click="hambargarToggle" :class="{ on: isMenuActive }">
+        <div class="toggle"
+          @click="hambargarToggle"
+          :class="{ on: isMenuActive }" >
           <div>
             <span></span>
             <span></span>
@@ -29,38 +31,37 @@
       </div>
     </div>
     <transition name="hamAnim">
-      <ToggleMenu v-if="isMenuActive" @close="hamClose"/> 
+      <ToggleMenu v-if="isMenuActive" @close="hamClose" />
     </transition>
   </header>
 </template>
 <script>
 export default {
-   data() {
+  data() {
     return {
-      isMenuActive:false,
-    }
+      isMenuActive: false,
+    };
   },
   methods: {
-    hambargarToggle(){
+    hambargarToggle() {
       this.isMenuActive = !this.isMenuActive;
     },
-    hamClose(){
-      this.isMenuActive = false
-      this.$router.push({ path: event.target.pathname })
-    }
+    hamClose() {
+      this.isMenuActive = false;
+      this.$router.push({ path: event.target.pathname });
+    },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 header {
-
-  .inner{
+  .inner {
     max-width: 960px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0 2.4rem 0rem;
-    @include mq(no){
+    @include mq(no) {
       margin: 0 auto 0.8rem;
     }
   }
@@ -68,7 +69,7 @@ header {
     .symbol {
       border-radius: 50%;
       width: 80px;
-      @include mq(no){
+      @include mq(no) {
         width: 90px;
       }
       img {
@@ -76,38 +77,36 @@ header {
       }
     }
   }
-  
-  .inner .icon{
+
+  .inner .icon {
     display: flex;
     align-items: center;
-    & > *:not(:last-child){
+    & > *:not(:last-child) {
       margin-right: 0.6rem;
-      @include mq(no){
+      @include mq(no) {
         margin-right: 1.2rem;
       }
     }
-    .instagram{
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      a{
-        width: 22px;
-        height: 26px;
+    .mail,
+    .instagram {
+      a {
+        display: flex;
+        width: 36px;
+        height: 36px;
+        align-items: center;
+        justify-content: center;
       }
     }
-    .mail{
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      a{
-        display: block;
-        width: 24px;
-        height: 25px;
-      }
+    .mail a svg{
+      display: block;
+      width:26px;
+      height:auto;
+      margin-bottom: 0.2rem;
+    }
+    .instagram a svg{
+      width: 24px;
+      height: 24px;
+      margin-bottom: 0.15rem;
     }
     .toggle {
       position: relative;
@@ -119,45 +118,42 @@ header {
       width: 36px;
       height: 36px;
       cursor: pointer;
-      span{
+      span {
         width: 22px;
         height: 3px;
         position: absolute;
         left: 8px;
         background: #222;
         display: block;
-        transition: opacity 0.35s ease-in-out ,transform 0.35s ease-in-out ;
+        transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
         border-radius: 8px;
-        &:first-child{
+        &:first-child {
           top: 7px;
         }
-        &:nth-child(2){
+        &:nth-child(2) {
           top: 15px;
         }
-        &:nth-child(3){
+        &:nth-child(3) {
           top: 23px;
         }
       }
-      &.on span{
-        &:first-child{
+      &.on span {
+        &:first-child {
           transform: rotate(45deg) translateY(6.5px) translateX(7px);
         }
-        &:nth-child(2){
+        &:nth-child(2) {
           opacity: 0;
         }
-        &:nth-child(3){
+        &:nth-child(3) {
           transform: rotate(-45deg) translateY(-5px) translateX(5px);
         }
       }
     }
   }
-
-
-
 }
 
 .hamAnim-enter-active,
-.hamAnim-leave-active{
+.hamAnim-leave-active {
   transition: opacity 0.3s;
 }
 
@@ -165,5 +161,4 @@ header {
 .hamAnim-leave-to {
   opacity: 0;
 }
-
 </style>

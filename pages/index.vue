@@ -2,7 +2,7 @@
 
 <template>
   <section>
-    <div class="info">
+    <div class="info" v-if="info.infoBtn">
       <div class="info-inner">
         <h2>Infomation</h2>
         <div class="info-conts">
@@ -47,14 +47,26 @@ import arrow from "@/assets/svg/arrow.svg";
 
 export default {
   async asyncData({ app, params }) {
-    const url = await process.env.GENERATOR_MODE === "dev" ? "" : "https://maedamaki.com";
+    const url = process.env.GENERATOR_MODE === "dev" ? "" : "https://maedamaki.com";
 
     const info = await app.$axios.get(
-      `${url}/_nuxt/data/pagecv/infomation.json`
+      `${url}/_nuxt/data/pagecv/infomation.json`,
+      {
+        proxy: {
+          host: 'wgproxy',
+          port: 8080,
+        }
+      }
     );
-
+    
     const { data } = await app.$axios.get(
-      `${url}/_nuxt/data/ichiran/index.json`
+      `${url}/_nuxt/data/ichiran/index.json`,
+      {
+        proxy: {
+          host: 'wgproxy',
+          port: 8080,
+        }
+      }
     );
 
     return {

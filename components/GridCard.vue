@@ -3,7 +3,7 @@
     <nuxt-link :to="`${folder}${item.id}`" >
       <div class="card-image">
         <figure class="image">
-          <img :src="require(`@/assets/img/works/${item.cover.url}`)" alt="item.midashi" @load="loaded" v-lazy-load />
+          <img :src="getImgBindPass('works',item.cover.url)" @load="loaded" v-lazy-load />
         </figure>
       </div>
       <div class="card-content content">
@@ -34,7 +34,10 @@ export default {
    methods: {
      loaded(){
        this.cardGet = true
-     }
+     },
+    getImgBindPass: function(locate,name){
+      return name ? require(`@/assets/img/${locate}/${name}`) : ''
+    }
    }
 };
 </script>

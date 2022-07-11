@@ -1,5 +1,5 @@
 //url通信用
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-with-proxy');
 
 //node file操作
 const fs = require('fs');

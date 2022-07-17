@@ -44,9 +44,7 @@ export default function generateModule (option) {
     )
     const pagecv = pagecvUrl.data
 
-    
-    let pagecvInfo = [];  
-    // お知らせ
+   
 
     var explain =  await utils.makeHtmlForRichEditor(pagecv.infoExplain,'/assets/img/info/')
     // console.log("変換:",explain)
@@ -54,13 +52,13 @@ export default function generateModule (option) {
 
     var infoImage = utils.makePassToImg(pagecv.infoImage.url)
 
-    pagecvInfo.push({
+    const pagecvInfo = {
       infoBtn:pagecv.infoBtn,
       infoMidashi:pagecv.infoMidashi,
       infoCaption:pagecv.infoCaption,
       infoImage:infoImage,
       infoExplain:explain,
-    })
+    }
 
     // ----------------------------------------
     // jsonを生成

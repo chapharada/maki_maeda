@@ -114,33 +114,15 @@ export default function generateModule (option) {
     // ----------------------------------------
     // prefetchにjsonを追加
     // ----------------------------------------
-    // console.log(this.options)
-    // const url = process.env.GENERATOR_MODE === 'dev' ? '' : 'https://maedamaki.com';
-    // this.options.head.link = [
-    //   ...this.options.head.link,
-    //   ...posts.contents.map(post => (
-    //     {
-    //       rel: 'prefetch',
-    //       href: `${url}/_nuxt/data/articles/${post.id}.json`
-    //     })),
-    //     {
-    //       rel: 'prefetch',
-    //       href: `${url}/_nuxt/data/articles/prev_next.json`
-    //     },
-    //     {
-    //       rel: 'prefetch',
-    //       href: `${url}/_nuxt/data/ichiran/index.json`
-    //     },
-    //     {
-    //       rel: 'prefetch',
-    //       href: `${url}/_nuxt/data/pagecv/index.json`
-    //     },
-    //     {
-    //       rel: 'prefetch',
-    //       href: `${url}/_nuxt/data/pagecv/infomation.json`
-    //     },
-    // ]
-    // console.log(this.options.head.link)
+
+    const url = process.env.GENERATOR_MODE === 'dev' ? '' : 'https://maedamaki.com';
+    this.options.head.link = [
+      ...this.options.head.link,
+        {
+          rel: 'prefetch',
+          href: `${url}/_nuxt/data/pagecv/infomation.json`
+        },
+    ]
     
     // if (process.env.GENERATOR_MODE === 'dev') return
 

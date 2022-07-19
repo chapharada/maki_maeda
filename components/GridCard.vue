@@ -46,14 +46,16 @@ export default {
     @include mq(no){
       margin-bottom: 0;
     }
-    &:hover{
-      img{
-        opacity: 0.1;
+    
+    @media (hover: hover) and (pointer: fine) {
+      &:hover{
+        img{
+          opacity: 0.1;
+        }
+        .card-content{
+          opacity: 1;
+        }
       }
-      .card-content{
-        opacity: 1;
-      }
-
     }
 
     &-image{

@@ -1,70 +1,68 @@
 
 
 <template>
-  <main>
-    <div class="contact mainconts" v-cloak>
-      <div class="inner">
-        <div class="heading">
-          <h1>お問い合わせ</h1>
-          <p class="caption">
-            各プロジェクトについてのお問い合わせ、<br>その他ご相談などお気軽にお問い合わせください。
-          </p>
-        </div>
-        <div v-show="onError" :class="['wholeerror', {active: this.validation.confirm == true}]">
-          <span>{{ confirmAll }}</span>
-        </div>
-        <div class="explain">
-          <div class="formbox">
-            <form
-              name="contact"
-              method="POST"
-              @submit.prevent="validateForm"
-              novalidate="novalidate"
-            >
-              <div class="area">
-                <input type="hidden" name="contact" value="ask-question" />
-                <div class="name">
-                  <label>お名前</label>
-                  <input
-                    type="text"
-                    v-model="form.name"
-                    name="name"
-                    required="required"
-                  />
-                  <div class="error" v-show="onError">{{ validationName }}</div>
-                </div>
-                <div class="email">
-                  <label>メールアドレス</label>
-                  <input
-                    type="email"
-                    v-model="form.email"
-                    name="email"
-                    required="required"
-                  />
-                <div class="error" v-show="onError">{{ validationEmail }}</div>
-                </div>
-                <div class="message">
-                  <label>お問い合わせ内容</label>
-                  <textarea
-                    type="text"
-                    name="message"
-                    v-model="form.message"
-                    rows="8"
-                    required="required"
-                  ></textarea>
-                <div class="error" v-show="onError">{{ validationMessage }}</div>
-                </div>
+  <div class="contact mainconts" v-cloak>
+    <div class="inner">
+      <div class="heading">
+        <h1>お問い合わせ</h1>
+        <p class="caption">
+          各プロジェクトについてのお問い合わせ、<br>その他ご相談などお気軽にお問い合わせください。
+        </p>
+      </div>
+      <div v-show="onError" :class="['wholeerror', {active: this.validation.confirm == true}]">
+        <span>{{ confirmAll }}</span>
+      </div>
+      <div class="explain">
+        <div class="formbox">
+          <form
+            name="contact"
+            method="POST"
+            @submit.prevent="validateForm"
+            novalidate="novalidate"
+          >
+            <div class="area">
+              <input type="hidden" name="contact" value="ask-question" />
+              <div class="name">
+                <label>お名前</label>
+                <input
+                  type="text"
+                  v-model="form.name"
+                  name="name"
+                  required="required"
+                />
+                <div class="error" v-show="onError">{{ validationName }}</div>
               </div>
+              <div class="email">
+                <label>メールアドレス</label>
+                <input
+                  type="email"
+                  v-model="form.email"
+                  name="email"
+                  required="required"
+                />
+              <div class="error" v-show="onError">{{ validationEmail }}</div>
+              </div>
+              <div class="message">
+                <label>お問い合わせ内容</label>
+                <textarea
+                  type="text"
+                  name="message"
+                  v-model="form.message"
+                  rows="8"
+                  required="required"
+                ></textarea>
+              <div class="error" v-show="onError">{{ validationMessage }}</div>
+              </div>
+            </div>
 
-              <div class="confirmbtn">
-                <button type="submit">送信する</button>
-              </div>
-            </form>
-          </div>
+            <div class="confirmbtn">
+              <button type="submit">送信する</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -185,6 +183,7 @@ export default {
 .contact {
   margin-bottom: 60px;
   max-width: 680px;
+  width: calc(100% - 5rem);
   margin: 0 auto;
 }
 

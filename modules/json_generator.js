@@ -47,9 +47,6 @@ export default function generateModule (option) {
    
 
     var explain =  await utils.makeHtmlForRichEditor(pagecv.infoExplain,'/assets/img/info/')
-    // console.log("変換:",explain)
-    // console.log("なんもなし",pagecv.infoExplain)
-
     var infoImage = utils.makePassToImg(pagecv.infoImage.url)
 
     const pagecvInfo = {
@@ -58,6 +55,7 @@ export default function generateModule (option) {
       infoCaption:pagecv.infoCaption,
       infoImage:infoImage,
       infoExplain:explain,
+      infoLink:pagecv.infoLink,
     }
 
     // ----------------------------------------

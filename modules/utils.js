@@ -76,11 +76,13 @@ export async function makeHtmlForRichEditor(richEditorText, imgS3Pass) {
 
       // brタグは基本的に削除
       let deleteData = new RegExp('<p><br></p>')
-      let deleteDataB = new RegExp('<p><img.*?></p>')
+      let dlB = new RegExp('<p></p>')
+      let dlC = new RegExp('<p>&nbsp;</p>')
+      
       $('p').each(function(i, obj){
           var _this = $(obj);
           var check = deleteData.test(_this);
-          if(check){
+          if(check || dlB || dlC){
             $(obj).remove();
           }
           $(obj).children('img').unwrap();

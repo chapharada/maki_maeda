@@ -53,7 +53,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 header {
-
+  background: #F6F6F1;
+  @include mq(no){
+    padding: 0 1.6rem;
+  }
+  
   .inner{
     max-width: 960px;
     display: flex;
@@ -61,7 +65,7 @@ header {
     justify-content: space-between;
     margin: 0 2.4rem 0rem;
     @include mq(no){
-      margin: 0 auto 0.8rem;
+      margin: 0 auto 0;
     }
   }
   .logo {
@@ -94,7 +98,7 @@ header {
       justify-content: center;
       a{
         width: 22px;
-        height: 26px;
+        height: 25px;
       }
     }
     .mail{

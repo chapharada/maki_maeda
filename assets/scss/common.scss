@@ -28,9 +28,6 @@ body {
   height: 100%;
   background: #fff;
   letter-spacing: .1em;
-  @include mq(no){
-    padding-top: 0.8rem;
-  }
 }
 
 #wrapper{

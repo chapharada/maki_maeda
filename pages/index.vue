@@ -2,13 +2,16 @@
 
 <template>
   <section>
-    <div class="info" ref="info">
+    <div class="info" ref="info" v-if="info.infoBtn">
       <div class="info-inner">
         <h2>Infomation</h2>
         <div class="info-conts">
           <div class="inner">
             <div class="rgt">
-              <img :src="getImgBindPass('info',info.infoImage)" />
+              <a :href="info.infoLink" v-if="info.infoLink">
+                <img :src="getImgBindPass('info',info.infoImage)" />
+              </a>
+              <img v-else :src="getImgBindPass('info',info.infoImage)" />
             </div>
             <div class="lft">
               <div class="midashi">
@@ -16,6 +19,7 @@
                   <span>{{ info.infoCaption }}</span>
               </div>
               <div class="detail" v-html="info.infoExplain"></div>
+              <a :href="info.infoLink" v-if="info.infoLink" target="_blank">詳細を見る</a>
             </div>
           </div>
         </div>
@@ -49,15 +53,10 @@ export default {
   async asyncData({ app, params }) {
     const url = process.env.GENERATOR_MODE === "dev" ? "" : "https://maedamaki.com";
 
-    const ichiran = await app.$axios.get(
-      `${url}/_nuxt/data/ichiran/index.json`
-    );
-
-    const info = await app.$axios.get(
-      `${url}/_nuxt/data/pagecv/infomation.json`
-    );
-
-    console.log(info.data)
+    const [ichiran, info] = await Promise.all([
+      app.$axios.get(`${url}/_nuxt/data/ichiran/index.json`),
+      app.$axios.get(`${url}/_nuxt/data/pagecv/infomation.json`),
+    ]);
 
     return {
       info: info.data,
@@ -178,6 +177,12 @@ section {
           letter-spacing: 0.01em;
         }
       }
+      a{
+        font-size: 1.3rem;
+        padding: 0.4rem 0rem 0.4rem 0;
+        border-bottom: 1px solid #1b9ac8;
+        color: #1b9ac8;
+      }
     }
     .rgt {
       margin-bottom: 4.8rem;
@@ -239,11 +244,12 @@ section {
 
 ::v-deep .detail {
   &:not(:last-child) {
-    margin-bottom: 2.4rem;
+    margin-bottom: 1rem;
   }
-  
+
   p{
     font-size: 1.2rem;
+    line-height: 1.6;
     &:not(:last-child){
       margin-bottom: 0.4rem;
     }

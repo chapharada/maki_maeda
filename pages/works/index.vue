@@ -35,7 +35,7 @@ export default {
       gridShow:false
     }
   },
-    created() {
+  created() {
     for( var el of this.ichiran){
       var urlArray = el.cover.url.split('/'); 
       var captionData = urlArray.pop()

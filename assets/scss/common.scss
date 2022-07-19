@@ -75,8 +75,8 @@ main{
 
 .lazyLoad{
     opacity: 0;
-  &.ld,&.ld-cpt{
-    opacity: 1;
     transition: opacity 0.3s;
+  &.ld-cpt{
+    opacity: 1;
   }
 }

@@ -51,22 +51,10 @@ export default {
 
     const info = await app.$axios.get(
       `${url}/_nuxt/data/pagecv/infomation.json`,
-      {
-        proxy: {
-          host: 'wgproxy',
-          port: 8080,
-        }
-      }
     );
     
     const { data } = await app.$axios.get(
       `${url}/_nuxt/data/ichiran/index.json`,
-      {
-        proxy: {
-          host: 'wgproxy',
-          port: 8080,
-        }
-      }
     );
 
     return {

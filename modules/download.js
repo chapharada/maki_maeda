@@ -41,10 +41,12 @@ async function downloadImage(url,downloadDir,fileName) {
             console.log(`conplete file... ${fileName}`);
           });
       })
+    ).then(
+      res =>
+      console.log('download_function' + res)
     )
 }
 
-  
 // 非同期通信開始  /////////////////////////////////
 
 

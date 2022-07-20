@@ -17,27 +17,39 @@ export default function generateModule (option) {
           port: 8080,
         }
       }
-    )
-    const posts = articleUrl.data;
+      )
+      const posts = articleUrl.data;
+      
+      
+    //works_前へ_次へ
+    let postsMaster = [];
 
+    //works_前へ_次へ
+    let postLinks = [];
 
     //works_一覧
     let postsichiran = [];
-    for(var para of posts.contents){
+
+    for(let para of posts.contents){
+      let linkpassIndex = utils.makePassToImg(para.cover.url)
+      // console.log('data:' + para.cover.url)
+      para.cover.url = linkpassIndex
+
+      para.detail.filter(link =>{
+        link.detail_img.url = utils.makePassToImg(link.detail_img.url)
+        return 
+      })
+
       postsichiran.push({
         id:para.id,
         midashi:para.midashi,
         cover:para.cover
       })
-    }
-
-    //works_前へ_次へ
-    let postLinks = [];
-    for(var postsLink of posts.contents){
       postLinks.push({
-        id:postsLink.id,
+        id:para.id,
       })
     }
+
 
    //pagecv
     const pagecvUrl = await axios.get(

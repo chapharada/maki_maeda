@@ -3,7 +3,7 @@
     <div class="content">
       <div class="top">
         <img
-          :src="require(`@/assets/img/works/${article.cover.url}`)"
+          :data-src="require(`@/assets/img/works/${article.cover.url}`)"
           :alt="`${article.midashi}`"
           v-lazy-load
         />
@@ -13,7 +13,7 @@
       <div class="middle">
         <div class="list" v-for="data of article.detail" :key="data.id">
           <img
-            :src="require(`@/assets/img/works/${data.detail_img.url}`)"
+            :data-src="require(`@/assets/img/works/${data.detail_img.url}`)"
             v-lazy-load
           />
           <div class="title" v-show="data.detail_title">
@@ -55,12 +55,25 @@ export default {
     const url =
       process.env.GENERATOR_MODE === "dev" ? "" : "https://maedamaki.com";
     const { data } = await app.$axios.get(
-      `${url}/_nuxt/data/articles/${params.slug}.json`
+      `${url}/_nuxt/data/articles/${params.slug}.json`,
+      {
+        proxy: {
+          host: 'wgproxy',
+          port: 8080,
+        }
+      }      
     );
 
     const links = await app.$axios.get(
-      `${url}/_nuxt/data/articles/prev_next.json`
+      `${url}/_nuxt/data/articles/prev_next.json`,
+      {
+        proxy: {
+          host: 'wgproxy',
+          port: 8080,
+        }
+      }
     );
+
     const linkConts = links.data;
 
     const index = linkConts.findIndex((content) => content.id === params.slug);

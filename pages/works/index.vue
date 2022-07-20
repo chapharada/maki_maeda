@@ -20,7 +20,13 @@ export default {
   async asyncData({ app, params }) {
     const url = process.env.GENERATOR_MODE === 'dev' ? '' : 'https://maedamaki.com'
     const {data} = await app.$axios.get(
-      `${url}/_nuxt/data/ichiran/index.json`
+      `${url}/_nuxt/data/ichiran/index.json`,
+      {
+        proxy: {
+          host: 'wgproxy',
+          port: 8080,
+        }
+      }
     )
     return { 
       ichiran: data 

@@ -42,11 +42,15 @@ async function downloadImage(url,downloadDir,fileName) {
       res.body.pipe(fs.createWriteStream(`${downloadDir}/${fileName}`))
       .on('error', reject)
       .once('close', function() {
+        console.log(`conplete file... ${fileName}`);
         resolve(`${downloadDir}/${fileName}`)            
-            console.log(`conplete file... ${fileName}`);
-          });
-        })
-      )
+      });
+    })
+    )
+  .then(
+    res =>{
+      compressor(downloadDir,fileName)
+  })
 }
       
 // _画像を圧縮する
@@ -54,7 +58,7 @@ async function downloadImage(url,downloadDir,fileName) {
 
 async function compressor(downloadDir,fileName){
   imagemin(
-    [ downloadDir + '/' + fileName + '.jpg', downloadDir + '/' + fileName + '.png' ],
+    [ downloadDir + '/' + fileName],
    {
     destination: downloadDir,
     plugins: [
@@ -62,6 +66,7 @@ async function compressor(downloadDir,fileName){
       imageminPngquant({ quality: [0.95, 1] }),
     ]
   }).then(() => {
+    console.log( downloadDir + '/' + fileName)
     console.log('Images optimized');
   });
 }
@@ -129,10 +134,6 @@ urlList()
           './assets/img/works',
           writeFileName
           );
-          compressor(
-          'assets/img/works',
-          writeFileName
-        )
       }
     }
   })

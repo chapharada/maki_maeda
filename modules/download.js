@@ -4,6 +4,11 @@ const fetch = require('node-fetch-with-proxy');
 //node file操作
 const fs = require('fs');
 //envファイルからデータを取得
+const path = require("path");
+const imagemin = require("imagemin");
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageminPngquant = require("imagemin-pngquant");
+
 require('dotenv').config();
 
 
@@ -27,8 +32,8 @@ async function getApi(url,link,key) {
   return data;
 }
 
+// _3_画像をurlからダウンロード
 
-//_3_画像をurlからダウンロード
 async function downloadImage(url,downloadDir,fileName) {
   await fetch(`${url}`)
   .then(
@@ -37,21 +42,35 @@ async function downloadImage(url,downloadDir,fileName) {
       res.body.pipe(fs.createWriteStream(`${downloadDir}/${fileName}`))
       .on('error', reject)
       .once('close', function() {
-            resolve(`${downloadDir}/${fileName}`)            
+        resolve(`${downloadDir}/${fileName}`)            
             console.log(`conplete file... ${fileName}`);
           });
-      })
-    ).then(
-      res =>
-      console.log('download_function' + res)
-    )
+        })
+      )
+}
+      
+// _画像を圧縮する
+
+
+async function compressor(downloadDir,fileName){
+  imagemin(
+    [ downloadDir + '/' + fileName + '.jpg', downloadDir + '/' + fileName + '.png' ],
+   {
+    destination: downloadDir,
+    plugins: [
+      imageminMozjpeg({ quality: 80 }),
+      imageminPngquant({ quality: [0.95, 1] }),
+    ]
+  }).then(() => {
+    console.log('Images optimized');
+  });
 }
 
 // 非同期通信開始  /////////////////////////////////
 
 
 async function urlList() {
-
+  
   //01_写真のダウンロードリストを格納する配列を設定
   var urlList = [];
 
@@ -91,7 +110,6 @@ urlList()
       presenseDataFiles.push(fileNameDetail)
       presenseDataUrl.push(data[el])
     }
-
     
     //03_重複していない(書き出されていない)画像のリストを取得
     const duplicatedFileCheck = [...fileList, ...presenseDataFiles];
@@ -110,7 +128,11 @@ urlList()
           writeFileUrl,
           './assets/img/works',
           writeFileName
-        );
+          );
+          compressor(
+          'assets/img/works',
+          writeFileName
+        )
       }
     }
   })
@@ -141,6 +163,5 @@ urlListB().then(function(data) {
     if(indexOfFirst == -1){
       downloadImage(data,fileDir,fileName)
     }
-    
 });
 

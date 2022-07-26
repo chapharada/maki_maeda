@@ -2,7 +2,7 @@
 
 <template>
   <section>
-    <div class="info" v-if="info.infoBtn">
+    <div class="info" v-show="info.infoBtn">
       <div class="info-inner">
         <h2>Infomation</h2>
         <div class="info-conts">
@@ -74,13 +74,6 @@ export default {
       dataInfoLoaded: false,
     };
   },
-  created() {
-    for (var el of this.ichiran) {
-      var urlArray = el.cover.url.split("/");
-      var captionData = urlArray.pop();
-      el.cover.url = captionData;
-    }
-  },
   methods: {
     handleLoaded: function () {
       this.loadedCount++;
@@ -93,14 +86,6 @@ export default {
     }
   },
   computed:{
-    passInfoLoaded(){
-      if(!this.info){
-        return 
-      }else{
-        var data = this.info
-        return data
-      }
-    }
   }
 };
 </script>

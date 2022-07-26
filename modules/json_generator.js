@@ -32,22 +32,28 @@ export default function generateModule (option) {
 
     for(let para of posts.contents){
       let linkpassIndex = utils.makePassToImg(para.cover.url)
-      // console.log('data:' + para.cover.url)
+
+      //url部分を削除_一覧ページ
       para.cover.url = linkpassIndex
 
+      //url部分を削除_詳細ページ
       para.detail.filter(link =>{
         link.detail_img.url = utils.makePassToImg(link.detail_img.url)
         return 
       })
-
+      
+      //一覧ページ
       postsichiran.push({
         id:para.id,
         midashi:para.midashi,
         cover:para.cover
       })
+
+      //前へ_次へ_データ
       postLinks.push({
         id:para.id,
       })
+
     }
 
 
@@ -66,13 +72,12 @@ export default function generateModule (option) {
 
     
     let pagecvInfo = [];  
-    // お知らせ
-
+    
+    //html整形
     var explain =  await utils.makeHtmlForRichEditor(pagecv.infoExplain,'/assets/img/info/')
-    // console.log("変換:",explain)
-    // console.log("なんもなし",pagecv.infoExplain)
 
-    var infoImage = utils.makePassToImg(pagecv.infoImage.url)
+    //詳細画像のurl部分を削除
+    var infoImage = await utils.makePassToImg(pagecv.infoImage.url)
 
     pagecvInfo.push({
       infoBtn:pagecv.infoBtn,

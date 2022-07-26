@@ -3,7 +3,7 @@
     <nuxt-link :to="`${folder}${item.id}`" >
       <div class="card-image">
         <figure class="image">
-          <img :data-src="getImgBindPass('works',item.cover.url)" @load="loaded" v-lazy-load />
+          <img :data-src="$getImg('works',item.cover.url)" @load="loaded" v-lazy-load />
         </figure>
       </div>
       <div class="card-content content">
@@ -35,9 +35,6 @@ export default {
      loaded(){
        this.cardGet = true
      },
-    getImgBindPass: function(locate,name){
-      return name ? require(`@/assets/img/${locate}/${name}`) : ''
-    }
    }
 };
 </script>

@@ -8,7 +8,7 @@
         <div class="info-conts">
           <div class="inner">
             <div class="rgt">
-              <img :src="getImgBindPass('info',info.infoImage)" />
+              <img :src="$getImg('info',info.infoImage)" />
             </div>
             <div class="lft">
               <div class="midashi">
@@ -58,8 +58,8 @@ export default {
     );
 
     return {
-      ichiran: data,
-      info: info.data[0],
+      ichiran: await data,
+      info: await info.data[0],
     };
   },
   name: "index",
@@ -81,9 +81,6 @@ export default {
         this.gridShow = true;
       }
     },
-    getImgBindPass: function(locate,name){
-      return name ? require(`@/assets/img/${locate}/${name}`) : ''
-    }
   },
   computed:{
   }

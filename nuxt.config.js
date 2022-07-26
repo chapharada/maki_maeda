@@ -62,6 +62,7 @@ export default {
   },
   plugins: [
     "~/plugins/masornywall",
+    "~/plugins/common",
   ],
   build: {
     extend (config, ctx) {

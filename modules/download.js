@@ -27,8 +27,8 @@ async function getApi(url,link,key) {
   return data;
 }
 
+// _3_画像をurlからダウンロード
 
-//_3_画像をurlからダウンロード
 async function downloadImage(url,downloadDir,fileName) {
   await fetch(`${url}`)
   .then(
@@ -37,19 +37,40 @@ async function downloadImage(url,downloadDir,fileName) {
       res.body.pipe(fs.createWriteStream(`${downloadDir}/${fileName}`))
       .on('error', reject)
       .once('close', function() {
-            resolve(`${downloadDir}/${fileName}`)            
-            console.log(`conplete file... ${fileName}`);
-          });
-      })
+        console.log(`conplete file... ${fileName}`);
+        resolve(`${downloadDir}/${fileName}`)            
+      });
+    })
     )
+  .then(
+    res =>{
+      compressor(downloadDir,fileName)
+  })
+}
+      
+// _画像を圧縮する
+
+
+async function compressor(downloadDir,fileName){
+  imagemin(
+    [ downloadDir + '/' + fileName],
+   {
+    destination: downloadDir,
+    plugins: [
+      imageminMozjpeg({ quality: 80 }),
+      imageminPngquant({ quality: [0.95, 1] }),
+    ]
+  }).then(() => {
+    console.log( downloadDir + '/' + fileName)
+    console.log('Images optimized');
+  });
 }
 
-  
 // 非同期通信開始  /////////////////////////////////
 
 
 async function urlList() {
-
+  
   //01_写真のダウンロードリストを格納する配列を設定
   var urlList = [];
 
@@ -89,7 +110,6 @@ urlList()
       presenseDataFiles.push(fileNameDetail)
       presenseDataUrl.push(data[el])
     }
-
     
     //03_重複していない(書き出されていない)画像のリストを取得
     const duplicatedFileCheck = [...fileList, ...presenseDataFiles];
@@ -108,7 +128,7 @@ urlList()
           writeFileUrl,
           './assets/img/works',
           writeFileName
-        );
+          );
       }
     }
   })
@@ -139,6 +159,5 @@ urlListB().then(function(data) {
     if(indexOfFirst == -1){
       downloadImage(data,fileDir,fileName)
     }
-    
 });
 

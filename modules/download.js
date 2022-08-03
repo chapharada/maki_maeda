@@ -3,6 +3,13 @@ const fetch = require('node-fetch');
 
 //node file操作
 const fs = require('fs');
+
+//envファイルからデータを取得
+const path = require("path");
+const imagemin = require("imagemin");
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageminPngquant = require("imagemin-pngquant");
+
 //envファイルからデータを取得
 require('dotenv').config();
 

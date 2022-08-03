@@ -98,7 +98,7 @@ header {
       justify-content: center;
       a{
         width: 22px;
-        height: 25px;
+        height: 26px;
       }
     }
     .mail{
